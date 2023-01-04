@@ -1,6 +1,6 @@
 <?php
-define("$MENUBUTTON","MENUBUTTON");
-define("$URLSVXRAPI", "URLSVXRAPI");
+define("MENUBUTTON","MENUBUTTON");
+define("URLSVXRAPI", "URLSVXRAPI");
 
 
 
