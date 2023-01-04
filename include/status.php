@@ -14,7 +14,7 @@ echo "<table style=\"margin-top:4px;margin-bottom:13px;\">\n";
 echo "<tr><th><span style=\"font-size:12px;\">Logics</span></th></tr>\n";
 
 $svxConfigFile = SVXCONFPATH."/".SVXCONFIG;
-    if (fopen($svxConfigFile,'r')) {$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW); }
+    if (fopen($svxConfigFile,'r')) {$svxconfig = parse_ini_file($svxConfigFile,true,$INI_SCANNER_RAW); }
 $logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
 foreach ($logics as $key) {
   echo "<tr><td style=\"background:#ffffed;\"><span style=\"color:#b5651d;font-weight: bold;\">".$key."</span></td></tr>";
@@ -103,7 +103,7 @@ if ($modecho=="True") {
   echo "</table>\n";
   $svxEchoConfigFile = "/etc/svxlink/svxlink.d/ModuleEchoLink.conf";
     if (fopen($svxEchoConfigFile,'r')) { 
-       $svxeconfig = parse_ini_file($svxEchoConfigFile,true,INI_SCANNER_RAW);
+       $svxeconfig = parse_ini_file($svxEchoConfigFile,true,$INI_SCANNER_RAW);
        $eproxyd= $svxeconfig['ModuleEchoLink']['PROXY_SERVER']; 
        } else {
        $eproxyd= ""; 

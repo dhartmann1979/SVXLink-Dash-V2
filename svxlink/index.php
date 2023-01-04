@@ -116,7 +116,7 @@ $init_pei_tail = ";AT+CTSP=1,3,131;AT+CTSP=1,3,130;AT+CTSP=1,3,138;AT+CTSP=1,2,2
 if (fopen($svxConfigFile,'r'))
       {
 
-        $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
+        $svxconfig = parse_ini_file($svxConfigFile,true,$INI_SCANNER_RAW);
         //$svxconfig['TetraLogic']['INIT_PEI'] = $svxconfig['TetraLogic']['INIT_PEI'] . $init_pei_tail;    
 };
 
@@ -223,7 +223,7 @@ if (isset($_POST['btnSave']))
 //if (fopen($svxConfigFile,'r'))
 //      {
 
-//        $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
+//        $svxconfig = parse_ini_file($svxConfigFile,true,$INI_SCANNER_RAW);
 //};
 
 //$svxConfigFile = '/etc/svxlink/svxlink.conf';
@@ -237,7 +237,7 @@ if (isset($_POST['btnSave']))
 //if (fopen($svxConfigFile,'r'))
   //    { 
 
-//	$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
+//	$svxconfig = parse_ini_file($svxConfigFile,true,$INI_SCANNER_RAW);
         
 	$inGlobalDefaultLang = $svxconfig['GLOBAL']['DEFAULT_LANG'];
         $inGlobalLogics = $svxconfig['GLOBAL']['LOGICS'];

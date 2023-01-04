@@ -128,7 +128,7 @@ if (fopen($nodeInfoFile,'r'))
 //if (fopen($svxConfigFile,'r'))
 //      {
 
-//        $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
+//        $svxconfig = parse_ini_file($svxConfigFile,true,$INI_SCANNER_RAW);
 //};
 
 
@@ -159,7 +159,7 @@ if (isset($_POST['btnSave']))
 
 };
 
-//  	$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
+//  	$svxconfig = parse_ini_file($svxConfigFile,true,$INI_SCANNER_RAW);
 //        $inCallsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
 
 

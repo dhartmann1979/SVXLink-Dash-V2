@@ -75,7 +75,7 @@ $isTetra = false;
 $isSimplex = false;
 
 $svxConfigFile = '/etc/svxlink/svxlink.conf';
-if (fopen($svxConfigFile,'r')) {$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW); }
+if (fopen($svxConfigFile,'r')) {$svxconfig = parse_ini_file($svxConfigFile,true,$INI_SCANNER_RAW); }
 $logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
 foreach ($logics as $key) {
   if ($key == "SimplexLogic") $isSimplex = true;
