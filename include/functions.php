@@ -354,8 +354,8 @@ function getConfigItem($section, $key, $configs) {
 	// retrieves the corresponding config-entry within a [section]
 	$sectionpos = array_search("[" . $section . "]", $configs) + 1;
 	$len = count($configs);
-	while(startsWith($configs[$sectionpos],$key."=") === false && $sectionpos <= ($len) ) {
-		if (startsWith($configs[$sectionpos],"[")) {
+	while(str_starts_with($configs[$sectionpos],$key."=") === false && $sectionpos <= ($len) ) {
+		if (str_starts_with($configs[$sectionpos],"[")) {
 			return null;
 		}
 		$sectionpos++;
