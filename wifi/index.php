@@ -95,7 +95,7 @@ if (isset($_POST['btnScan']))
 	exec('nmcli dev wifi rescan');
 	exec('nmcli dev wifi list 2>&1',$screen,$retval);
 	//$screen[$screen.length]="\n";
-	$screen[$screen.length]="Keep in mind the OPIZ don't like 1st and 13th channel unless you use non-standard WIFI antenna.";
+	$screen[$screen.$length]="Keep in mind the OPIZ don't like 1st and 13th channel unless you use non-standard WIFI antenna.";
 }
 
 if (isset($_POST['btnConnList']))

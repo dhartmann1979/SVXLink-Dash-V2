@@ -162,7 +162,7 @@ class Misc
      * @param  string   $host       Host to check
      * @param  int      $port       Port number
      * @param  string   $protocol   tcp or udp
-     * @param  integer  $timeout    Timeout
+     * @param  int  $timeout    Timeout
      * @return bool                 True if the port is open else false
      */
     public static function scanPort($host, $port, $protocol = 'tcp', $timeout = 3)
