@@ -13,7 +13,7 @@
 if (fopen($svxConfigFile,'r'))
 {
 
-  $svxconfig = parse_ini_file($svxConfigFile,true,$INI_SCANNER_RAW);
+  $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
   //$svxconfig['TetraLogic']['INIT_PEI'] = $svxconfig['TetraLogic']['INIT_PEI'] . $init_pei_tail;    
   $logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
   foreach ($logics as $key) {
