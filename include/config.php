@@ -37,11 +37,13 @@ define("CPU_TEMP_OFFSET","0");
 //
 // Path and file name of confguration
 define("SVXCONFPATH", "/etc/svxlink");
+define("SVXMODPATH","/etc/svxlink.svxlink.d")
 define("SVXCONFIG", "svxlink.conf");
+define("GPIOCONFIG", "gpio.conf")
 //
 // Path and file name of log
 define("SVXLOGPATH", "/var/log");
-define("SVXLOGPREFIX", "svxlink");
+define("SVXLOGPREFIX", "svxlink.log");
 //
 //
 // Define where is located menu wit buttons TOP or BOTTOM
