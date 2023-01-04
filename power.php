@@ -79,7 +79,7 @@ $svxConfigFile = '/etc/svxlink/svxlink.conf';
 </div></center>
 </div>
 <?php
-if (MENUBUTTON=="TOP") {
+if ($MENUBUTTON=="TOP") {
 include_once __DIR__."/include/buttons.php"; 
 }
 ?>
@@ -121,7 +121,7 @@ include_once __DIR__."/include/buttons.php";
     echo '</div>'."\n";
 ?>
 <?php
-if (MENUBUTTON=="BOTTOM") {
+if ($MENUBUTTON=="BOTTOM") {
 include_once __DIR__."/include/buttons.php"; }
 ?>
 <!--- Please do not remove copyright info -->

@@ -81,7 +81,7 @@ $svxConfigFile = '/etc/svxlink/svxlink.conf';
 </div></center>
 </div>
 <?php
-if (MENUBUTTON=="TOP") {
+if ($MENUBUTTON=="TOP") {
 include_once __DIR__."/include/buttons.php"; 
 }
 ?>
@@ -107,7 +107,7 @@ include_once __DIR__."/include/buttons.php";
     echo '<div class="content">'."\n";
     echo '<script type="text/javascript">'."\n";
 
-    if (URLSVXRAPI!="") {
+    if ($URLSVXRAPI!="") {
     echo 'function reloadSVXREF(){'."\n";
     echo '  $("#svxref").load("include/svxref.php",function(){ setTimeout(reloadSVXREF,90000) });'."\n";
     echo '}'."\n";
@@ -125,7 +125,7 @@ include_once __DIR__."/include/buttons.php";
     include 'include/lh_small.php';
     echo '</div></center>'."\n";
     echo "<br />\n";
-    if (URLSVXRAPI!="") {
+    if ($URLSVXRAPI!="") {
     echo '<center><div id="svxref" style="margin-bottom:30px;">'."\n";
     include 'include/svxref.php';
     echo '</div></center>'."\n";
@@ -148,7 +148,7 @@ include_once __DIR__."/include/buttons.php";
     echo '</div>'."\n";
 ?>
 <?php
-if (MENUBUTTON=="BOTTOM") {
+if ($MENUBUTTON=="BOTTOM") {
 include_once __DIR__."/include/buttons.php"; }
 ?>
 <!--- Please do not remove copyright info -->
