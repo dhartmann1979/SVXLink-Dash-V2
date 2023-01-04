@@ -1,6 +1,6 @@
-# hs_dashboard_pi
-HotSpot dashboard repository inspired by pi star dashboard built by Waldek SP2ONG, and modified for the latest versions of SVXLink
-by Chris G4NAB
+# SVXLink-Dash-V2
+SVXLink dashboard repository inspired by pi star dashboard built by Waldek SP2ONG, and modified for the latest versions of SVXLink
+by Chris G4NAB. I've been building a dashboard around a Pi-Star Dashboard design for ages, then I found Waldek had already done it, but it needed tweaking.
 
 Simply having installed SVXLink using the script on this repository: 
 sudo git clone https://github.com/f5vmr/SVXLink-Dash-V2.git html 
