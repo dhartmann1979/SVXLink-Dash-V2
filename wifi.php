@@ -36,7 +36,7 @@ else { $callsign="N0CALL";
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Fredoka+One&family=Tourney&family=Oswald&display=swap" rel="stylesheet">
-<link rel="shortcut icon" href="images/favicon.ico" sizes="16x16 32x32" type="image/png">
+<link rel="shortcut icon" href="images/svxlink.ico" sizes="16x16 32x32" type="image/png">
 
 <?php echo ("<title>" . $callsign ." ". $fmnetwork . " Dashboard</title>"); ?>
 
