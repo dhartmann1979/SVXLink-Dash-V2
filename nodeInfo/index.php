@@ -135,11 +135,11 @@ if (fopen($nodeInfoFile,'r'))
 
 if (isset($_POST['btnSave']))
     {
-	$nodeInfo["Location"] = $_POST['inLocation']; $nodeInfo["Locator"] = $_POST['inLocator'];$nodeInfo["SysOp"] = $_POST['inSysOp'];
-	$nodeInfo["LAT"] = $_POST['inLAT']; $nodeInfo["LONG"] = $_POST['inLONG'];$nodeInfo["RXFREQ"] = $_POST['inRXFREQ'];
+	$nodeInfo["name"] = $_POST['inLocation']; $nodeInfo["loc"] = $_POST['inLocator'];$nodeInfo["sysop"] = $_POST['inSysOp'];
+	$nodeInfo["lat"] = $_POST['inLAT']; $nodeInfo["long"] = $_POST['inLONG'];$nodeInfo["RXFREQ"] = $_POST['inRXFREQ'];
 	$nodeInfo["TXFREQ"] = $_POST['inTXFREQ']; $nodeInfo["Website"] = $_POST['inWebsite'];$nodeInfo["Mode"] = $_POST['inMode'];
-	$nodeInfo["Type"] = $_POST['inType']; $nodeInfo["Echolink"] = $_POST['inEcholink'];$nodeInfo["nodeLocation"] = $_POST['innodeLocation'];
-	$nodeInfo["Sysop"] = $_POST['inSysop']; $nodeInfo["Verbund"] = $_POST['inVerbund'];$nodeInfo["CTCSS"] = $_POST['inCTCSS'];
+	$nodeInfo["Type"] = $_POST['inType']; ;$nodeInfo["nodeLocation"] = $_POST['innodeLocation'];
+	$nodeInfo["Sysop"] = $_POST['inSysop']; $nodeInfo["Verbund"] = $_POST['inVerbund'];$nodeInfo["ctcss"] = $_POST['inCTCSS'];
 	$nodeInfo["LinkedTo"] = $_POST['inLinkedTo'];
 
 	$jsonNodeInfo = json_encode($nodeInfo);
