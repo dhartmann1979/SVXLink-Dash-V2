@@ -20,7 +20,7 @@ class Config
     private function _readFile()
     {
         $content = file_get_contents($this->file);
-        $this->config = json_decode(utf8_encode($content), true);
+        $this->config = json_decode($content, true);
 
         if ($this->config == null && json_last_error() != JSON_ERROR_NONE)
         {
