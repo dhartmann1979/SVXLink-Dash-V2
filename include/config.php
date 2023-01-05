@@ -15,19 +15,20 @@ else { $callsign="N0CALL";
 
 
 error_reporting(0);
-
+define($fmnetwork, "svxportal-uk.ddns.net");
 // Define name of your FM Network
 define("FMNETWORK", $fmnetwork);
 //
 // Select only one URL for SVXReflector API to get connected Nodes
 //
-// FM Poland API
+// FM SVXLink-UK
+define($refApi,"192.168.1.209:9999/status");
 define("URLSVXRAPI", $refApi);
 //
 // Empty address API do not show connected nodes to svxreflector 
 //define("URLSVXRAPI", "");
 //
-// Put url address to your svxreflector wihc offer information of status
+// Put url address to your svxreflector which offer information of status
 //define("URLSVXRAPI", "http://192.168.1.33:9999/status");
 //
 //
@@ -41,7 +42,7 @@ define("SVXCONFIG", "svxlink.conf");
 //
 // Path and file name of log
 define("SVXLOGPATH", "/var/log");
-define("SVXLOGPREFIX", "svxlink");
+define("SVXLOGPREFIX", "svxlink.log");
 //
 //
 // Define where is located menu wit buttons TOP or BOTTOM
@@ -68,7 +69,7 @@ define("KEY8", array(' D8 ','D8#','purple'));
 // to sound card and use buttons on dashboard PTT ON & PTT OFF
 // Set SHOWPTT to FALSE to disable display PTT buttons
 // In most cases you can switch to FALSE
-//define("SHOWPTT","TRUE");
+define("SHOWPTT","TRUE");
 //
 define("KEY9", array(' D9 ','D9#','blue'));
 define("KEY10", array(" D0 ","D0#","blue"));
