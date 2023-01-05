@@ -5,7 +5,7 @@
     <title>Audio Peak Meter</title>
     <meta name="Author" content="Waldek SP2ONG" />
     <meta name="Description" content="Audio Test Peak Meter for SVXLink by SP2ONG 2022" />
-    <meta name="KeyWords" content="SVXLink, SVXRelector,SP2ONG" />
+    <meta name="KeyWords" content="SVXLink, SVXReflector,SP2ONG,G4NAB" />
     <link href="/css/css.php" type="text/css" rel="stylesheet" />
 <style type="text/css">
 body {
@@ -85,7 +85,6 @@ $screen[3] = "[Air Scan],[Conn List],[WiFi Status],[WiFi On] works without param
 $screen[4] = "[Switch to SSID] or [Delete SSID] needs |SSID (network name)|.";
 $screen[5] = "[Add Network & Connect] needs |SSID (network name)| & |Password| & wifi network.";
 $screen[6] = "";
-$screen[7] = "Have a Fun. Vy 73 de SP0DZ |shhh...:)";
 
 
 if (isset($_POST['btnScan']))
@@ -95,7 +94,7 @@ if (isset($_POST['btnScan']))
 	exec('nmcli dev wifi rescan');
 	exec('nmcli dev wifi list 2>&1',$screen,$retval);
 	//$screen[$screen.length]="\n";
-	$screen[$screen.$length]="Keep in mind the OPIZ don't like 1st and 13th channel unless you use non-standard WIFI antenna.";
+	$screen[$screen.$length]="Keep in mind the non-standard WIFI antenna.";
 }
 
 if (isset($_POST['btnConnList']))
