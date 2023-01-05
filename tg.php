@@ -25,7 +25,7 @@ else { $callsign="N0CALL";
     <meta name="language" content="English" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="SVXLink" />
-    <meta name="Author" content="SP2ONG, SP0DZ, G4NAB" />
+    <meta name="Author" content="SP2ONG, SP0DZ" />
     <meta name="Description" content="Dashboard for SVXLink by SP2ONG, SP0Dz" />
     <meta name="KeyWords" content="SVXLink,SP2ONG, SP0DZ" />
     <meta http-equiv="cache-control" content="max-age=0" />
@@ -35,7 +35,7 @@ else { $callsign="N0CALL";
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Fredoka+One&family=Tourney&family=Oswald&display=swap" rel="stylesheet">
-<link rel="shortcut icon" href="images/svxlink.ico" sizes="16x16 32x32" type="image/png">
+<link rel="shortcut icon" href="images/favicon.ico" sizes="16x16 32x32" type="image/png">
 
 <?php echo ("<title>" . $callsign ." ". $fmnetwork . " Dashboard</title>"); ?>
 
@@ -57,7 +57,7 @@ else { $callsign="N0CALL";
 <div class="container"> 
 <div class="header">
 <div class="parent">
-    <div class="img" style="padding-left:270px"><img src="images/svxlink.ico" /></div>
+    <div class="img" style="padding-left:270px"><img src="images/tower-rpt.png" /></div>
     <div class="text"style="padding-right:230px">
 <center><p style="margin-top:5px;margin-bottom:0px;">
 <span style="font-size: 32px;letter-spacing:4px;font-family: &quot;Fredoka One&quot;, sans-serif;font-weight:500;color:DarkOrange"><?php echo $callsign; ?></span>
@@ -144,7 +144,7 @@ if (MENUBUTTON=="BOTTOM") {
 include_once __DIR__."/include/buttons.php"; }
 ?>
 <!--- Please do not remove copyright info -->
-<center><span title="Dashboard" style="font: 7pt arial, sans-serif;">SvxLink Dashboard ©  SP2ONG, SP0DZ, G4NAB <?php $cdate=date("Y"); if ($cdate > "2021") {$cdate="2021-".date("Y");} echo $cdate; ?>
+<center><span title="Dashboard" style="font: 7pt arial, sans-serif;">SvxLink Dashboard ©  SP2ONG, SP0DZ <?php $cdate=date("Y"); if ($cdate > "2021") {$cdate="2021-".date("Y");} echo $cdate; ?>
 	</div>
 </div>
 </fieldset>
