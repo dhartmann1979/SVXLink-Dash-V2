@@ -498,7 +498,7 @@ input[type=text] {
   border:none;
   color:#002d62;
   font-size: 10pt;
-  font-family: 'Architects Daughter', sans-serif;
+  font-family: 'sans-serif', sans-serif;
   font-weight: bold;
   text-shadow: 1px 1px 1px White, 0 0 0.5em LightGrey, 0 0 1em Grey;
   height:20px;

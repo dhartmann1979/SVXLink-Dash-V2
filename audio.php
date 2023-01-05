@@ -35,7 +35,7 @@ else { $callsign="N0CALL";
     <meta http-equiv="pragma" content="no-cache" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Fredoka+One&family=Tourney&family=Architects Daughter&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Fredoka+One&family=Tourney&family=sans-serif&display=swap" rel="stylesheet">
 <link rel="shortcut icon" href="images/favicon.ico" sizes="16x16 32x32" type="image/png">
  
 <?php echo ("<title>" . $callsign ." ". $fmnetwork . " Dashboard</title>"); ?>
@@ -67,9 +67,9 @@ $svxConfigFile = '/etc/svxlink/svxlink.conf';
          $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];}
     else { $callsign="N0CALL";}
 ?>
-<span style="font-size: 32px;letter-spacing:4px;font-family: &quot;Architects Daughter&quot;, sans-serif;font-weight:500;color:DarkOrange"><?php echo $callsign; ?></span>
+<span style="font-size: 32px;letter-spacing:4px;font-family: &quot;sans-serif&quot;, sans-serif;font-weight:500;color:DarkOrange"><?php echo $callsign; ?></span>
 <p style="margin-top:0px;margin-bottom:0px;">
-<span style="font-size: 30px;font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, sans-serif;letter-spacing: 3px;font-weight: 600;background: #3083b8;"><?php echo $fmnetwork; ?></span>
+<span style="font-size: 30px;font-family: 'sans-serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;letter-spacing: 3px;font-weight: 600;background: #3083b8;"><?php echo $fmnetwork; ?></span>
 </p></center>
 </div></div>
 </div>
