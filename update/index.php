@@ -108,7 +108,7 @@ $screen[0] = "Welcome to HotSpot Updater.";
 $screen[1] = "";
 $screen[2] = "Please use buttons for appriopriate acctions.";
 $screen[3] = "";
-$screen[4] = "Have a Fun. Vy 73 de SP0DZ |shhh...:)";
+$screen[4] = "";
 
 
 

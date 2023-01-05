@@ -99,7 +99,7 @@ $screen[5] = "[Set Static IP] needs |IP|/|CIDR| & |GW| & |DNS|.";
 $screen[6] = "Please use 24 for 255.255.255.0 in CIDR. ect.";
 $screen[7] = "For |IP| & |GW| & |DNS| please use IP notation like 192.168.1.2 ect.";
 $screen[8] = "";
-$screen[9] = "Have a Fun. Vy 73 de SP0DZ |shhh...:)";
+$screen[9] = "";
 
 
 

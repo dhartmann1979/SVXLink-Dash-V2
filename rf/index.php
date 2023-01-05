@@ -102,7 +102,7 @@ if (fopen($RfConfFile,'r'))
 $screen[0] = "Welcome to SA818 RF MODULE configuration tool.";
 $screen[1] = "Please use buttons for actions.";
 $screen[2] = "Actions are limited to section data only.";
-$screen[3] = "Have a Fun. Vy 73 de SP0DZ |shhh...:)";
+$screen[3] = "";
 
 
 
