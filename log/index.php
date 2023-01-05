@@ -91,9 +91,8 @@ $ipgw = null;
 
 $screen[0] = "Welcome to Svxlink log viewer tool.";
 $screen[1] = "";
-$screen[2] = "Please use button to get 500 lines.";
+$screen[2] = "CLick on the button to get current running log.";
 $screen[3] = "";
-$screen[4] = "Have a Fun. Vy 73 de SP0DZ |shhh...:)";
 
 
 
@@ -112,7 +111,7 @@ if (isset($_POST['btnLog']))
         //$sAconn = $_POST['sAconn'];
         //$password = $_POST['password'];
         //exec('nmcli dev wifi rescan');
-        $command = "tail -n 500 /var/log/svxlink |tac 2>&1";
+        $command = "tail -l /var/log/svxlink.log |tac 2>&1";
         exec($command,$screen,$retval);
 }
 
