@@ -1,5 +1,5 @@
 # SVXLink_Dash-V2
-SVXLink dashboard repository inspired by pi star dashboard built by Waldek SP2ONG, and modified for the latest versions of SVXLink. I have been working on a Pi-Star based dahsboard for weeks only to find that Waldek had already done it, although it requires some changes to the code.
+SVXLink dashboard repository inspired by pi star dashboard built by Waldek SP2ONG, and modified for the latest versions of SVXLink. I have been working on a Pi-Star based dashboard for weeks only to find that Waldek had already done it, although it requires some changes to the code.
 
 by Chris G4NAB
 
