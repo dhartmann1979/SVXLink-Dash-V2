@@ -422,6 +422,9 @@ $conns = null;
 <?php 
 if ($isTetra){ include "tetra.php" ;};
 if ($isSimplex){ include "simplex.php" ;};
+if ($isduplex) { include "duplex.php";
+}
+;
 
 //include "simplex.php";
 //include "tetra.php";
