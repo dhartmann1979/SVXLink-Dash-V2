@@ -159,17 +159,17 @@ if (isset($_POST['btnSave']))
 
 };
 
-//  	$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
-//        $inCallsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
+  	$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
+    $inCallsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
 
 
 	$inLocation = $nodeInfo["Location"];$inLocator = $nodeInfo["Locator"]; $inSysOp = $nodeInfo["SysOp"];
 	$inLAT = $nodeInfo["LAT"];$inLONG = $nodeInfo["LONG"]; $inRXFREQ = $nodeInfo["RXFREQ"];
 	$inTXFREQ = $nodeInfo["TXFREQ"];$inWebsite = $nodeInfo["Website"]; $inMode = $nodeInfo["Mode"];
 	$inType = $nodeInfo["Type"];$inEcholink = $nodeInfo["Echolink"]; $innodeLocation = $nodeInfo["nodeLocation"];
-	$inSysop = $nodeInfo["Sysop"];$inVerbund = $nodeInfo["Verbund"]; $inCTCSS = $nodeInfo["CTCSS"];
+	$inSysop = $nodeInfo["Sysop"]; $inCTCSS = $nodeInfo["CTCSS"];
 	$inLinkedTo = $nodeInfo["LinkedTo"];
-
+    
 ?>
 
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
