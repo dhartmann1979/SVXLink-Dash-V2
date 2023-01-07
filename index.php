@@ -4,7 +4,7 @@ include_once 'include/config.php';
 include_once 'include/tools.php';
 
 
-// migrate to external class tbc
+// svxlink.conf
 
 $svxConfigFile = '/etc/svxlink/svxlink.conf';
     if (fopen($svxConfigFile,'r'))
@@ -14,9 +14,6 @@ $svxConfigFile = '/etc/svxlink/svxlink.conf';
 else { $callsign="N0CALL"; 
        $fmnetwork="no registered";
 	}
-
-
-
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -54,6 +51,7 @@ else { $callsign="N0CALL";
 
 </head>
 <body style="background-color: #e1e1e1;font: 11pt arial, sans-serif;">
+
 <center>
 <fieldset style="box-shadow:0 0 10px #999; background-color:#f1f1f1; width:0px;margin-top:15px;margin-left:0px;margin-right:5px;font-size:13px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
 <div class="container"> 
@@ -150,7 +148,6 @@ include_once __DIR__."/include/buttons.php";
 if (MENUBUTTON=="BOTTOM") {
 include_once __DIR__."/include/buttons.php"; }
 ?>
-<!--- Please do not remove copyright info -->
 <center><span title="Dashboard" style="font: 7pt arial, sans-serif;">SvxLink Dashboard ©  G4NAB, SP2ONG, SP0DZ <?php $cdate=date("Y"); if ($cdate > "2021") {$cdate="2021-".date("Y");} echo $cdate; ?>
 	</div>
 </div>
