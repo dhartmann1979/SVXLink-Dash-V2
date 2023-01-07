@@ -54,6 +54,6 @@ foreach ($tgdb_array as $tg => $tgname)
 
 ?>
   </table>
-<button name="btnUpdateTgs" type="submit" class="red" style="height:30px; width:120px; font-size:12px;">Update Tgs</button>
+<!--<button name="btnUpdateTgs" type="submit" class="red" style="height:30px; width:120px; font-size:12px;">Update Tgs</button>-->
 </form>
 </fieldset>
