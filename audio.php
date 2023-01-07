@@ -54,7 +54,7 @@ else { $callsign="N0CALL";
 <div class="container"> 
 <div class="header">
 <div class="parent">
-    <div class="img" style="padding-left:270px"><img src="images/svxlink.ico" /></div>
+    <div class="img" style="padding-left:30px"><img src="images/svxlink.ico" /></div>
     <div class="text"style="padding-right:230px">
 <center><p style="margin-top:5px;margin-bottom:0px;">
 <?php
