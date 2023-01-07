@@ -22,7 +22,7 @@ define("FMNETWORK", $fmnetwork);
 // Select only one URL for SVXReflector API to get connected Nodes
 //
 // FM SVXLink-UK
-define($refApi,"svxportal-uk.ddns.net/status");
+define($refApi,"svxportal-uk.ddns.net:81");
 define("URLSVXRAPI", $refApi);
 //
 // Empty address API do not show connected nodes to svxreflector 
