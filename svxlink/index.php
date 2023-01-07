@@ -259,6 +259,12 @@ if (isset($_POST['btnSave']))
 	$inSimplexDefaultLang = $svxconfig['SimplexLogic']['DEFAULT_LANG'];
         $inSimplexModules = $svxconfig['SimplexLogic']['MODULES'];
         };
+        if ($isDuplex){
+        $inDuplexCallsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
+        $inDuplexDefaultLang = $svxconfig['ReflectorLogic']['DEFAULT_LANG'];
+        $inDuplexModules = $svxconfig['ReflectorLogic']['MODULES'];
+        
+        }
 
         if ($isTetra){
         $inTetraCallsign = $svxconfig['TetraLogic']['CALLSIGN'];
