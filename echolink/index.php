@@ -116,8 +116,7 @@ if (fopen($elConfigFile,'r'))
       {
 
         $elconfig = parse_ini_file($elConfigFile,true,INI_SCANNER_RAW);
-        //$elconfig['TetraLogic']['INIT_PEI'] = $elconfig['TetraLogic']['INIT_PEI'] . $init_pei_tail;    
-};
+        };
 
 
 
@@ -129,10 +128,6 @@ if (isset($_POST['btnSave']))
         $retval = null;
         $screen = null;
 
-        // tail is hardcoded - if need to be changed should be consider to build tetra-device config json file 
-        // $init_pei_tail = ";AT+CTSP=1,3,131;AT+CTSP=1,3,130;AT+CTSP=1,3,138;AT+CTSP=1,2,20;AT+CTSP=2,0,0;AT+CTSP=1,3,24;AT+CTSP=1,3,25;AT+CTSP=1,3,3;AT+CTSP=1,3,10;AT+CTSP=1,1,11;AT+CTSDC=0,0,0,1,1,0,1,1,0,0";
-        //$ini = build_ini_string($elconfig);
-        //fopen($svxConfigFile,w);
         
 	$elconfig['ModuleEchoLink']['DEFAULT_LANG'] = $_POST['inElDefaultLang'];
         $elconfig['ModuleEchoLink']['CALLSIGN'] = $_POST['inElCallsign'];

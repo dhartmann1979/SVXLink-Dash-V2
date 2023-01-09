@@ -71,15 +71,14 @@ textarea {
 <?php 
 ini_set("allow_url_fopen", 1);
 session_start();
-$isTetra = false;
 $isSimplex = false;
-
+$isRepeater = false;
 $svxConfigFile = '/etc/svxlink/svxlink.conf';
 if (fopen($svxConfigFile,'r')) {$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW); }
 $logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
 foreach ($logics as $key) {
   if ($key == "SimplexLogic") $isSimplex = true;
-  if ($key == "TetraLogic") $isTetra = true; 
+  if ($key == "RepeaterLogic") $isRepeater = true; 
 };
 $tgUri = $svxconfig['ReflectorLogic']['TG_URI'];
 
@@ -285,8 +284,7 @@ if (isset($_POST['btnChkSvxlink']))
 
         $retval = null;
         $screen = null;
-        $command = "sudo nice -n 19 sh check.svxlink.sh > /var/www/html/update/screen.log 2>&1 &"; //for any other cases
-        if ($isTetra){ $command = "sudo nice -n 19 sh check.svxlink.tetra.sh > /var/www/html/update/screen.log 2>&1 &";};        
+        $command = "sudo nice -n 19 sh check.svxlink.sh > /var/www/html/update/screen.log 2>&1 &"; 
         exec($command,$screen,$retval);
         $_SESSION['refresh']=True; header("Refresh: 3");
 }

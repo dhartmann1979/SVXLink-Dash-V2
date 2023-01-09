@@ -111,13 +111,11 @@ function build_ini_string(array $a) {
 
 
 $svxConfigFile = '/etc/svxlink/svxlink.conf';
-$init_pei_tail = ";AT+CTSP=1,3,131;AT+CTSP=1,3,130;AT+CTSP=1,3,138;AT+CTSP=1,2,20;AT+CTSP=2,0,0;AT+CTSP=1,3,24;AT+CTSP=1,3,25;AT+CTSP=1,3,3;AT+CTSP=1,3,10;AT+CTSP=1,1,11;AT+CTSDC=0,0,0,1,1,0,1,1,0,0";
 if (fopen($svxConfigFile,'r'))
       {
 
         $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
-        //$svxconfig['TetraLogic']['INIT_PEI'] = $svxconfig['TetraLogic']['INIT_PEI'] . $init_pei_tail;    
-};
+        };
 
 
 $logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
@@ -125,8 +123,7 @@ foreach ($logics as $key) {
  // echo "<tr><td style=\"background:#ffffed;\"><span style=\"color:#b5651d;font-weight: bold;\">".$key."</span></td></tr>";
   if ($key == "SimplexLogic") $isSimplex = true;
   if ($key == "RepeaterLogic") $isRepeater = true;
-  if ($key == "TetraLogic") $isTetra = true; 
-}
+  }
 
 
 
@@ -137,11 +134,7 @@ if (isset($_POST['btnSave']))
         $retval = null;
         $screen = null;
 
-        // tail is hardcoded - if need to be changed should be consider to build tetra-device config json file 
-        // $init_pei_tail = ";AT+CTSP=1,3,131;AT+CTSP=1,3,130;AT+CTSP=1,3,138;AT+CTSP=1,2,20;AT+CTSP=2,0,0;AT+CTSP=1,3,24;AT+CTSP=1,3,25;AT+CTSP=1,3,3;AT+CTSP=1,3,10;AT+CTSP=1,1,11;AT+CTSDC=0,0,0,1,1,0,1,1,0,0";
-        //$ini = build_ini_string($svxconfig);
-        //fopen($svxConfigFile,w);
-        
+              
 	$svxconfig['GLOBAL']['DEFAULT_LANG'] = $_POST['inGlobalDefaultLang'];
 	$svxconfig['GLOBAL']['LOGICS'] = $_POST['inGlobalLogics'];
         $svxconfig['GLOBAL']['RF_MODULE'] = $_POST['inGlobalRf'];
@@ -166,20 +159,6 @@ if (isset($_POST['btnSave']))
         $svxconfig['RepeaterLogic']['DEFAULT_LANG'] = $_POST['inRepeaterDefaultLang'];
         $svxconfig['RepeaterLogic']['CALLSIGN'] = $_POST['inRepeaterCallsign'];
         $svxconfig['RepeaterLogic']["MODULES"] = $_POST['inRepeaterModules'];
-        if ($isTetra){
-	$svxconfig['TetraLogic']['DEFAULT_LANG'] = $_POST['inTetraDefaultLang'];
-        $svxconfig['TetraLogic']['CALLSIGN'] = $_POST['inTetraCallsign'];
-        $svxconfig['TetraLogic']['MODULES'] = $_POST['inTetraModules'];
-        $svxconfig['TetraLogic']['BAUD'] = $_POST['inTetraBaud'];
-        $svxconfig['TetraLogic']['PORT'] = $_POST['inTetraPort'];
-        $svxconfig['TetraLogic']['ISSI'] = $_POST['inTetraIssi'];
-        $svxconfig['TetraLogic']['GSSI'] = $_POST['inTetraGssi'];
-        $svxconfig['TetraLogic']['MNC'] = $_POST['inTetraMnc'];
-        $svxconfig['TetraLogic']['MCC'] = $_POST['inTetraMcc'];           //addin the tail 
-        $svxconfig['TetraLogic']['INIT_PEI'] = $_POST['inTetraInitPei'] . $init_pei_tail;      
-        $svxconfig['TetraLogic']['APRSPATH'] = $_POST['inTetraAprspath']; 
-        $svxconfig['TetraLogic']['TETRA_MODE'] = $_POST['inTetraMode']; 
-        };
 
 	$svxconfig['Macros']['0'] = $_POST['inMD0'];
         $svxconfig['Macros']['1'] = $_POST['inMD1'];
@@ -193,9 +172,9 @@ if (isset($_POST['btnSave']))
 	$svxconfig['Macros']['9'] = $_POST['inMD9'];
 	
 	$svxconfig['Rx1']['PEAK_METER'] = $_POST['inRx1PeakMeter'];
-        //$svxconfig['ReflectorLogic']['PORT'] = $_POST['inReflectorPort'];
-        //$svxconfig['ReflectorLogic']['PORT'] = $_POST['inReflectorPort'];
-        //$svxconfig['ReflectorLogic']['PORT'] = $_POST['inReflectorPort'];
+        $svxconfig['ReflectorLogic']['PORT'] = $_POST['inReflectorPort'];
+        $svxconfig['ReflectorLogic']['PORT'] = $_POST['inReflectorPort'];
+        $svxconfig['ReflectorLogic']['PORT'] = $_POST['inReflectorPort'];
         $ini = build_ini_string($svxconfig);
 
         //file_put_contents("/var/www/html/test.ini",$ini,FILE_USE_INCLUDE_PAT);
@@ -209,7 +188,7 @@ if (isset($_POST['btnSave']))
 	exec('sudo cp /etc/svxlink/svxlink.conf /etc/svxlink/svxlink.conf.' .date("YmdThis") ,$screen,$retval);
 	//move generated file to current config
 	exec('sudo mv /var/www/html/svxlink/svxlink.conf /etc/svxlink/svxlink.conf', $screen, $retval);
-	exec('sudo cp /etc/svxlink/svxlink.conf /etc/svxlink/svxlink.d/TetraLogic.conf', $screen, $retval);
+//	exec('sudo cp /etc/svxlink/svxlink.conf /etc/svxlink/svxlink.d/SomeLogic.conf', $screen, $retval);
         //Service SVXlink restart
         exec('sudo service svxlink restart 2>&1',$screen,$retval);
 
@@ -269,21 +248,6 @@ if (isset($_POST['btnSave']))
         $inRepeaterModules = $svxconfig['ReflectorLogic']['MODULES'];
         
         }
-
-        if ($isTetra){
-        $inTetraCallsign = $svxconfig['TetraLogic']['CALLSIGN'];
-	$inTetraDefaultLang = $svxconfig['TetraLogic']['DEFAULT_LANG'];
-        $inTetraModules = $svxconfig['TetraLogic']['MODULES'];
-        $inTetraBaud = $svxconfig['TetraLogic']['BAUD'];
-        $inTetraPort = $svxconfig['TetraLogic']['PORT'];
-        $inTetraIssi = $svxconfig['TetraLogic']['ISSI'];
-        $inTetraGssi = $svxconfig['TetraLogic']['GSSI'];
-        $inTetraMnc = $svxconfig['TetraLogic']['MNC'];
-        $inTetraMcc = $svxconfig['TetraLogic']['MCC'];          // fix for non standard ADI's use of ini - uncoment if needed.
-        $inTetraInitPei = $svxconfig['TetraLogic']['INIT_PEI']; //.";AT+CTSP=1,3,131;AT+CTSP=1,3,130;AT+CTSP=1,3,138;AT+CTSP=1,2,20;AT+CTSP=2,0,0;AT+CTSP=1,3,24;AT+CTSP=1,3,25;AT+CTSP=1,3,3;AT+CTSP=1,3,10;AT+CTSP=1,1,11;AT+CTSDC=0,0,0,1,1,0,1,1,0,0";      
-        $inTetraAprspath = $svxconfig['TetraLogic']['APRSPATH'];
-        $inTetraMode = $svxconfig['TetraLogic']['TETRA_MODE'];
-        };
 
 	$inMD0 =$svxconfig['Macros']['0'];
 	$inMD1 =$svxconfig['Macros']['1'];
@@ -424,14 +388,10 @@ $conns = null;
 
 
 <?php 
-if ($isTetra){ include "tetra.php" ;};
 if ($isSimplex){ include "simplex.php" ;};
 if ($isRepeater) { include "repeater.php";};
 }
 ;
-
-//include "simplex.php";
-//include "tetra.php";
 
 ?>
 

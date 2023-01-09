@@ -14,15 +14,14 @@ if (fopen($svxConfigFile,'r'))
 {
 
   $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
-  //$svxconfig['TetraLogic']['INIT_PEI'] = $svxconfig['TetraLogic']['INIT_PEI'] . $init_pei_tail;    
   $logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
   foreach ($logics as $key) {
 	if ($key == "SimplexLogic") $isSimplex = true;
-	if ($key == "TetraLogic") $isTetra = true; 
+	if ($key == "RepeaterLogic") $isRepeater = true; 
   };
   $logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
   if ($isSimplex) $modules = explode(",",str_replace('Module','',$svxconfig['SimplexLogic']['MODULES']));
-  if ($isTetra) $modules = explode(",",str_replace('Module','',$svxconfig['TetraLogic']['MODULES']));
+  if ($isRepeater) $modules = explode(",",str_replace('Module','',$svxconfig['RepeaterLogic']['MODULES']));
   foreach ($modules as $key){
 	if ($key == "EchoLink") $isEchoLink = true;
  }
