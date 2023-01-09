@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
+<!--    <meta charset="UTF-8">
     <title>Audio Peak Meter</title>
     <meta name="Author" content="Waldek SP2ONG" />
     <meta name="Description" content="Audio Test Peak Meter for SVXLink by SP2ONG 2022" />
-    <meta name="KeyWords" content="SVXLink, SVXReflector,SP2ONG,G4NAB" />
+    <meta name="KeyWords" content="SVXLink, SVXReflector,SP2ONG,G4NAB" />-->
     <link href="/css/css.php" type="text/css" rel="stylesheet" />
 <style type="text/css">
 body {
