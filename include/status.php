@@ -20,14 +20,14 @@ $logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
 foreach ($logics as $key) {
   echo "<tr><td style=\"background:#ffffed;\"><span style=\"color:#b5651d;font-weight: bold;\">".$key."</span></td></tr>";
   if ($key == "SimplexLogic") $isSimplex = true;
-    if ($key == "RepeaterLogic") $isDuplex = true;
+    if ($key == "RepeaterLogic") $isRepeater = true;
   if ($key == "TetraLogic") $isTetra = true; 
 }
 echo "</table>\n";
 echo "<table style=\"margin-top:2px;margin-bottom:13px;\">\n";
 if ($isSimplex) $modules = explode(",",str_replace('Module','',$svxconfig['SimplexLogic']['MODULES']));
 if ($isTetra) $modules = explode(",",str_replace('Module','',$svxconfig['TetraLogic']['MODULES']));
-if ($isDuplex) $modules = explode(",",str_replace('Module','',$svxconfig['RepeaterLogic']['MODULES']));
+if ($isRepeater) $modules = explode(",",str_replace('Module','',$svxconfig['RepeaterLogic']['MODULES']));
 
 $modecho = "False";
 if ($modules!="") {

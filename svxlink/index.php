@@ -69,7 +69,6 @@ textarea {
 
 
 <?php 
-//sp0dz based on:
 //https://programmierfrage.com/items/convert-array-to-an-ini-file
 function build_ini_string(array $a) {
     $out = '';
@@ -125,6 +124,7 @@ $logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
 foreach ($logics as $key) {
  // echo "<tr><td style=\"background:#ffffed;\"><span style=\"color:#b5651d;font-weight: bold;\">".$key."</span></td></tr>";
   if ($key == "SimplexLogic") $isSimplex = true;
+  if ($key == "RepeaterLogic") $isRepeater = true;
   if ($key == "TetraLogic") $isTetra = true; 
 }
 
@@ -162,6 +162,10 @@ if (isset($_POST['btnSave']))
         $svxconfig['SimplexLogic']['CALLSIGN'] = $_POST['inSimplexCallsign'];
         $svxconfig['SimplexLogic']['MODULES'] = $_POST['inSimplexModules'];
         };
+        if ($isRepeater) {
+        $svxconfig['RepeaterLogic']['DEFAULT_LANG'] = $_POST['inRepeaterDefaultLang'];
+        $svxconfig['RepeaterLogic']['CALLSIGN'] = $_POST['inRepeaterCallsign'];
+        $svxconfig['RepeaterLogic']["MODULES"] = $_POST['inRepeaterModules'];
         if ($isTetra){
 	$svxconfig['TetraLogic']['DEFAULT_LANG'] = $_POST['inTetraDefaultLang'];
         $svxconfig['TetraLogic']['CALLSIGN'] = $_POST['inTetraCallsign'];
@@ -259,10 +263,10 @@ if (isset($_POST['btnSave']))
 	$inSimplexDefaultLang = $svxconfig['SimplexLogic']['DEFAULT_LANG'];
         $inSimplexModules = $svxconfig['SimplexLogic']['MODULES'];
         };
-        if ($isDuplex){
-        $inDuplexCallsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
-        $inDuplexDefaultLang = $svxconfig['ReflectorLogic']['DEFAULT_LANG'];
-        $inDuplexModules = $svxconfig['ReflectorLogic']['MODULES'];
+        if ($isRepeater){
+        $inRepeaterCallsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
+        $inRepeaterDefaultLang = $svxconfig['ReflectorLogic']['DEFAULT_LANG'];
+        $inRepeaterModules = $svxconfig['ReflectorLogic']['MODULES'];
         
         }
 
@@ -422,7 +426,7 @@ $conns = null;
 <?php 
 if ($isTetra){ include "tetra.php" ;};
 if ($isSimplex){ include "simplex.php" ;};
-if ($isduplex) { include "duplex.php";
+if ($isRepeater) { include "repeater.php";};
 }
 ;
 

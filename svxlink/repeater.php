@@ -1,6 +1,6 @@
 <table>
         <tr>
-        <th width = "380px">Duplex Input</th>
+        <th width = "380px">Repeater Input</th>
         <th width = "100px">Action</th>
         </tr>
 <tr>
@@ -12,15 +12,15 @@
         </tr>
         <tr style="border: none;"> 
         <td style="border: none;">Default Language</td>
-        <td style="border: none;"><input type="text" name="inDuplexDefaultLang" style="width:98%" value="<?php echo $inDuplexDefaultLang;?>">
+        <td style="border: none;"><input type="text" name="inRepeaterDefaultLang" style="width:98%" value="<?php echo $inRepeaterDefaultLang;?>">
         </td></tr>
         <tr style="border: none;"> 
         <td style="border: none;">Callsign</td>
-        <td style="border: none;"><input type="text" name="inDuplexCallsign" style="width:98%" value="<?php echo $inDuplexCallsign;?>">
+        <td style="border: none;"><input type="text" name="inRepeaterCallsign" style="width:98%" value="<?php echo $inRepeaterCallsign;?>">
         </td></tr>
         <tr style="border: none;"> 
         <td style="border: none;">Modules</td>
-        <td style="border: none;"><input type="text" name="inDuplexModules" style="width:98%" value="<?php echo $inDuplexModules;?>">
+        <td style="border: none;"><input type="text" name="inRepeaterModules" style="width:98%" value="<?php echo $inRepeaterModules;?>">
         </td></tr>
         </table>
 </td>
