@@ -69,7 +69,6 @@ textarea {
 
 
 <?php 
-//sp0dz based on:
 //https://programmierfrage.com/items/convert-array-to-an-ini-file
 function build_ini_string(array $a) {
     $out = '';
@@ -139,7 +138,7 @@ if (isset($_POST['btnSave']))
 	$nodeInfo["LAT"] = $_POST['inLAT']; $nodeInfo["LONG"] = $_POST['inLONG'];$nodeInfo["RXFREQ"] = $_POST['inRXFREQ'];
 	$nodeInfo["TXFREQ"] = $_POST['inTXFREQ']; $nodeInfo["Website"] = $_POST['inWebsite'];$nodeInfo["Mode"] = $_POST['inMode'];
 	$nodeInfo["Type"] = $_POST['inType']; $nodeInfo["Echolink"] = $_POST['inEcholink'];$nodeInfo["nodeLocation"] = $_POST['innodeLocation'];
-	$nodeInfo["Sysop"] = $_POST['inSysop']; $nodeInfo["Verbund"] = $_POST['inVerbund'];$nodeInfo["CTCSS"] = $_POST['inCTCSS'];
+	$nodeInfo["Sysop"] = $_POST['inSysop']; $nodeInfo["Compound"] = $_POST['inCompound'];$nodeInfo["CTCSS"] = $_POST['inCTCSS'];
 	$nodeInfo["LinkedTo"] = $_POST['inLinkedTo'];
 
 	$jsonNodeInfo = json_encode($nodeInfo);
@@ -254,9 +253,9 @@ if (isset($_POST['btnSave']))
         <input  type="text" name="inSysop" style="width:98%" value="<?php echo $inSysop;?>">
         </td></tr>
         <tr style="border: none;"> 
-        <td style="border: none;">Verbund</td>
+        <td style="border: none;">Compound</td>
         <td style="border: none;">
-        <input  type="text" name="inVerbund" style="width:98%" value="<?php echo $inVerbund;?>">
+        <input  type="text" name="inCompound" style="width:98%" value="<?php echo $inCompound;?>">
         </td></tr>
         <tr style="border: none;"> 
         <td style="border: none;">LinkedTo</td>
