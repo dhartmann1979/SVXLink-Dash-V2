@@ -103,14 +103,14 @@ include_once __DIR__."/include/buttons.php";
     echo 'setTimeout(reloadSVXREF,90000);'."\n";
      }
 
-    echo 'function reloadLastHerd(){'."\n";
-    echo '  $("#lastHerd").load("include/tg.php",function(){ setTimeout(reloadLastHerd,3000) });'."\n";
+    echo 'function reloadLastHeard(){'."\n";
+    echo '  $("#LastHeard").load("include/tg.php",function(){ setTimeout(reloadLastHeard,3000) });'."\n";
     echo '}'."\n";
-    echo 'setTimeout(reloadLastHerd,3000);'."\n";
+    echo 'setTimeout(reloadLastHeard,3000);'."\n";
 
     echo '$(window).trigger(\'resize\');'."\n";
     echo '</script>'."\n";
-    echo '<center><div id="lastHerd" style="margin-bottom:30px;">'."\n";
+    echo '<center><div id="LastHeard" style="margin-bottom:30px;">'."\n";
     include 'include/tg.php';
     echo '</div></center>'."\n";
     echo "<br />\n";
