@@ -2,12 +2,12 @@
 $progname = basename($_SERVER['SCRIPT_FILENAME'],".php");
 include_once 'include/config.php';
 include_once 'include/tools.php';
-
 $svxConfigFile = '/etc/svxlink/svxlink.conf';
     if (fopen($svxConfigFile,'r'))
        { $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
          $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
          $fmnetwork =$svxconfig['ReflectorLogic']['FMNET'];   }
+
 else { $callsign="N0CALL"; 
        $fmnetwork="not registered";
 	}
@@ -70,9 +70,7 @@ else { $callsign="N0CALL";
 if (isProcessRunning('node')) {
 echo '&nbsp;&nbsp;<button class="button link" onclick="playAudioToggle(8080, this)"><b>&nbsp;&nbsp;&nbsp;<img src=images/speaker.png alt="" style="vertical-align:middle">&nbsp;&nbsp;RX Monitor&nbsp;&nbsp;&nbsp;</b></button><br><br>';
 }
-?>
-</div></center>
-</div>-->
+?>-->
 <?php
 if (MENUBUTTON=="TOP") {
 include_once __DIR__."/include/buttons.php"; 
