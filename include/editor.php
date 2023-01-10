@@ -2,7 +2,7 @@
 
 // configuration
 $url = 'include/editor.php';
-$file = $conf_path;
+$file = '/path/to/txt/file';
 
 // check if form has been submitted
 if (isset($_POST['text']))
