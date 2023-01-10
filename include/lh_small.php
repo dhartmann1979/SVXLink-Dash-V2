@@ -4,7 +4,7 @@ include_once __DIR__.'/tools.php';
 include_once __DIR__.'/functions.php';    
 include_once __DIR__.'/tgdb.php';    
 ?>
-<span style="font-weight: bold;font-size:14px;">SVXReflector Activity TOP 3</span>
+<span style="font-weight: bold;font-size:14px;">SVXReflector Activity</span>
 <fieldset style=" width:620px;box-shadow:0 0 10px #999;background-color:#e8e8e8e8;margin-top:10px;margin-left:0px;margin-right:0px;font-size:12px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
   <form method="post">
   <table style="margin-top:3px;">
@@ -18,7 +18,7 @@ include_once __DIR__.'/tgdb.php';
     </tr>
 <?php
 $i = 0;
-for ($i = 0;  ($i <= 2); $i++) { //Last 15 calls
+for ($i = 0;  ($i <= 15); $i++) { //Last 15 calls
 	if (isset($lastHeard[$i])) {
 		$listElem = $lastHeard[$i];
 		if ( $listElem[1] ) {
@@ -26,9 +26,9 @@ for ($i = 0;  ($i <= 2); $i++) { //Last 15 calls
         $local_time = strftime($svxconfig['GLOBAL']['TIMESTAMP_FORMAT'],strtotime($listElem[0])); }
         else {
         $local_time = strftime("%H:%M:%S %d %b",strtotime($listElem[0])); }
-//$local_time = localtime("%H:%M:%S %d %b", true);
-		echo"<tr height=24px style=\"font-size:12.5px;>\">";
-		echo"<td align=\"left\">&nbsp;$local_time[0]</td>";
+        //$local_time = date("%e F Y", strtotime('2010-01-08'))
+    echo"<tr height=24px style=\"font-size:12.5px;>\">";
+		echo"<td align=\"left\">&nbsp; '$local_time[0]' </td>";
                 if ($listElem[3] == "OFF" ) {$bgcolor=""; $tximg="";}
                 if ($listElem[3] == "ON" ) {$bgcolor=""; $tximg="<img src=images/tx.gif height=21 alt='TXing' title='TXing' style=\"vertical-align: middle;\">";}
                 $ref = substr($listElem[1],0,3);
