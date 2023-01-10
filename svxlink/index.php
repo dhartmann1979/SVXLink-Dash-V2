@@ -147,16 +147,16 @@ if (isset($_POST['btnSave']))
         $svxconfig['ReflectorLogic']['CALLSIGN'] = $_POST['inCallsign'];
 	$svxconfig['ReflectorLogic']['TG_URI'] = $_POST['inReflectorTgUri'];
 
-        //if ($isSimplex){
+        if ($isSimplex){
 	$svxconfig['SimplexLogic']['DEFAULT_LANG'] = $_POST['inSimplexDefaultLang'];
         $svxconfig['SimplexLogic']['CALLSIGN'] = $_POST['inSimplexCallsign'];
         $svxconfig['SimplexLogic']['MODULES'] = $_POST['inSimplexModules'];
         };
-        //if ($isRepeater) {
+        if ($isRepeater) {
         $svxconfig['RepeaterLogic']['DEFAULT_LANG'] = $_POST['inRepeaterDefaultLang'];
         $svxconfig['RepeaterLogic']['CALLSIGN'] = $_POST['inRepeaterCallsign'];
         $svxconfig['RepeaterLogic']["MODULES"] = $_POST['inRepeaterModules'];
-
+        };
 	$svxconfig['Macros']['0'] = $_POST['inMD0'];
         $svxconfig['Macros']['1'] = $_POST['inMD1'];
 	$svxconfig['Macros']['2'] = $_POST['inMD2'];
@@ -387,7 +387,7 @@ $conns = null;
 <?php 
 if ($isSimplex){ include "simplex.php" ;};
 if ($isRepeater) { include "repeater.php";};
-}
+
 ;
 
 ?>
