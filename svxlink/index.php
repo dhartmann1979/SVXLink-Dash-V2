@@ -190,9 +190,9 @@ if (isset($_POST['btnSave']))
 
 
 
-// debug
-//      echo '<pre>';
-//      print_r($ini);
+debug
+      echo '<pre>';
+     print_r($ini);
 
 //end of debug
 
