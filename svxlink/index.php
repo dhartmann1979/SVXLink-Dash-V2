@@ -118,8 +118,8 @@ if (fopen($svxConfigFile,'r'))
 $logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
 foreach ($logics as $key) {
  // echo "<tr><td style=\"background:#ffffed;\"><span style=\"color:#b5651d;font-weight: bold;\">".$key."</span></td></tr>";
-  if ($key == "SimplexLogic") $isSimplex = true;
-  if ($key == "RepeaterLogic") $isRepeater = true;
+ // if ($key == "SimplexLogic") $isSimplex = true;
+ // if ($key == "RepeaterLogic") $isRepeater = true;
   }
 
 
@@ -147,12 +147,12 @@ if (isset($_POST['btnSave']))
         $svxconfig['ReflectorLogic']['CALLSIGN'] = $_POST['inCallsign'];
 	$svxconfig['ReflectorLogic']['TG_URI'] = $_POST['inReflectorTgUri'];
 
-        if ($isSimplex){
+        //if ($isSimplex){
 	$svxconfig['SimplexLogic']['DEFAULT_LANG'] = $_POST['inSimplexDefaultLang'];
         $svxconfig['SimplexLogic']['CALLSIGN'] = $_POST['inSimplexCallsign'];
         $svxconfig['SimplexLogic']['MODULES'] = $_POST['inSimplexModules'];
         };
-        if ($isRepeater) {
+        //if ($isRepeater) {
         $svxconfig['RepeaterLogic']['DEFAULT_LANG'] = $_POST['inRepeaterDefaultLang'];
         $svxconfig['RepeaterLogic']['CALLSIGN'] = $_POST['inRepeaterCallsign'];
         $svxconfig['RepeaterLogic']["MODULES"] = $_POST['inRepeaterModules'];
