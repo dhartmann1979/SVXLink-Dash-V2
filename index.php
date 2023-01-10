@@ -30,7 +30,9 @@ else { $callsign="N0CALL";
     <meta http-equiv="expires" content="0" />
     <meta http-equiv="pragma" content="no-cache" />
 <link rel="shortcut icon" href="images/favicon.ico" sizes="16x16 32x32" type="image/png">    
+
 <?php echo ("<title>" . $callsign ." ". $fmnetwork . " Dashboard</title>"); ?>
+
 <?php include_once "include/browserdetect.php"; ?>
     <script type="text/javascript" src="scripts/jquery.min.js"></script>
     <script type="text/javascript" src="scripts/functions.js"></script>
@@ -41,6 +43,7 @@ else { $callsign="N0CALL";
     <link href="css/featherlight.css" type="text/css" rel="stylesheet" />
     <script src="scripts/featherlight.js" type="text/javascript" charset="utf-8"></script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
 </head>
 <body style="background-color: #e1e1e1;font: 11pt arial, sans-serif;">
 <center>
@@ -58,6 +61,7 @@ else { $callsign="N0CALL";
 </div></div>
 </div>
 <?php include_once __DIR__."/include/top_menu.php"; ?>
+
 <div class="content"><center>
 <div style="margin-top:0px;">
 </div></center>
