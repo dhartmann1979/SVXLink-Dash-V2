@@ -4,10 +4,12 @@ include_once 'include/config.php';
 include_once 'include/tools.php';
 
 $svxConfigFile = '/etc/svxlink/svxlink.conf';
-    if (fopen($svxConfigFile,'r'))
-       { $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
-         $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
-         $fmnetwork =$svxconfig['ReflectorLogic']['FMNET'];   }
+    if (fopen($svxConfigFile,'r')){
+        $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
+        $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
+        $fmnetwork =$svxconfig['ReflectorLogic']['FMNET'];
+        $tgUri = $svxconfig['reflectorLogic']['TG_URI'];  
+}
 else { $callsign="N0CALL"; 
        $fmnetwork="not registered";
 	}
@@ -30,7 +32,9 @@ else { $callsign="N0CALL";
     <meta http-equiv="expires" content="0" />
     <meta http-equiv="pragma" content="no-cache" />
 <link rel="shortcut icon" href="images/favicon.ico" sizes="16x16 32x32" type="image/png">
+
 <?php echo ("<title>" . $callsign ." ". $fmnetwork . " Dashboard</title>"); ?>
+
 <?php include_once "include/browserdetect.php"; ?>
     <script type="text/javascript" src="scripts/jquery.min.js"></script>
     <script type="text/javascript" src="scripts/functions.js"></script>
