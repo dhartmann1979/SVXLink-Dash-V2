@@ -67,11 +67,11 @@ else { $callsign="N0CALL";
 <div style="margin-top:0px;">
 </div></center>
 </div>
-<!--<?php
+<?php
 if (isProcessRunning('node')) {
 echo '&nbsp;&nbsp;<button class="button link" onclick="playAudioToggle(8080, this)"><b>&nbsp;&nbsp;&nbsp;<img src=images/speaker.png alt="" style="vertical-align:middle">&nbsp;&nbsp;RX Monitor&nbsp;&nbsp;&nbsp;</b></button><br><br>';
 }
-?>-->
+?>
 <?php
 if (MENUBUTTON=="TOP") {
 include_once __DIR__."/include/buttons.php"; 
@@ -101,7 +101,7 @@ include_once __DIR__."/include/buttons.php";
 
     if (URLSVXRAPI!="") {
     echo 'function reloadSVXREF(){'."\n";
-    //echo '  $("#svxref").load("include/svxref.php",function(){ setTimeout(reloadSVXREF,90000) });'."\n";
+    echo '  $("#svxref").load("include/svxref.php",function(){ setTimeout(reloadSVXREF,90000) });'."\n";
     echo '}'."\n";
     echo 'setTimeout(reloadSVXREF,90000);'."\n";
      }
