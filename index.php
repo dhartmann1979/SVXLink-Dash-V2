@@ -122,9 +122,9 @@ include_once __DIR__."/include/buttons.php";
     //include 'include/svxref.php';
     echo '</div></center>'."\n";
     }
-    echo '</td>';
+    echo '</td></tr></table>';
 ?>
-</tr></table>
+
 <?php
     echo '<div class="content2">'."\n";
     echo '<script type="text/javascript">'."\n";
