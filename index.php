@@ -114,7 +114,7 @@ include_once __DIR__."/include/buttons.php";
     echo '$(window).trigger(\'resize\');'."\n";
     echo '</script>'."\n";
     echo '<center><div id="LastHeard" style="margin-bottom:30px;">'."\n";
-    include 'include/tg.php';
+    include 'include/lh.php';
     echo '</div></center>'."\n";
     echo "<br />\n";
     if (URLSVXRAPI!="") {
