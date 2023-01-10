@@ -3,19 +3,14 @@ $progname = basename($_SERVER['SCRIPT_FILENAME'],".php");
 include_once 'include/config.php';
 include_once 'include/tools.php';
 
-
-// migrate to external class tbc
-
 $svxConfigFile = '/etc/svxlink/svxlink.conf';
     if (fopen($svxConfigFile,'r'))
        { $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
          $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
          $fmnetwork =$svxconfig['ReflectorLogic']['FMNET'];   }
 else { $callsign="N0CALL"; 
-       $fmnetwork="no registered";
+       $fmnetwork="not registered";
 	}
-
-
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -35,9 +30,7 @@ else { $callsign="N0CALL";
     <meta http-equiv="expires" content="0" />
     <meta http-equiv="pragma" content="no-cache" />
 <link rel="shortcut icon" href="images/favicon.ico" sizes="16x16 32x32" type="image/png">
-
 <?php echo ("<title>" . $callsign ." ". $fmnetwork . " Dashboard</title>"); ?>
-
 <?php include_once "include/browserdetect.php"; ?>
     <script type="text/javascript" src="scripts/jquery.min.js"></script>
     <script type="text/javascript" src="scripts/functions.js"></script>
@@ -58,20 +51,12 @@ else { $callsign="N0CALL";
     <div class="img" style="padding-left:30px"><img src="images/svxlink.ico" /></div>
     <div class="text"style="padding-right:230px">
 <center><p style="margin-top:5px;margin-bottom:0px;">
-<?php
-$svxConfigFile = '/etc/svxlink/svxlink.conf';
-    if (fopen($svxConfigFile,'r')) 
-       { $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW); 
-         $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];}
-    else { $callsign="N0CALL";}
-?>
 <span style="font-size: 32px;letter-spacing:4px;font-family: &quot;sans-serif&quot;, sans-serif;font-weight:500;color:PaleBlue"><?php echo $callsign; ?></span>
 <p style="margin-top:0px;margin-bottom:0px;">
 <span style="font-size: 18px;letter-spacing:4px;font-family: &quot;sans-serif&quot;, sans-serif;font-weight:500;color:PaleBlue"><?php echo $fmnetwork; ?></span>
 </p></center>
 </div></div>
 </div>
-
 <?php include_once __DIR__."/include/top_menu.php"; ?>
 <div class="content"><center>
 <div style="margin-top:8px;">
