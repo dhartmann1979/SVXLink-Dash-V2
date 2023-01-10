@@ -22,8 +22,11 @@ for ($i = 0;  ($i <= 2); $i++) { //Last 15 calls
 	if (isset($lastHeard[$i])) {
 		$listElem = $lastHeard[$i];
 		if ( $listElem[1] ) {
-                        $local_time = strftime("%H:%M:%S %d %b",strtotime($listElem[0]));
-      //$local_time = localtime("%H:%M:%S %d %b", true);
+      if (isset($svxconfig['GLOBAL']['TIMESTAMP_FORMAT'])) {
+        $local_time = strftime($svxconfig['GLOBAL']['TIMESTAMP_FORMAT'],strtotime($listElem[0])); }
+        else {
+        $local_time = strftime("%H:%M:%S %d %b",strtotime($listElem[0])); }
+//$local_time = localtime("%H:%M:%S %d %b", true);
 		echo"<tr height=24px style=\"font-size:12.5px;>\">";
 		echo"<td align=\"left\">&nbsp;$local_time[0]</td>";
                 if ($listElem[3] == "OFF" ) {$bgcolor=""; $tximg="";}
