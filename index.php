@@ -3,11 +3,12 @@ $progname = basename($_SERVER['SCRIPT_FILENAME'],".php");
 include_once 'include/config.php';
 include_once 'include/tools.php';
 $svxConfigFile = '/etc/svxlink/svxlink.conf';
-    if (fopen($svxConfigFile,'r'))
-       { $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
-         $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
-         $fmnetwork =$svxconfig['ReflectorLogic']['FMNET'];   }
-
+if (fopen($svxConfigFile, 'r')) {
+    $svxconfig = parse_ini_file($svxConfigFile, true, INI_SCANNER_RAW);
+    $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
+    $fmnetwork = $svxconfig['ReflectorLogic']['FMNET'];
+    $tgUri = $svxconfig['ReflectorLogic']['TG_URI'];
+}
 else { $callsign="N0CALL"; 
        $fmnetwork="not registered";
 	}
