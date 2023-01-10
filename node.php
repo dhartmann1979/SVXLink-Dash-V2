@@ -115,7 +115,7 @@ include_once __DIR__."/include/buttons.php";
     //include 'include/svxref.php';
     echo '</div></center>'."\n";
     }
-    echo '</td>"</tr></table>';
+    echo '</td></tr></table>';
 ?>
 
 <?php
