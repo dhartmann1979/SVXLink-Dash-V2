@@ -66,7 +66,6 @@ textarea {
 
 
 <?php 
-//https://programmierfrage.com/items/convert-array-to-an-ini-file
 function build_ini_string(array $a) {
     $out = '';
     $sectionless = '';
@@ -117,9 +116,9 @@ if (fopen($svxConfigFile,'r'))
 
 $logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
 foreach ($logics as $key) {
- // echo "<tr><td style=\"background:#ffffed;\"><span style=\"color:#b5651d;font-weight: bold;\">".$key."</span></td></tr>";
- // if ($key == "SimplexLogic") $isSimplex = true;
- // if ($key == "RepeaterLogic") $isRepeater = true;
+  echo "<tr><td style=\"background:#ffffed;\"><span style=\"color:#b5651d;font-weight: bold;\">".$key."</span></td></tr>";
+ if ($key == "SimplexLogic") $isSimplex = true;
+ if ($key == "RepeaterLogic") $isRepeater = true;
   }
 
 
@@ -132,7 +131,6 @@ if (isset($_POST['btnSave']))
         $screen = null;
 
               
-	$svxconfig['GLOBAL']['DEFAULT_LANG'] = $_POST['inGlobalDefaultLang'];
 	$svxconfig['GLOBAL']['LOGICS'] = $_POST['inGlobalLogics'];
         $svxconfig['GLOBAL']['RF_MODULE'] = $_POST['inGlobalRf'];
         $svxconfig['GLOBAL']['CFG_DIR'] = $_POST['inGlobalCfgDir'];
@@ -205,7 +203,7 @@ if (isset($_POST['btnSave']))
         $svxconfig['LocationInfo']['LAT_POSITION'] = $_POST['inLat'];
         $svxconfig['LocationInfo']['CALLSIGN'] = $_POST['inLocInfoCallsign'];
         $svxconfig['LocationInfo']['FREQUENCY'] = $_POST['inLocInfFreq'];
-        
+
         $ini = build_ini_string($svxconfig);
 
         //file_put_contents("/var/www/html/test.ini",$ini,FILE_USE_INCLUDE_PAT);
@@ -253,7 +251,6 @@ if (isset($_POST['btnSave']))
 
 //	$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
         
-	$inGlobalDefaultLang = $svxconfig['GLOBAL']['DEFAULT_LANG'];
         $inGlobalLogics = $svxconfig['GLOBAL']['LOGICS'];
         $inGlobalRf = $svxconfig['GLOBAL']['RF_MODULE'];
 	
@@ -330,30 +327,47 @@ $conns = null;
                 <th width = "30%"></th>
                 <th width = "70%"></th>
         </tr>
-        <tr style="border: none;"> 
-        <td style="border: none;">Default Language</td>
-        <td style="border: none;"><input type="text" name="inGlobalDefaultLang" style="width:98%" value="<?php echo $inGlobalDefaultLang;?>"></td>
-        </tr>
+        
         <tr style="border: none;">
         <td style="border: none;">Logics</td>
-        <td style="border: none;"> <input type="text" name="inGlobalLogics" style="width:98%" value="<?php echo $inGlobalLogics;?>"></td>
+        <td style="border: none;"><input type="text" name="inGlobalLogics" style="width:98%" value="<?php echo $inGlobalLogics;?>"></td>
         </tr>
+        <tr style="border: none;"> 
+        <td style="border: none;">RF Module</td>
+        <td style="border: none;"><input type="text" name="inGlobalRf" style="width:98%" value="<?php echo $inGlobalDefaultLang;?>"></td>
+        </tr>
+        <tr style="border: none;"> 
+        <td style="border: none;">Config Directory</td>
+        <td style="border: none;"><input type="text" name="inGlobalCfgDir" style="width:98%" value="<?php echo $inGlobalDefaultLang;?>"></td>
+        </tr>
+        <tr style="border: none;"> 
+        <td style="border: none;">Time Format</td>
+        <td style="border: none;"><input type="text" name="inTimeFormat" style="width:98%" value="<?php echo $inGlobalDefaultLang;?>"></td>
+        </tr>
+        <tr style="border: none;"> 
+        <td style="border: none;">Card Channels</td>
+        <td style="border: none;"><input type="text" name="inCardChannels" style="width:98%" value="<?php echo $inGlobalDefaultLang;?>"></td>
+        </tr>
+        <tr style="border: none;"> 
+        <td style="border: none;">Location Info</td>
+        <td style="border: none;"><input type="text" name="inLocationInfo" style="width:98%" value="<?php echo $inGlobalDefaultLang;?>"></td>
         </tr>
         <tr style="border: none;">
-        <td style="border: none;">RF Module</td>
-        <td style="border: none;"> <input type="text" name="inGlobalRf" style="width:98%" value="<?php echo $inGlobalRf;?>"></td>
+        <td style="border: none;">Links</td>
+        <td style="border: none;"> <input type="text" name="inLinks" style="width:98%" value="<?php echo $inGlobalRf;?>"></td>
         </tr>
         </table>
 
 </TD>
+
 <td>
         <button name="btnSave" type="submit" class="red" style="height:100px; width:105px; font-size:12px;">Save <BR><Br> & <BR><BR> ReLoad</button>
 </td>
 
 </tr>
 </table>
-
-<table>
+<!-- Section for Simplex -->
+        <table>
         <tr>
         <th width = "380px">Reflector Input</th>
 	<th width = "100px">Action</th>
