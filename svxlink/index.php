@@ -414,11 +414,11 @@ $conns = null;
         </td></tr>
         <tr style="border: none;"> 
         <td style="border: none;">Reflector Server</td>
-        <td style="border: none;"><input type="text" name="inReflectorServer" style="width:98%" value="<?php echo $inReflectorServer;?>">
+        <td style="border: none;"><input type="text" name="HOST" style="width:98%" value="<?php echo $inReflectorServer;?>">
         </td></tr>
         <tr style="border: none;"> 
         <td style="border: none;">Reflector Port</td>
-        <td style="border: none;"><input type="text" name="inReflectorPort" style="width:98%" value="<?php echo $inReflectorPort;?>">
+        <td style="border: none;"><input type="text" name="HOST Port" style="width:98%" value="<?php echo $inReflectorPort;?>">
         </td></tr>
         <tr style="border: none;"> 
         <td style="border: none;">Reflector Api</td>
