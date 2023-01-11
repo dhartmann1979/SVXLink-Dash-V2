@@ -190,9 +190,6 @@ if (isset($_POST['btnSave']))
         $svxconfig['Rx1']['FQ'] = $_POST['inRxFreq'];
         $svxconfig['Rx1']['MODULATION'] = $POST['inMod'];
 	$svxconfig['Rx1']['PEAK_METER'] = $_POST['inRx1PeakMeter'];
-        $svxconfig['ReflectorLogic']['PORT'] = $_POST['inReflectorPort'];
-        $svxconfig['ReflectorLogic']['PORT'] = $_POST['inReflectorPort'];
-        $svxconfig['ReflectorLogic']['PORT'] = $_POST['inReflectorPort'];
         $svxconfig['Tx1']['TYPE'] = $_POST['inTxType'];
         $svxconfig['Tx1']['PTT_TYPE'] = $_POST['inPTTType'];
         $svxconfig['Tx1']['AUDIO_DEV'] = $_POST['inTxAudioDev'];
