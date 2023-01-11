@@ -8,12 +8,8 @@
 	<a href="/wifi.php" style="color: #0000ff;">Wifi</a> | 
 	<a href="/network.php" style="color: #0000ff;">Network</a> |
 	<a href="/svxlink.php" style="color: #0000ff;">SVXLink</a> |-->
-	<a href="/nodeInfo.php" style="color: #0000ff;">Node Info</a> 
-	<p style="color: black;">Full Edit</a> |
-	<p href="" style="color: crimson;">SVXLink</a> |
-	<p href="" style="color: crimson;">GPIO</a>|
-	<p href="" style="color: crimson;">EchoLink</a>|
-	<p href="" style="color: crimson;">MetarInfo</a>|
+	<a href="/nodeInfo.php" style="color: #0000ff;">Node Info</a> |
+	
 	 
 
 <?php 
@@ -44,4 +40,9 @@ if ($globalRf <> "No")
 	<a href="/log.php" style="color: #0000ff;">Log</a> |
 	<a href="/update.php" style="color: #0000ff;">Update</a> |
 	<a href="/power.php" style="color: #0000ff;">Power</a>
+	<p style="color: black;">Full Edit</a> |
+	<p href="" style="color: crimson;">SVXLink</a> |
+	<p href="" style="color: crimson;">GPIO</a>|
+	<p href="" style="color: crimson;">EchoLink</a>|
+	<p href="" style="color: crimson;">MetarInfo</a>|
 </p>
