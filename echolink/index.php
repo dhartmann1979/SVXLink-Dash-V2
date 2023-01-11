@@ -108,9 +108,10 @@ function build_ini_string(array $a) {
 $elConfigFile = '/etc/svxlink/svxlink.d/ModuleEchoLink.conf';
 if (fopen($elConfigFile,'r'))
       {
-
+  
         $elconfig = parse_ini_file($elConfigFile,true,INI_SCANNER_RAW);
-        };
+        print_r($elConfig);
+      };
 
 if (isset($_POST['btnSave']))
     {
