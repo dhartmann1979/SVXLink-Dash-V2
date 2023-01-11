@@ -1,28 +1,26 @@
 <?php
-
-// configuration
-$url = 'include/editor.php';
-$file = '/path/to/txt/file';
-
-// check if form has been submitted
-if (isset($_POST['text']))
+function editor($filename)
 {
-    // save the text contents
-    file_put_contents($file, $_POST['text']);
+    $url = $filename;
+    // check if form has been submitted
+    if (isset($_POST['text'])) {
+        // save the text contents
+        file_put_contents($filename, $_POST['text']);
 
-    // redirect to form again
-    header(sprintf('Location: %s', $url));
-    printf('<a href="%s">Moved</a>.', htmlspecialchars($url));
-    exit();
-}
+        // redirect to form again
+        header(sprintf('Location: %s', $url));
+        printf('<a href="%s">Moved</a>.', htmlspecialchars($url));
+        exit();
+    }
 
-// read the textfile
-$text = file_get_contents($file);
+    // read the textfile
+    $text = file_get_contents($filename);
 
-?>
-<!-- HTML form -->
+    ?>
+<HTML form 
 <form action="" method="post">
 <textarea name="text"><?php echo htmlspecialchars($text); ?></textarea>
 <input type="submit" />
 <input type="reset" />
 </form>
+<?php } ?>
