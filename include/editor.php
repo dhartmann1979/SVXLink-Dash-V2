@@ -18,6 +18,7 @@ if (isset($_POST['text']))
 
 // read the textfile
 $text = file_get_contents($file);
+print_r($file);
 
 ?>
 <!-- HTML form -->
