@@ -1,6 +1,8 @@
 <?php
 function editor($filename)
+    
 {
+    print_r($filename);
     $url = $filename;
     // check if form has been submitted
     if (isset($_POST['text'])) {
