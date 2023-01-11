@@ -2,14 +2,13 @@
 $progname = basename($_SERVER['SCRIPT_FILENAME'],".php");
 include_once 'include/config.php';
 include_once 'include/tools.php';
-
-// migrate to external class tbc
-
 $svxConfigFile = '/etc/svxlink/svxlink.conf';
     if (fopen($svxConfigFile,'r'))
        { $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
          $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
-         $fmnetwork =$svxconfig['ReflectorLogic']['FMNET'];   }
+         $fmnetwork =$svxconfig['ReflectorLogic']['FMNET'];
+         $tgUri = $svxconfig['ReflectorLogic']['TG_URI'];
+        }
 else { $callsign="N0CALL"; 
        $fmnetwork="no registered";
 	}
@@ -44,7 +43,7 @@ else { $callsign="N0CALL";
     </script>
     <link href="css/featherlight.css" type="text/css" rel="stylesheet" />
     <script src="scripts/featherlight.js" type="text/javascript" charset="utf-8"></script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="">
 </head>
 <body style="background-color: #e1e1e1;font: 11pt arial, sans-serif;">
 <center>

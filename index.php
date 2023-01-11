@@ -43,7 +43,7 @@ else { $callsign="N0CALL";
     </script>
     <link href="css/featherlight.css" type="text/css" rel="stylesheet" />
     <script src="scripts/featherlight.js" type="text/javascript" charset="utf-8"></script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="">
 
 </head>
 <body style="background-color: #e1e1e1;font: 11pt arial, sans-serif;">

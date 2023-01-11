@@ -112,11 +112,6 @@ if (fopen($elConfigFile,'r'))
         $elconfig = parse_ini_file($elConfigFile,true,INI_SCANNER_RAW);
         };
 
-
-
-
-
-
 if (isset($_POST['btnSave']))
     {
         $retval = null;
