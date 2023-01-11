@@ -138,7 +138,7 @@ if (isset($_POST['btnSave']))
         $svxconfig['GLOBAL']['CARD_CHANNELS'] = $_POST['inCardChannels'];
         $svxconfig['GLOBAL']['LOCATION_INFO'] = $_POST['inLocationInfo'];
         $svxconfig['GLOBAL']['LINKS'] = $_POST['inLinks'];
-	$svxconfig['ReflectorLogic']['PORT'] = $_POST['inReflectorPort'];
+	$svxconfig['ReflectorLogic']['HOST_PORT'] = $_POST['inReflectorPort'];
 	$svxconfig['ReflectorLogic']['API'] = $_POST['inReflectorApi'];
         $svxconfig['ReflectorLogic']['HOST'] = $_POST['inReflectorServer'];
         $svxconfig['ReflectorLogic']['DEFAULT_TG'] = $_POST['inDefaultTg'];
@@ -257,7 +257,7 @@ if (isset($_POST['btnSave']))
 	$inCallsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
 	$inReflectorServer = $svxconfig['ReflectorLogic']['HOST'];
 	$inReflectorApi = $svxconfig['ReflectorLogic']['API'];
-	$inReflectorPort = $svxconfig['ReflectorLogic']['PORT'];
+	$inReflectorPort = $svxconfig['ReflectorLogic']['HOST_PORT'];
 	$inDefaultTg = $svxconfig['ReflectorLogic']['DEFAULT_TG'];
 	$inMonitorTgs = $svxconfig['ReflectorLogic']['MONITOR_TGS'];
 	$inPassword = $svxconfig['ReflectorLogic']['AUTH_KEY'];

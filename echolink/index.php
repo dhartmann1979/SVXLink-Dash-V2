@@ -140,9 +140,7 @@ if (isset($_POST['btnSave']))
 
         $elconfig['ModuleEchoLink']['MUTE_LOGIC_LINKING'] = $_POST['inElMuteLogicLinking'];
 
-        //$elconfig['ReflectorLogic']['PORT'] = $_POST['inReflectorPort'];
-        //$elconfig['ReflectorLogic']['PORT'] = $_POST['inReflectorPort'];
-        //$elconfig['ReflectorLogic']['PORT'] = $_POST['inReflectorPort'];
+        //$elconfig['ReflectorLogic']['HOST_PORT'] = $_POST['inReflectorPort'];
         $ini = build_ini_string($elconfig);
 
         //file_put_contents("/var/www/html/test.ini",$ini,FILE_USE_INCLUDE_PAT);
