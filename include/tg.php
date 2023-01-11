@@ -6,7 +6,9 @@ include_once __DIR__.'/tgdb.php';
 $svxConfigFile = '/etc/svxlink/svxlink.conf';
     if (fopen($svxConfigFile,'r'))
        { $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);  
-         $tgUri = $svxconfig['ReflectorLogic']['TG_URI'];
+        $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
+        $fmnetwork =$svxconfig['ReflectorLogic']['FMNET'];
+        $tgUri = $svxconfig['ReflectorLogic']['TG_URI'];
 }
 
 
