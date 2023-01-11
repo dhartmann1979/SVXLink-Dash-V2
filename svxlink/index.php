@@ -393,11 +393,6 @@ $conns = null;
                 <th width = "70%"></th>
         </tr>
         <tr style="border: none;"> 
-        <td style="border: none;">Default Language</td>
-        <td style="border: none;">
-        <input type="text" name="inReflectorDefaultLang" style="width:98%" value="<?php echo $inReflectorDefaultLang;?>">
-        </td></tr>
-        <tr style="border: none;"> 
         <td style="border: none;">FM Network</td>
         <td style="border: none;"><input type="text" name="inFmNetwork" style="width:98%" value="<?php echo $inFmNetwork;?>">
         </td></tr>
