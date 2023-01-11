@@ -259,10 +259,10 @@ $conns = null;
         <td style="border: none;">Location</td>
         <td style="border: none;"><input type="text" name="inElLocation" style="width:98%" value="<?php echo $inElLocation;?>">
         </td></tr>
-        <tr style="border: none;"> 
+        <!--<tr style="border: none;"> 
         <td style="border: none;">Description</td>
         <td style="border: none;"><input type="text" name="inElDescription" style="width:98%" value="<?php echo $inElDescription;?>">
-        </td></tr>
+        </td></tr>-->
         <tr style="border: none;"> 
         <td style="border: none;">Servers</td>
         <td style="border: none;"><input type="text" name="inElServers" style="width:98%" value="<?php echo $inElServers;?>">
