@@ -24,7 +24,7 @@
         </td></tr>
         <tr style="border: none;"> 
         <td style="border: none;">Short Ident Interval </td>
-        <td style="border: none;"><input type="text" name="inSimShortIdentInterval" style="width:98%" value="<?php echo $inSimShortIdentInterval;?>">
+        <td style="border: none;"><input type="text" name="inSimShortInterval" style="width:98%" value="<?php echo $inSimShortInterval;?>">
         </td></tr>
         <tr style="border: none;"> 
         <td style="border: none;">Long Ident Interval</td>
