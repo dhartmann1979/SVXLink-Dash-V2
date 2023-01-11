@@ -22,6 +22,22 @@
         <td style="border: none;">Modules</td>
         <td style="border: none;"><input type="text" name="inSimplexModules" style="width:98%" value="<?php echo $inSimplexModules;?>">
         </td></tr>
+        <tr style="border: none;"> 
+        <td style="border: none;">Short Ident Interval </td>
+        <td style="border: none;"><input type="text" name="inSimShortIdentInterval" style="width:98%" value="<?php echo $inSimShortIdentInterval;?>">
+        </td></tr>
+        <tr style="border: none;"> 
+        <td style="border: none;">Long Ident Interval</td>
+        <td style="border: none;"><input type="text" name="inSimLongInterval" style="width:98%" value="<?php echo $inSimLongInterval;?>">
+        </td></tr>
+        <tr style="border: none;"> 
+        <td style="border: none;">Roger Sound Delay</td>
+        <td style="border: none;"><input type="text" name="inRgrDelay" style="width:98%" value="<?php echo $inRgrDelay;?>">
+        </td></tr>
+        <tr style="border: none;"> 
+        <td style="border: none;">Roger Sound</td>
+        <td style="border: none;"><input type="text" name="inRgr" style="width:98%" value="<?php echo $inRgr;?>">
+        </td></tr>
         </table>
 </td>
 <td>
