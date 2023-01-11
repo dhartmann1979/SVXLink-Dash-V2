@@ -116,7 +116,7 @@ if (fopen($nodeInfoFile,'r'))
 {
 	$filedata = file_get_contents($nodeInfoFile);
 	$nodeInfo = json_decode($filedata,true);
-	print_r($nodeInfo);
+	print_r(build_ini_string(array($nodeInfo)));
 };
 
 
@@ -159,8 +159,8 @@ if (isset($_POST['btnSave']))
     $inCallsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
 
 
-	$inLocation = $nodeInfo["Location"];$inLocator = $nodeInfo["Locator"]; $inSysOp = $nodeInfo["SysOp"];
-	$inLAT = $nodeInfo["LAT"];$inLONG = $nodeInfo["LONG"]; $inRXFREQ = $nodeInfo["RXFREQ"];
+	$inLocation = $nodeInfo["nodeLocation"];$inLocator = $nodeInfo["loc"]; $inSysOp = $nodeInfo["sysop"];
+	$inLAT = $nodeInfo["lat"];$inLONG = $nodeInfo["long"]; $inRXFREQ = $nodeInfo["freq"];
 	$inTXFREQ = $nodeInfo["TXFREQ"];$inWebsite = $nodeInfo["Website"]; $inMode = $nodeInfo["Mode"];
 	$inType = $nodeInfo["Type"];$inEcholink = $nodeInfo["Echolink"]; $innodeLocation = $nodeInfo["nodeLocation"];
 	$inSysop = $nodeInfo["Sysop"]; $inCTCSS = $nodeInfo["CTCSS"];
