@@ -64,7 +64,7 @@ textarea {
 
 <form action="/include/editor.php">
   <label for="filename">File name:</label>
-  <input type="file" id="filename" name="filename"><br><br>
+  <input type="text" id="filename" name="filename"><br><br>
   <input type="submit" value="Submit">
 </form>
 
