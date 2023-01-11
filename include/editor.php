@@ -2,7 +2,7 @@
 
 // configuration
 $url = 'http://example.com/backend/editor.php';
-$file = '/path/to/txt/file';
+$file = '/etc/svxlink/svxlink.conf';
 
 // check if form has been submitted
 if (isset($_POST['text']))
