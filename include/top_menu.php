@@ -39,10 +39,10 @@ if ($globalRf <> "No")
 ?>
 	<a href="/log.php" style="color: #0000ff;">Log</a> |
 	<a href="/update.php" style="color: #0000ff;">Update</a> |
-	<a href="/power.php" style="color: #0000ff;">Power</a>
-	<p style="color: black;">Full Edit</a> |
-	<p href="" style="color: crimson;">SVXLink</a> |
-	<p href="" style="color: crimson;">GPIO</a>|
-	<p href="" style="color: crimson;">EchoLink</a>|
-	<p href="" style="color: crimson;">MetarInfo</a>|
+	<a href="/power.php" style="color: #0000ff;">Power</a> 
+	<a style="color: black;">Full Edit</a> |
+	<a href="" style="color: crimson;">SVXLink</a> |
+	<a href="" style="color: crimson;">GPIO</a>|
+	<a href="" style="color: crimson;">EchoLink</a>|
+	<a href="" style="color: crimson;">MetarInfo</a>|
 </p>
