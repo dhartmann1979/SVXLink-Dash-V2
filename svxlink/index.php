@@ -135,7 +135,11 @@ if (isset($_POST['btnSave']))
 	$svxconfig['GLOBAL']['DEFAULT_LANG'] = $_POST['inGlobalDefaultLang'];
 	$svxconfig['GLOBAL']['LOGICS'] = $_POST['inGlobalLogics'];
         $svxconfig['GLOBAL']['RF_MODULE'] = $_POST['inGlobalRf'];
-
+        $svxconfig['GLOBAL']['CFG_DIR'] = $_POST['inGlobalCfgDir'];
+        $svxconfig['GLOBAL']['TIME_FORMAT'] = $_POST['inTimeFormat'];
+        $svxconfig['GLOBAL']['CARD_CHANNELS'] = $_POST['inCardChannels'];
+        $svxconfig['GLOBAL']['LOCATION_INFO'] = $_POST['inLocationInfo'];
+        $svxconfig['GLOBAL']['LINKS'] = $_POST['inLinks'];
 	$svxconfig['ReflectorLogic']['DEFAULT_LANG'] = $_POST['inReflectorDefaultLang'];
 	$svxconfig['ReflectorLogic']['PORT'] = $_POST['inReflectorPort'];
 	$svxconfig['ReflectorLogic']['API'] = $_POST['inReflectorApi'];
@@ -151,13 +155,27 @@ if (isset($_POST['btnSave']))
 	$svxconfig['SimplexLogic']['DEFAULT_LANG'] = $_POST['inSimplexDefaultLang'];
         $svxconfig['SimplexLogic']['CALLSIGN'] = $_POST['inSimplexCallsign'];
         $svxconfig['SimplexLogic']['MODULES'] = $_POST['inSimplexModules'];
+        $svxconfig['SimplexLogic']['SHORT_IDENT_INTERVAL'] = $_POST['inSimShortInterval'];
+        $svxconfig['SimplexLogic']['LONG_IDENT_INTERVAL'] = $_POST['inSimLongInterval'];
+        $svxconfig['SimplexLogic']['RGR_SOUND_DELAY'] = $_POST['inRgrDelay'];
+        $svxconfig['SimplexLogic']['RGR_SOUND_ALWAYS'] = $_POST['inRgr'];
         };
         if ($isRepeater) {
         $svxconfig['RepeaterLogic']['DEFAULT_LANG'] = $_POST['inRepeaterDefaultLang'];
         $svxconfig['RepeaterLogic']['CALLSIGN'] = $_POST['inRepeaterCallsign'];
-        $svxconfig['RepeaterLogic']["MODULES"] = $_POST['inRepeaterModules'];
-        };
-	$svxconfig['Macros']['0'] = $_POST['inMD0'];
+        $svxconfig['RepeaterLogic']['MODULES'] = $_POST['inRepeaterModules'];
+        $svxconfig['RepeaterLogic']['SHORT_IDENT_INTERVAL'] = $_POST['inRepShortInterval'];
+        $svxconfig['RepeaterLogic']['LONG_IDENT_INTERVAL'] = $_POST['inRepLongInterval'];
+        $svxconfig['RepeaterLogic']['IDLE_TIMEOUT'] = $_POST['inIdleTime'];
+        $svxconfig['RepeaterLogic']['OPEN_ON_1750'] = $_POST['in1750'];
+        $svxconfig['RepeaterLogic']['OPEN_ON_CTCSS'] = $_POST['inCTCSS'];
+        $svxconfig['RepeaterLogic']['OPEN_SQL_FLANK'] = $_POST['inSqlFlank'];
+        $svxconfig['RepeaterLogic']['IDLE_SOUND_INTERVAL'] = $_POST['inIdleIntervalTime'];
+        $svxconfig['RepeaterLogic']['ONLINE_CMD'] = $_POST['inOnLineCommand'];
+        $svxconfig['RepeaterLogic']['ONLINE'] = $_POST['inOnline'];
+};
+        $svxconfig['LinkToReflector']['CONNECT_LOGICS'] = $_PORT['inConnLogic'];
+        $svxconfig['Macros']['0'] = $_POST['inMD0'];
         $svxconfig['Macros']['1'] = $_POST['inMD1'];
 	$svxconfig['Macros']['2'] = $_POST['inMD2'];
 	$svxconfig['Macros']['3'] = $_POST['inMD3'];
@@ -167,11 +185,27 @@ if (isset($_POST['btnSave']))
 	$svxconfig['Macros']['7'] = $_POST['inMD7'];
 	$svxconfig['Macros']['8'] = $_POST['inMD8'];
 	$svxconfig['Macros']['9'] = $_POST['inMD9'];
-	
+        $svxconfig['Rx1']['AUDIO_DEV'] = $_PORT['inRxAudioDev'];
+        $svxconfig['Rx1']['AUDIO_CHANNEL'] = $_PORT['inAudioChan'];
+        $svxconfig['Rx1']['SQL_DET'] = $_POST['inSql_Det'];
+        $svxconfig['Rx1']['GPIO_SQL_PIN'] = $_POST['inGPIOPin'];
+        $svxconfig['Rx1']['DTMF_MUTING'] = $_POST['inDTMFMute'];
+        $svxconfig['Rx1']['FQ'] = $_POST['inRxFreq'];
+        $svxconfig['Rx1']['MODULATION'] = $POST['inMod'];
 	$svxconfig['Rx1']['PEAK_METER'] = $_POST['inRx1PeakMeter'];
         $svxconfig['ReflectorLogic']['PORT'] = $_POST['inReflectorPort'];
         $svxconfig['ReflectorLogic']['PORT'] = $_POST['inReflectorPort'];
         $svxconfig['ReflectorLogic']['PORT'] = $_POST['inReflectorPort'];
+        $svxconfig['Tx1']['TYPE'] = $_POST['inTxType'];
+        $svxconfig['Tx1']['PTT_TYPE'] = $_POST['inPTTType'];
+        $svxconfig['Tx1']['AUDIO_DEV'] = $_POST['inTxAudioDev'];
+        $svxconfig['Tx1']['PTT_PORT'] = $_POST['inPTTPort'];
+        $svxconfig['Tx1']['PTT_PIN'] = $_POST['inPTTPin'];
+        $svxconfig['LocationInfo']['LON_POSITION'] = $_POST['inLon'];
+        $svxconfig['LocationInfo']['LAT_POSITION'] = $_POST['inLat'];
+        $svxconfig['LocationInfo']['CALLSIGN'] = $_POST['inLocInfoCallsign'];
+        $svxconfig['LocationInfo']['FREQUENCY'] = $_POST['inLocInfFreq'];
+        
         $ini = build_ini_string($svxconfig);
 
         //file_put_contents("/var/www/html/test.ini",$ini,FILE_USE_INCLUDE_PAT);
