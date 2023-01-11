@@ -2,7 +2,7 @@
 
 // configuration//
 //$url = 'editor.php';
-$file = '/etc/svxlink/svxlink.conf';
+$file = '/etc/svxlink/svxlink.d/ModuleEchoLink.conf';
 
 // check if form has been submitted
 if (isset($_POST['text']))
