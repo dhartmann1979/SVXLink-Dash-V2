@@ -1,7 +1,7 @@
 <?php
 
-// configuration
-$url = 'editor.php';
+// configuration//
+//$url = 'editor.php';
 $file = '/etc/svxlink/svxlink.conf';
 
 // check if form has been submitted
