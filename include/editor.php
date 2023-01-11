@@ -18,7 +18,6 @@ if (isset($_POST['text']))
 
 // read the textfile
 $text = file_get_contents($file);
-print_r($file);
 
 ?>
 <!-- HTML form -->
@@ -27,3 +26,7 @@ print_r($file);
 <input type="submit" />
 <input type="reset" />
 </form>
+<?php
+$fi = fopen($file, 'r');
+print_r($fi);
+?>
