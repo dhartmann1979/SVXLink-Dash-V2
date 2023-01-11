@@ -123,7 +123,7 @@ if (isset($_POST['btnSave']))
         $screen = null;
 
         
-	$elconfig['ModuleEchoLink']['DEFAULT_LANG'] = $_POST['inElDefaultLang'];
+      	$elconfig['ModuleEchoLink']['DEFAULT_LANG'] = $_POST['inElDefaultLang'];
         $elconfig['ModuleEchoLink']['CALLSIGN'] = $_POST['inElCallsign'];
         $elconfig['ModuleEchoLink']['PASSWORD'] = $_POST['inElPassword'];
         $elconfig['ModuleEchoLink']['SYSOPNAME'] = $_POST['inElSysOpName'];
@@ -188,12 +188,12 @@ if (isset($_POST['btnSave']))
 
 //	$elconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
         
-	$inElDefaultLang = $elconfig['ModuleEchoLink']['DEFAULT_LANG'];
+	      $inElDefaultLang = $elconfig['ModuleEchoLink']['DEFAULT_LANG'];
         $inElCallsign = $elconfig['ModuleEchoLink']['CALLSIGN'];
         $inElPassword = $elconfig['ModuleEchoLink']['PASSWORD'];
         $inElSysOpName = $elconfig['ModuleEchoLink']['SYSOPNAME'];
         $inElLocation = $elconfig['ModuleEchoLink']['LOCATION'];
-        $inElDescription = $elconfig['ModuleEchoLink']['DESCRIPTION'];
+        //$inElDescription = $elconfig['ModuleEchoLink']['DESCRIPTION'];
 
         $inElServers = $elconfig['ModuleEchoLink']['SERVERS'];
         $inElProxyServer =  $elconfig['ModuleEchoLink']['PROXY_SERVER'];
