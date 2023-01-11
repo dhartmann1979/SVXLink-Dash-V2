@@ -334,27 +334,27 @@ $conns = null;
         </tr>
         <tr style="border: none;"> 
         <td style="border: none;">RF Module</td>
-        <td style="border: none;"><input type="text" name="inGlobalRf" style="width:98%" value="<?php echo $inGlobalDefaultLang;?>"></td>
+        <td style="border: none;"><input type="text" name="inGlobalRf" style="width:98%" value="<?php echo $inGlobalRf;?>"></td>
         </tr>
         <tr style="border: none;"> 
         <td style="border: none;">Config Directory</td>
-        <td style="border: none;"><input type="text" name="inGlobalCfgDir" style="width:98%" value="<?php echo $inGlobalDefaultLang;?>"></td>
+        <td style="border: none;"><input type="text" name="inGlobalCfgDir" style="width:98%" value="<?php echo $inGlobalCfgDir;?>"></td>
         </tr>
         <tr style="border: none;"> 
         <td style="border: none;">Time Format</td>
-        <td style="border: none;"><input type="text" name="inTimeFormat" style="width:98%" value="<?php echo $inGlobalDefaultLang;?>"></td>
+        <td style="border: none;"><input type="text" name="inTimeFormat" style="width:98%" value="<?php echo $inTimeFormat;?>"></td>
         </tr>
         <tr style="border: none;"> 
         <td style="border: none;">Card Channels</td>
-        <td style="border: none;"><input type="text" name="inCardChannels" style="width:98%" value="<?php echo $inGlobalDefaultLang;?>"></td>
+        <td style="border: none;"><input type="text" name="inCardChannels" style="width:98%" value="<?php echo $inCardChannels;?>"></td>
         </tr>
         <tr style="border: none;"> 
         <td style="border: none;">Location Info</td>
-        <td style="border: none;"><input type="text" name="inLocationInfo" style="width:98%" value="<?php echo $inGlobalDefaultLang;?>"></td>
+        <td style="border: none;"><input type="text" name="inLocationInfo" style="width:98%" value="<?php echo $inLocationInfo;?>"></td>
         </tr>
         <tr style="border: none;">
         <td style="border: none;">Links</td>
-        <td style="border: none;"> <input type="text" name="inLinks" style="width:98%" value="<?php echo $inGlobalRf;?>"></td>
+        <td style="border: none;"> <input type="text" name="inLinks" style="width:98%" value="<?php echo $inLinks;?>"></td>
         </tr>
         </table>
 
