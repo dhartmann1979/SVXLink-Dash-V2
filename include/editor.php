@@ -1,7 +1,7 @@
 <?php
 
 // configuration
-$url = __DIR__.'/include/                                                 editor.php';
+$url = 'include/editor.php';
 $file = '/path/to/txt/file';
 
 // check if form has been submitted
