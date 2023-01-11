@@ -1,7 +1,7 @@
 <?php
 $progname = basename($_SERVER['SCRIPT_FILENAME'],".php");
-include_once 'include/config.php';
-include_once 'include/tools.php';
+include_once __DIR__.'/include/                                                 config.php';
+include_once __DIR__.'/include/                                                 tools.php';
 
 // migrate to external class tbc
 
@@ -87,7 +87,7 @@ include_once __DIR__."/include/buttons.php";
     echo '$(window).trigger(\'resize\');'."\n";
     echo '</script>'."\n";
     echo '<div id="statusInfo" style="margin-bottom:30px;">'."\n";
-    include 'include/status.php';
+    include __DIR__.'/include/                                                 status.php';
     echo '</div>'."\n";
     echo '</div>'."\n";
     echo '</td>'."\n";
@@ -107,7 +107,7 @@ include_once __DIR__."/include/buttons.php";
     echo '$(window).trigger(\'resize\');'."\n";
     echo '</script>'."\n";
     echo '<div id="sysInfo">'."\n";
-    include 'include/system.php';
+    include __DIR__.'/include/                                                 system.php';
     echo '</div>'."\n";
     echo '</div>'."\n";
 ?>
