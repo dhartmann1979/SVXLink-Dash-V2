@@ -208,12 +208,12 @@ if (isset($_POST['btnSave']))
 	$retval = null;
         $screen = null;
 	//archive the current config
-	shell_exec('sudo cp /etc/svxlink/svxlink.conf /etc/svxlink/svxlink.conf.' .date("YmdThis") ,$screen,$retval);
+	exec('sudo cp /etc/svxlink/svxlink.conf /etc/svxlink/svxlink.conf.' .date("YmdThis") ,$screen,$retval);
 	//move generated file to current config
-	shell_exec('sudo mv /var/www/html/svxlink/svxlink.conf /etc/svxlink/svxlink.conf', $screen, $retval);
+	exec('sudo mv /var/www/html/svxlink/svxlink.conf /etc/svxlink/svxlink.conf', $screen, $retval);
 //	exec('sudo cp /etc/svxlink/svxlink.conf /etc/svxlink/svxlink.d/SomeLogic.conf', $screen, $retval);
         //Service SVXlink restart
-        shell_exec('sudo service svxlink restart 2>&1',$screen,$retval);
+        exec('sudo service svxlink restart 2>&1',$screen,$retval);
 
 
 
