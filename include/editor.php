@@ -28,5 +28,7 @@ $text = file_get_contents($file);
 </form>
 <?php
 $fi = fopen($file, 'r');
-print_r($fi,true);
+explode("\n", fread($fi, filesize($fi)));
+print_r($fi, true);
+
 ?>
