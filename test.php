@@ -64,13 +64,10 @@ textarea {
 <html>
 <body>
 
-<form method="post" action="
-">
+<form method="post" action="">
   Name: <input type="text" name="fname">
   <input type="submit">
-</form>
-
-<?php
+  <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // collect value of input field
   $filename = $_POST['fname'];
@@ -81,6 +78,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 }
 ?>
+</form>
+
+
 <!--
 </body>
 </html>
