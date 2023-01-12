@@ -66,7 +66,6 @@ textarea {
 
 
 <?php 
-//https://programmierfrage.com/items/convert-array-to-an-ini-file
 function build_ini_string(array $a) {
     $out = '';
     $sectionless = '';
@@ -117,7 +116,7 @@ if (fopen($nodeInfoFile,'r'))
 	$filedata = file_get_contents($nodeInfoFile);
     print_r($filedata);
 	$nodeInfo = json_decode($filedata,true);
-    print_r($nodeInfo);
+    //print_r($nodeInfo);
 	//build_ini_string(array($nodeInfo));
      //   print_r($sectionless . $out);
         
