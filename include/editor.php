@@ -7,8 +7,9 @@ $url = '/edit/';
 // check if form has been submitted
 //$filename = "/etc/svxlink/gpio.conf";
 $filename = $_POST['fname'];
+$fileroot = $_POST['froot'];
 {
-    exec("cd " . $_POST['froot']);
+    exec("cd " . $fileroot);
     // save the text contents
     file_put_contents($filename, $_POST['text']);
 
