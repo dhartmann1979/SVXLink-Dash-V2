@@ -21,16 +21,16 @@ if($if="metarinfo"){
 // check if form has been submitted
 //$filename = by choice;
 
-$destination = $file;
+$url = $_SERVER["PHP_SELF"];
+if (isset($_POST['text']))
 {
     // save the text contents
     file_put_contents($file, $_POST['text']);
 
     // redirect to form again
-    //header(sprintf('Location: %s', $url));
-   printf() 
- //   printf(''<a href="%s">Moved</a>.'', ($destination));
-    //exit();
+    header(sprintf('Location: %s', $url));
+    printf('<a href="%s">Moved</a>.', htmlspecialchars($url));
+    exit();
 }
 
 // read the textfile
@@ -39,7 +39,7 @@ $text = file_get_contents($file);
 ?>
 <!-- HTML form -->
 <form action="" method="post">
-<textarea name="text"><?php echo ($text); ?></textarea>
+<textarea name="text"><?php echo htmlspecialchars($text); ?></textarea>
 <input type="submit" />
 <input type="reset" />
 </form>
