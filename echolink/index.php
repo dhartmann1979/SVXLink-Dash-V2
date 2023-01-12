@@ -110,7 +110,7 @@ if (fopen($elConfigFile,'r'))
       {
           $elconfig = parse_ini_file($elConfigFile,true,INI_SCANNER_RAW);
       };
-
+$paragraph_key = explode("=",$elconfig['ModuleEchoLink']);
 if (isset($_POST['btnSave']))
     {
         $retval = null;
