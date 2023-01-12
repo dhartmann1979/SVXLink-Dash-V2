@@ -64,7 +64,8 @@ textarea {
 <html>
 <body>
 
-<form method="post" action="/include/editor.php">
+<form method="post" action="
+">
   Name: <input type="text" name="fname">
   <input type="submit">
 </form>
