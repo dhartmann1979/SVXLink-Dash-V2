@@ -124,7 +124,6 @@ if (isset($_POST['btnSave']))
         $elconfig['ModuleEchoLink']['LOCATION'] = $_POST['inElLocation'];
         
         $elconfig['ModuleEchoLink']['SERVERS'] = $_POST['inElServers'];
-       // $elconfig['ModuleEchoLink']['SERVERS'] = $_POST['inElServers'];
         $elconfig['ModuleEchoLink']['PROXY_SERVER'] = $_POST['inElProxyServer'];
         $elconfig['ModuleEchoLink']['PROXY_PORT'] = $_POST['inElProxyPort'];
         $elconfig['ModuleEchoLink']['PROXY_PASSWORD'] = $_POST['inElProxyPassword'];
@@ -134,7 +133,6 @@ if (isset($_POST['btnSave']))
 
         $elconfig['ModuleEchoLink']['MUTE_LOGIC_LINKING'] = $_POST['inElMuteLogicLinking'];
 
-        //$elconfig['ReflectorLogic']['HOST_PORT'] = $_POST['inReflectorPort'];
         $ini = build_ini_string($elconfig);
 
         //file_put_contents("/var/www/html/test.ini",$ini,FILE_USE_INCLUDE_PAT);
@@ -187,13 +185,10 @@ if (isset($_POST['btnSave']))
         $inElPassword = $elconfig['ModuleEchoLink']['PASSWORD'];
         $inElSysOpName = $elconfig['ModuleEchoLink']['SYSOPNAME'];
         $inElLocation = $elconfig['ModuleEchoLink']['LOCATION'];
-        //$inElDescription = $elconfig['ModuleEchoLink']['DESCRIPTION'];
-
         $inElServers = $elconfig['ModuleEchoLink']['SERVERS'];
         $inElProxyServer =  $elconfig['ModuleEchoLink']['PROXY_SERVER'];
         $inElProxyPort = $elconfig['ModuleEchoLink']['PROXY_PORT'];
         $inElProxyPassword = $elconfig['ModuleEchoLink']['PROXY_PASSWORD'];
-
         $inElMuteLogicLinking = $elconfig['ModuleEchoLink']['MUTE_LOGIC_LINKING'];
 
 //}
