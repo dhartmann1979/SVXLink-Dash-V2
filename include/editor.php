@@ -1,7 +1,7 @@
 <?php
 
 // configuration//
-$url = '$filename';
+$url = '/edit';
 
 
 // check if form has been submitted
