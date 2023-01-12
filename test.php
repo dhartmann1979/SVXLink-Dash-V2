@@ -94,15 +94,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </body>
 </html>
-<form action="/include/editor.php">
-  <label for="filename">File name:</label>
-  <input type="text" id="filename" name="filename"><br><br>
+<form action="">
+  <label for="file">File name:</label>
+  <input type="text" id="file" name="file"><br><br>
   <?php 
-$filename = "filename";
-if (fopen($filename,'r'))
+$file = "filename";
+if (fopen($file,'r'))
       {
   
-        $config = parse_ini_file($filename,true,INI_SCANNER_RAW);
+        $config = parse_ini_file($file,true,INI_SCANNER_RAW);
         print_r($config);
       };
 
