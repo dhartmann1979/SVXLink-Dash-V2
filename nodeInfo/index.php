@@ -118,9 +118,7 @@ if (fopen($nodeInfoFile,'r'))
 	$nodeInfo = json_decode($filedata,true);
     //print_r($nodeInfo);
 	build_ini_string(array($nodeInfo));
-        print_r($sectionless . $out);
-        
-   
+//        print_r($sectionless . $out);
 };
 
 
@@ -135,11 +133,23 @@ if (fopen($nodeInfoFile,'r'))
 
 if (isset($_POST['btnSave']))
     {
-	$nodeInfo["Location"] = $_POST['inLocation']; $nodeInfo["Locator"] = $_POST['inLocator'];$nodeInfo["SysOp"] = $_POST['inSysOp'];
-	$nodeInfo["LAT"] = $_POST['inLAT']; $nodeInfo["LONG"] = $_POST['inLONG'];$nodeInfo["RXFREQ"] = $_POST['inRXFREQ'];
-	$nodeInfo["TXFREQ"] = $_POST['inTXFREQ']; $nodeInfo["Website"] = $_POST['inWebsite'];$nodeInfo["Mode"] = $_POST['inMode'];
-	$nodeInfo["Type"] = $_POST['inType']; $nodeInfo["Echolink"] = $_POST['inEcholink'];$nodeInfo["nodeLocation"] = $_POST['innodeLocation'];
-	$nodeInfo["Sysop"] = $_POST['inSysop']; $nodeInfo["Compound"] = $_POST['inCompound'];$nodeInfo["CTCSS"] = $_POST['inCTCSS'];
+        $retval = null;
+        $screen = null;
+	
+    $nodeInfo["Location"] = $_POST['inLocation']; 
+    $nodeInfo["Locator"] = $_POST['inLocator'];
+    $nodeInfo["SysOp"] = $_POST['inSysOp'];
+	$nodeInfo["LAT"] = $_POST['inLAT']; 
+    $nodeInfo["LONG"] = $_POST['inLONG'];
+    $nodeInfo["RXFREQ"] = $_POST['inRXFREQ'];
+	$nodeInfo["TXFREQ"] = $_POST['inTXFREQ']; 
+    $nodeInfo["Website"] = $_POST['inWebsite'];
+    $nodeInfo["Mode"] = $_POST['inMode'];
+	$nodeInfo["Type"] = $_POST['inType']; 
+    $nodeInfo["Echolink"] = $_POST['inEcholink'];
+    $nodeInfo["nodeLocation"] = $_POST['innodeLocation'];
+	$nodeInfo["Compound"] = $_POST['inCompound'];
+    $nodeInfo["CTCSS"] = $_POST['inCTCSS'];
 	$nodeInfo["LinkedTo"] = $_POST['inLinkedTo'];
 
 	$jsonNodeInfo = json_encode($nodeInfo);
@@ -151,11 +161,11 @@ if (isset($_POST['btnSave']))
 
 	///file manipulation section
 		//archive the current config
-		exec('sudo cp /etc/svxlink/node_info.json /etc/svxlink/node_info.json.' .date("YmdThis") ,$screen,$retval);
+		exec('sudo cp /etc/svxlink/node_info.json /etc/svxlink/node_info.json.' .date("YmdThis"), $screen, $retval);
 		//move generated file to current config
 		exec('sudo mv /var/www/html/nodeInfo/node_info.json /etc/svxlink/node_info.json', $screen, $retval);
         	//Service SVXlink restart
-       		exec('sudo service svxlink restart 2>&1',$screen,$retval);
+       	exec('sudo service svxlink restart 2>&1',$screen,$retval);
 
 };
 
