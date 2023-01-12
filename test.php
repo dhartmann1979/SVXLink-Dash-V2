@@ -71,12 +71,12 @@ textarea {
 <p>Click the "Submit" button and the form-data will be sent to a page on the 
 server called "editor.php".</p>
 <?php 
-$elConfigFile = '/etc/svxlink/svxlink.d/ModuleEchoLink.conf';
-if (fopen($elConfigFile,'r'))
+$filename = "filename";
+if (fopen($filename,'r'))
       {
   
-        $elconfig = parse_ini_file($elConfigFile,true,INI_SCANNER_RAW);
-        print_r($elConfig);
+        $config = parse_ini_file($filename,true,INI_SCANNER_RAW);
+        print_r($config);
       };
 
 //include(__DIR__."/include/editor.php");
