@@ -71,7 +71,7 @@ textarea {
 <!--  <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // collect value of input field
-  $filename = $_POST['fname'];
+  $filename = $_POST['froot']."/".$_POST['fname'];
   if (empty($filename)) {
     echo "Name is empty";
   } else {
