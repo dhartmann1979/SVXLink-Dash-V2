@@ -5,8 +5,8 @@
 
 
 // check if form has been submitted
-$filename = "/etc/svxlink/gpio.conf";
-//$filename = $_POST['fname'];
+//$filename = "/etc/svxlink/gpio.conf";
+$filename = $_POST['fname'];
 {
     // save the text contents
     file_put_contents($filename, $_POST['text']);
