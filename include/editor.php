@@ -9,7 +9,7 @@ $filename = "/etc/svxlink/gpio.conf";
 //$filename = $_POST['fname'];
 {
     // save the text contents
-    file_put_contents($file, $_POST['text']);
+    file_put_contents($filename, $_POST['text']);
 
     // redirect to form again
     //header(sprintf('Location: %s', $url));
