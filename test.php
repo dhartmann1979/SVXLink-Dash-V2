@@ -91,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </body>
 </html>
-<form method="post" action="">
+<form method="post" action="include/editor.php">
   File Root : <input type="text" name="froot">
   File Name : <input type="text" name2="fname">
   <input type="submit">
