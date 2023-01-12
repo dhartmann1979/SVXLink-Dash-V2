@@ -41,7 +41,7 @@ if ($globalRf <> "No")
 	<a href="/update.php" style="color: #0000ff;">Update</a> |
 	<a href="/power.php" style="color: #0000ff;">Power</a> 
 	<p style="padding-right: 5px; text-align: right; color: #000000;" <a style="color: black;">Full Edit</a> |
-	<a href="" style="color: crimson;">SVXLink</a> |
+	<a href="" style="color: crimson;">SVXLink </a> |
 	<a href="" style="color: crimson;">GPIO</a>|
 	<a href="" style="color: crimson;">EchoLink</a>|
 	<a href="" style="color: crimson;">MetarInfo</a></p>

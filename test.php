@@ -68,6 +68,15 @@ textarea {
   File Root : <input type="text" name="froot">
   File Name : <input type="text" name2="fname">
   <input type="submit">
+<?php
+  // match all files that have either .html or .php extension
+$file_matcher = realpath(dirname(__FILE__)) . '/etc/svxlink/*.{conf}';
+
+foreach( glob($file_matcher, GLOB_BRACE) as $file ) {
+  $file_name = basename($file);
+  $select .= "<option value='$file'>$file_name</option>\n";
+}
+?>
 <!--  <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // collect value of input field

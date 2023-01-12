@@ -10,7 +10,7 @@ $filename = $_POST['fname'];
 $fileroot = $_POST['froot'];
 $url = '/edit/'.$filename;
 {
-    exec("cd " . $fileroot);
+    shell_exec("cd " . $fileroot);
     // save the text contents
     file_put_contents($filename, $_POST['text']);
 
