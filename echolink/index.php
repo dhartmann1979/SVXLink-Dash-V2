@@ -61,7 +61,7 @@ textarea {
 <fieldset style="border:#3083b8 2px groove;box-shadow:0 0 10px #999; background-color:#f1f1f1; width:555px;margin-top:15px;margin-left:0px;margin-right:5px;font-size:13px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
 <div style="padding:0px;width:550px;background-image: linear-gradient(to bottom, #e9e9e9 50%, #bcbaba 100%);border-radius: 10px;-moz-border-radius:10px;-webkit-border-radius:10px;border: 1px solid LightGrey;margin-left:0px; margin-right:0px;margin-top:4px;margin-bottom:0px;line-height:1.6;white-space:normal;">
 <center>
-<h1 id="web-audio-peak-meters" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">EchoLink Configurator</h1>
+<h1 id="echolink" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">EchoLink Configurator</h1>
 
 
 <?php 
@@ -108,9 +108,7 @@ function build_ini_string(array $a) {
 $elConfigFile = '/etc/svxlink/svxlink.d/ModuleEchoLink.conf';
 if (fopen($elConfigFile,'r'))
       {
-  
-        $elconfig = parse_ini_file($elConfigFile,true,INI_SCANNER_RAW);
-        print_r($elConfig);
+          $elconfig = parse_ini_file($elConfigFile,true,INI_SCANNER_RAW);
       };
 
 if (isset($_POST['btnSave']))
@@ -144,15 +142,15 @@ if (isset($_POST['btnSave']))
 
 	///file manipulation section
 
-	$retval = null;
+      	$retval = null;
         $screen = null;
 	//archive the current config
 	exec('sudo cp /etc/svxlink/svxlink.d/ModuleEchoLink.conf /etc/svxlink/svxlink.d/ModuleEchoLink.conf.' .date("YmdThis") ,$screen,$retval);
 	//move generated file to current config
 	exec('sudo mv /var/www/html/echolink/ModuleEchoLink.conf /etc/svxlink/svxlink.d/ModuleEchoLink.conf', $screen, $retval);
 
-        //Service SVXlink restart
-        exec('sudo service svxlink restart 2>&1',$screen,$retval);
+  //Service SVXlink restart
+  exec('sudo service svxlink restart 2>&1',$screen,$retval);
 
 
 

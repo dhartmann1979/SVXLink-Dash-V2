@@ -28,8 +28,8 @@ $destination = $file;
 
     // redirect to form again
     //header(sprintf('Location: %s', $url));
-    
-    printf('<a href="%s">Moved</a>.', htmlspecialchars($url));
+   printf() 
+ //   printf(''<a href="%s">Moved</a>.'', ($destination));
     //exit();
 }
 
@@ -39,7 +39,7 @@ $text = file_get_contents($file);
 ?>
 <!-- HTML form -->
 <form action="" method="post">
-<textarea name="text"><?php echo htmlspecialchars($text); ?></textarea>
+<textarea name="text"><?php echo ($text); ?></textarea>
 <input type="submit" />
 <input type="reset" />
 </form>
