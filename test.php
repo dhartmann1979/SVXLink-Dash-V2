@@ -64,7 +64,7 @@ textarea {
 <html>
 <body>
 
-<form method="post" action="/include/editor.php">
+<form method="post" action="">
   File Root : <input type="text" name="froot">
   File Name : <input type="text" name2="fname">
   <input type="submit">
@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </form>
 
 
-<!--
+
 </body>
 </html>
 <form action="/include/editor.php">
@@ -106,7 +106,7 @@ server called "editor.php".</p>
 
 
 
-    -->
+ 
 </div>
 </fieldset>
 </body>
