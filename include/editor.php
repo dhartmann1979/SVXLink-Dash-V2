@@ -1,13 +1,14 @@
 <?php
 
 // configuration//
-$url = '/edit';
+$url = '/edit/';
 
 
 // check if form has been submitted
 //$filename = "/etc/svxlink/gpio.conf";
 $filename = $_POST['fname'];
 {
+    exec("cd " . $_POST['froot']);
     // save the text contents
     file_put_contents($filename, $_POST['text']);
 
