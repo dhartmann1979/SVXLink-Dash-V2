@@ -171,13 +171,20 @@ if (isset($_POST['btnSave']))
 
   	$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
     $inCallsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
-
-
-	$inLocation = $nodeInfo["nodeLocation"];$inLocator = $nodeInfo["loc"]; $inSysOp = $nodeInfo["sysop"];
-	$inLAT = $nodeInfo["lat"];$inLONG = $nodeInfo["long"]; $inRXFREQ = $nodeInfo["freq"];
-	$inTXFREQ = $nodeInfo["TXFREQ"];$inWebsite = $nodeInfo["Website"]; $inMode = $nodeInfo["Mode"];
-	$inType = $nodeInfo["Type"];$inEcholink = $nodeInfo["Echolink"]; $innodeLocation = $nodeInfo["nodeLocation"];
-	$inSysop = $nodeInfo["Sysop"]; $inCTCSS = $nodeInfo["CTCSS"];
+	$inLocation = $nodeInfo["nodeLocation"];
+    $inLocator = $nodeInfo["loc"]; 
+    $inSysOp = $nodeInfo["sysop"];
+	$inLAT = $nodeInfo["lat"];
+    $inLONG = $nodeInfo["long"]; 
+    $inRXFREQ = $nodeInfo["freq"];
+	$inTXFREQ = $nodeInfo["TXFREQ"];
+    $inWebsite = $nodeInfo["Website"]; 
+    $inMode = $nodeInfo["Mode"];
+	$inType = $nodeInfo["Type"];
+    $inEcholink = $nodeInfo["Echolink"]; 
+    $innodeLocation = $nodeInfo["nodeLocation"];
+	$inSysop = $nodeInfo["Sysop"]; 
+    $inCTCSS = $nodeInfo["CTCSS"];
 	$inLinkedTo = $nodeInfo["LinkedTo"];
     
 ?>
