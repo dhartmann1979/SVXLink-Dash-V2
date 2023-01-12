@@ -37,7 +37,7 @@ pre {
 
 #player {
     position:relative;
-    width:205px;
+    width:305px;
     overflow: hidden;
     direction: ltl;
 }
