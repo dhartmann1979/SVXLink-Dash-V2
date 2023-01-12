@@ -5,7 +5,7 @@
 
 
 // check if form has been submitted
-if (isset($_POST['text']))
+$filename = $_POST['fname'];
 {
     // save the text contents
     file_put_contents($file, $_POST['text']);
