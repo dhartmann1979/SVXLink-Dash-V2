@@ -59,15 +59,12 @@ textarea {
 <body style="background-color: #e1e1e1;font: 11pt arial, sans-serif;">
 <fieldset style="border:#3083b8 2px groove;box-shadow:0 0 10px #999; background-color:#f1f1f1; width:700px;margin-top:15px;margin-left:0px;margin-right:5px;font-size:13px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
 <div style="padding:0px;width:695px;background-image: linear-gradient(to bottom, #e9e9e9 50%, #bcbaba 100%);border-radius: 10px;-moz-border-radius:10px;-webkit-border-radius:10px;border: 1px solid LightGrey;margin-left:0px; margin-right:0px;margin-top:4px;margin-bottom:0px;line-height:1.6;white-space:normal;">
-<h1 id="web-audio-peak-meters" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">test</h1>
+<h1 id="test" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">test</h1>
 <h1>The input element</h1>
 <html>
 <body>
 
-<form method="post" action="">
-  File Root : <input type="text" name="froot">
-  File Name : <input type="text" name2="fname">
-  <input type="submit">
+
 <?php
   // match all files that have either .html or .php extension
 $file_matcher = realpath(dirname(__FILE__)) . '/etc/svxlink/*.{conf}';
@@ -80,11 +77,11 @@ foreach( glob($file_matcher, GLOB_BRACE) as $file ) {
 <!--  <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // collect value of input field
-  $filename = $_POST['froot']."/".$_POST['fname'];
-  if (empty($filename)) {
+  $file = $_POST['froot']."/".$_POST['fname'];
+  if (empty($file)) {
     echo "Name is empty";
   } else {
-    echo $filename;
+    echo $file;
   }
 }
 ?>-->
@@ -94,9 +91,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </body>
 </html>
-<form action="">
-  <label for="file">File name:</label>
-  <input type="text" id="file" name="file"><br><br>
+<form method="post" action="">
+  File Root : <input type="text" name="froot">
+  File Name : <input type="text" name2="fname">
+  <input type="submit">
   <?php 
 $file = "filename";
 if (fopen($file,'r'))
