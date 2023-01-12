@@ -175,10 +175,10 @@ if (isset($_POST['btnSave']))
 
 
 
-//if (fopen($svxConfigFile,'r'))
+//if (fopen($elConfigFile,'r'))
   //    { 
 
-//	$elconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
+//	$elconfig = parse_ini_file($elConfigFile,true,INI_SCANNER_RAW);
         
 	      $inElDefaultLang = $elconfig['ModuleEchoLink']['DEFAULT_LANG'];
         $inElCallsign = $elconfig['ModuleEchoLink']['CALLSIGN'];
