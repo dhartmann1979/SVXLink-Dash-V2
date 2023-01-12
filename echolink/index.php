@@ -238,7 +238,7 @@ $conns = null;
         </td></tr>
         <tr style="border: none;"> 
         <td style="border: none;">Password</td>
-        <td style="border: none;"><input type="password" name="inElPassword" style="width:98%" value="<?php echo $inElPassword;?>">
+        <td style="border: none;"><input type="text" name="inElPassword" style="width:98%" value="<?php echo $inElPassword;?>">
         </td></tr>
         <tr style="border: none;"> 
         <td style="border: none;">SysOp Name</td>
@@ -266,7 +266,7 @@ $conns = null;
         </td></tr>
         <tr style="border: none;"> 
         <td style="border: none;">Proxy Password</td>
-        <td style="border: none;"><input type="password" name="inElProxyPassword" style="width:98%" value="<?php echo $inElProxyPassword;?>">
+        <td style="border: none;"><input type="text" name="inElProxyPassword" style="width:98%" value="<?php echo $inElProxyPassword;?>">
         </td></tr>
         <tr style="border: none;"> 
         <td style="border: none;">Mute Logic Linking</td>
