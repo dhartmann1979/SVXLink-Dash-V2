@@ -2,7 +2,7 @@
 
 // configuration//
 //$url = 'editor.php';
-$file = '/etc/svxlink/svxlink.d/ModuleEchoLink.conf';
+
 
 // check if form has been submitted
 if (isset($_POST['text']))
@@ -17,7 +17,7 @@ if (isset($_POST['text']))
 }
 
 // read the textfile
-$text = file_get_contents($file);
+$text = file_get_contents($filename);
 
 ?>
 <!-- HTML form -->
