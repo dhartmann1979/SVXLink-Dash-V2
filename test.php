@@ -66,11 +66,7 @@ textarea {
   <label for="filename">File name:</label>
   <input type="text" id="filename" name="filename"><br><br>
   <input type="submit" value="Submit">
-</form>
-
-<p>Click the "Submit" button and the form-data will be sent to a page on the 
-server called "editor.php".</p>
-<?php 
+  <?php 
 $filename = "filename";
 if (fopen($filename,'r'))
       {
@@ -81,6 +77,11 @@ if (fopen($filename,'r'))
 
 //include(__DIR__."/include/editor.php");
 ?>
+</form>
+
+<p>Click the "Submit" button and the form-data will be sent to a page on the 
+server called "editor.php".</p>
+
 
 
 
