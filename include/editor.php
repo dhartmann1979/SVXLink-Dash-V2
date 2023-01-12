@@ -1,17 +1,28 @@
 <?php
 
 // configuration//
-if 
-
-
-
+$id = $_POST['id'];
+if($id="svxlink") {
+    shell_exec("cd /etc/svxlink/");
+    $file = "svxlink.conf";
+}
+if($id="gpio") {
+    shell_exec("cd /etc/svxlink/");
+    $file = "gpio.conf";
+}
+if($id="echolink"){
+    shell_exec("cd /etc/svxlink/svxlink.d/");
+    $file = "ModuleEchoLink.conf";
+}
+if($if="metarinfo"){
+    shell_exec("cd /etc/svxlink/svxlink.d");
+    $file = "ModuleMetarInfo.conf";
+}
 // check if form has been submitted
-//$filename = "/etc/svxlink/gpio.conf";
-$file = $_POST['fname'];
-$fileroot = $_POST['froot'];
+//$filename = by choice;
+
 $url = '/edit/'.$file;
 {
-    shell_exec("cd " . $fileroot);
     // save the text contents
     file_put_contents($file, $_POST['text']);
 
