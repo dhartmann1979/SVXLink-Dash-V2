@@ -12,8 +12,8 @@ $filename = $_POST['fname'];
     file_put_contents($filename, $_POST['text']);
 
     // redirect to form again
-    //header(sprintf('Location: %s', $url));
-    //printf('<a href="%s">Moved</a>.', htmlspecialchars($url));
+    header(sprintf('Location: %s', $url));
+    printf('<a href="%s">Moved</a>.', htmlspecialchars($url));
     //exit();
 }
 
@@ -28,7 +28,7 @@ $text = file_get_contents($filename);
 <input type="reset" />
 </form>
 <?php
-$fi = fopen($file, 'r');
+$fi = fopen($filename, 'r');
 explode("\n", fread($fi, filesize($fi)));
 print_r($fi, true);
 
