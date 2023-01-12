@@ -61,11 +61,31 @@ textarea {
 <div style="padding:0px;width:550px;background-image: linear-gradient(to bottom, #e9e9e9 50%, #bcbaba 100%);border-radius: 10px;-moz-border-radius:10px;-webkit-border-radius:10px;border: 1px solid LightGrey;margin-left:0px; margin-right:0px;margin-top:4px;margin-bottom:0px;line-height:1.6;white-space:normal;">
 <h1 id="web-audio-peak-meters" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">test</h1>
 <h1>The input element</h1>
+<html>
+<body>
 
+<form method="post" action="/include/editor.php">
+  Name: <input type="text" name="fname">
+  <input type="submit">
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  // collect value of input field
+  $filename = $_POST['fname'];
+  if (empty($name)) {
+    echo "Name is empty";
+  } else {
+    echo $name;
+  }
+}
+?>
+<!--
+</body>
+</html>
 <form action="/include/editor.php">
   <label for="filename">File name:</label>
   <input type="text" id="filename" name="filename"><br><br>
-  <input type="submit" value="Submit">
   <?php 
 $filename = "filename";
 if (fopen($filename,'r'))
@@ -84,7 +104,7 @@ server called "editor.php".</p>
 
 
 
-
+    -->
 </div>
 </fieldset>
 </body>
