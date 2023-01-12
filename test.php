@@ -65,7 +65,7 @@ textarea {
 <body>
 
 <form method="post" action="/include/editor.php">
-  Name: <input type="text" name="froot" name="fname">
+  Name: <input type="text" name="froot"><input type="text"name="fname">
   <input type="submit">
 <!--  <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
