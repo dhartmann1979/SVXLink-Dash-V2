@@ -6,13 +6,13 @@
 
 // check if form has been submitted
 //$filename = "/etc/svxlink/gpio.conf";
-$filename = $_POST['fname'];
+$file = $_POST['fname'];
 $fileroot = $_POST['froot'];
-$url = '/edit/'.$filename;
+$url = '/edit/'.$file;
 {
     shell_exec("cd " . $fileroot);
     // save the text contents
-    file_put_contents($filename, $_POST['text']);
+    file_put_contents($file, $_POST['text']);
 
     // redirect to form again
     header(sprintf('Location: %s', $url));
@@ -21,7 +21,7 @@ $url = '/edit/'.$filename;
 }
 
 // read the textfile
-$text = file_get_contents($filename);
+$text = file_get_contents($file);
 
 ?>
 <!-- HTML form -->
@@ -31,7 +31,7 @@ $text = file_get_contents($filename);
 <input type="reset" />
 </form>
 <?php
-$fi = fopen($filename, 'r');
+$fi = fopen($file, 'r');
 explode("\n", fread($fi, filesize($fi)));
 print_r($fi, true);
 
