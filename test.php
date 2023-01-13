@@ -64,7 +64,7 @@ textarea {
 <html>
 <body>
 <?php
-echo explode("\n",file_get_contents("/etc/svxlink/svxlink.conf"));
+echo array_values(array_filter(explode("\n",file_get_contents("/etc/svxlink/svxlink.conf"))));
 ?>
 
 <?php
