@@ -110,7 +110,7 @@ if (fopen($elConfigFile,'r'))
       {
           $elconfig = parse_ini_file($elConfigFile,true,INI_SCANNER_RAW);
       };
-  $module = explode(" ",$elconfig['ModuleEchoLink']['Modules']);
+  $module = explode(",",$elconfig['ModuleEchoLink']['Modules']);
   foreach ($module as $key) {
 //if ($logics[0] == "[ModuleEchoLink]") $isEchoLink = true;
   }
