@@ -25,7 +25,7 @@ if($if="metarinfo"){
 // check if form has been submitted
 //$filename = by choice;
 
-$url = $_SERVER["PHP_SELF"]."/include/editor.php";
+$url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 if (isset($_POST['text']))
 {
     // save the text contents
