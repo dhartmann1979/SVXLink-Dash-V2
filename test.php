@@ -64,8 +64,35 @@ textarea {
 <html>
 <body>
 <?php
-$file = file_get_contents("/etc/svxlink/svxlink.d/ModuleEchoLink.conf");
-echo parse_ini_file($file,true,INI_SCANNER_RAW);
+$file = fopen("/etc/svxlink/svxlink.d/ModuleEchoLink.conf",'r');
+$conf = parse_ini_file($file,true,INI_SCANNER_RAW);
+$linesparts= explode("\n",$conf[]);
+foreach ($lineparts as $key) {
+if (isset($_POST['btnSave']))
+    {
+        $retval = null;
+        $screen = null;
+
+        
+      	$elconfig['DEFAULT_LANG'] = $_POST['inElDefaultLang'];
+        $elconfig['CALLSIGN'] = $_POST['inElCallsign'];
+        $elconfig['PASSWORD'] = $_POST['inElPassword'];
+        $elconfig['SYSOPNAME'] = $_POST['inElSysOpName'];
+        $elconfig['LOCATION'] = $_POST['inElLocation'];
+        
+        $elconfig['SERVERS'] = $_POST['inElServers'];
+        $elconfig['PROXY_SERVER'] = $_POST['inElProxyServer'];
+        $elconfig['PROXY_PORT'] = $_POST['inElProxyPort'];
+        $elconfig['PROXY_PASSWORD'] = $_POST['inElProxyPassword'];
+
+        $elconfig['DESCRIPTION'] = $_POST['inElDescription'];
+
+
+        $elconfig['MUTE_LOGIC_LINKING'] = $_POST['inElMuteLogicLinking'];
+    }
+  }
+        $ini = build_ini_string($elconfig);
+
 ?>
 
 <?php
