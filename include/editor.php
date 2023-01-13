@@ -21,7 +21,7 @@ if($if="metarinfo"){
 // check if form has been submitted
 //$filename = by choice;
 
-$url = $_SERVER["PHP_SELF"]."/";
+$url = $_SERVER["PHP_SELF"];
 if (isset($_POST['text']))
 {
     // save the text contents
@@ -38,7 +38,7 @@ $text = file_get_contents($file);
 
 ?>
 <!-- HTML form -->
-<form action="editor.php" method="post">
+<form action="/include/editor.php" method="post">
 <textarea name="text"><?php echo htmlspecialchars($text); ?></textarea>
 <input type="submit" />
 <input type="reset" />
