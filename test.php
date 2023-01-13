@@ -64,7 +64,7 @@ textarea {
 <html>
 <body>
 <?php
-echo array_values(array_filter(explode("\n",file_get_contents("/etc/svxlink/svxlink.d/ModuleEchoLink.conf"))));
+echo file_get_contents("/etc/svxlink/svxlink.d/ModuleEchoLink.conf");
 ?>
 
 <?php
@@ -108,10 +108,6 @@ if (fopen($file,'r'))
 
 //include(__DIR__."/include/editor.php");
 */?>
-</form>
-
-<p>Click the "Submit" button and the form-data will be sent to a page on the 
-server called "editor.php".</p>
 
 
 
