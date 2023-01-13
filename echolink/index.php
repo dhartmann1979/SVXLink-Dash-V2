@@ -112,10 +112,10 @@ if (fopen($elConfigFile,'r'))
       };
   $logics = explode(" ",$elconfig['A']);
   foreach ($logics as $key) {
-if ($key == "[ModuleEchoLink]") $isEchoLink = true;
+if ($logics[0] == "[ModuleEchoLink]") $isEchoLink = true;
 
 
-  if (isset($_POST['btnSave'])) {
+   isset($_POST['btnSave']);
     $retval = null;
     $screen = null;
 
