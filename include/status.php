@@ -105,7 +105,7 @@ if ($modecho=="True") {
   $svxEchoConfigFile = "/etc/svxlink/svxlink.d/ModuleEchoLink.conf";
     if (fopen($svxEchoConfigFile,'r')) { 
        $svxeconfig = parse_ini_file($svxEchoConfigFile,true,INI_SCANNER_RAW);
-       $eproxyd= $svxeconfig['ModuleEchoLink']['PROXY_SERVER']; 
+       $eproxyd= $svxeconfig['PROXY_SERVER']; 
        } else {
        $eproxyd= ""; 
       }
