@@ -113,12 +113,13 @@ if (fopen($elConfigFile,'r'))
   $module = explode(" ",$elconfig['Modules']);
   foreach ($module as $key) {
 //if ($logics[0] == "[ModuleEchoLink]") $isEchoLink = true;
+  }
 
-
-    if isset($_POST['btnSave']);{
+    if (isset($_POST['btnSave']))
+    {
     $retval = null;
     $screen = null;
-    }
+  
 
     $elconfig['DEFAULT_LANG'] = $_POST['inElDefaultLang'];
     $elconfig['CALLSIGN'] = $_POST['inElCallsign'];
@@ -135,7 +136,7 @@ if (fopen($elConfigFile,'r'))
 
 
     $elconfig['MUTE_LOGIC_LINKING'] = $_POST['inElMuteLogicLinking'];
-  }
+  
         $ini = build_ini_string($elconfig);
 
         //file_put_contents("/var/www/html/test.ini",$ini,FILE_USE_INCLUDE_PAT);
@@ -153,7 +154,7 @@ if (fopen($elConfigFile,'r'))
   //Service SVXlink restart
   exec('sudo service svxlink restart 2>&1',$screen,$retval);
 
-
+    
 
 //debug
 //      echo '<pre>';
