@@ -111,9 +111,9 @@ if (fopen($svxConfigFile,'r'))
         $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
         };
 //divide up the Paragraphs
-$logics = explode(",",$svxconfig['A']['B']);
+$logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
 foreach ($logics as $key) {
-  //echo "<tr><td style=\"background:#ffffed;\"><span style=\"color:#b5651d;font-weight: bold;\">".$key."</span></td></tr>";
+  echo "<tr><td style=\"background:#ffffed;\"><span style=\"color:#b5651d;font-weight: bold;\">".$key."</span></td></tr>";
  if ($key == "SimplexLogic") $isSimplex = true;
  if ($key == "RepeaterLogic") $isRepeater = true;
   }

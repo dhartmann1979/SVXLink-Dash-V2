@@ -161,7 +161,7 @@ if (fopen($elConfigFile,'r'))
  //     echo '</pre>';
 //end of debug
 
-}
+
 
 
 //if (fopen($svxConfigFile,'r'))
