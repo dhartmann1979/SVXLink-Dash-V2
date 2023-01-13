@@ -115,54 +115,53 @@ if (fopen($elConfigFile,'r'))
 //if ($logics[0] == "[ModuleEchoLink]") $isEchoLink = true;
   }
 
-    if (isset($_POST['btnSave']))
-    {
-    $retval = null;
-    $screen = null;
-  
-
-    $elconfig['DEFAULT_LANG'] = $_POST['inElDefaultLang'];
-    $elconfig['CALLSIGN'] = $_POST['inElCallsign'];
-    $elconfig['PASSWORD'] = $_POST['inElPassword'];
-    $elconfig['SYSOPNAME'] = $_POST['inElSysOpName'];
-    $elconfig['LOCATION'] = $_POST['inElLocation'];
-
-    $elconfig['SERVERS'] = $_POST['inElServers'];
-    $elconfig['PROXY_SERVER'] = $_POST['inElProxyServer'];
-    $elconfig['PROXY_PORT'] = $_POST['inElProxyPort'];
-    $elconfig['PROXY_PASSWORD'] = $_POST['inElProxyPassword'];
-
-    $elconfig['DESCRIPTION'] = $_POST['inElDescription'];
+if (isset($_POST['btnSave'])) {
+  $retval = null;
+  $screen = null;
 
 
-    $elconfig['MUTE_LOGIC_LINKING'] = $_POST['inElMuteLogicLinking'];
-  
-        $ini = build_ini_string($elconfig);
+  $elconfig['DEFAULT_LANG'] = $_POST['inElDefaultLang'];
+  $elconfig['CALLSIGN'] = $_POST['inElCallsign'];
+  $elconfig['PASSWORD'] = $_POST['inElPassword'];
+  $elconfig['SYSOPNAME'] = $_POST['inElSysOpName'];
+  $elconfig['LOCATION'] = $_POST['inElLocation'];
 
-        //file_put_contents("/var/www/html/test.ini",$ini,FILE_USE_INCLUDE_PAT);
-        file_put_contents("/var/www/html/echolink/ModuleEchoLink.conf", $ini ,FILE_USE_INCLUDE_PATH);
+  $elconfig['SERVERS'] = $_POST['inElServers'];
+  $elconfig['PROXY_SERVER'] = $_POST['inElProxyServer'];
+  $elconfig['PROXY_PORT'] = $_POST['inElProxyPort'];
+  $elconfig['PROXY_PASSWORD'] = $_POST['inElProxyPassword'];
 
-	///file manipulation section
+  $elconfig['DESCRIPTION'] = $_POST['inElDescription'];
 
-      	$retval = null;
-        $screen = null;
-	//archive the current config
-	exec('sudo cp /etc/svxlink/svxlink.d/ModuleEchoLink.conf /etc/svxlink/svxlink.d/ModuleEchoLink.conf.' .date("YmdThis") ,$screen,$retval);
-	//move generated file to current config
-	exec('sudo mv /var/www/html/echolink/ModuleEchoLink.conf /etc/svxlink/svxlink.d/ModuleEchoLink.conf', $screen, $retval);
+
+  $elconfig['MUTE_LOGIC_LINKING'] = $_POST['inElMuteLogicLinking'];
+
+  $ini = build_ini_string($elconfig);
+
+  //file_put_contents("/var/www/html/test.ini",$ini,FILE_USE_INCLUDE_PAT);
+  file_put_contents("/var/www/html/echolink/ModuleEchoLink.conf", $ini, FILE_USE_INCLUDE_PATH);
+
+  ///file manipulation section
+
+  $retval = null;
+  $screen = null;
+  //archive the current config
+  exec('sudo cp /etc/svxlink/svxlink.d/ModuleEchoLink.conf /etc/svxlink/svxlink.d/ModuleEchoLink.conf.' . date("YmdThis"), $screen, $retval);
+  //move generated file to current config
+  exec('sudo mv /var/www/html/echolink/ModuleEchoLink.conf /etc/svxlink/svxlink.d/ModuleEchoLink.conf', $screen, $retval);
 
   //Service SVXlink restart
-  exec('sudo service svxlink restart 2>&1',$screen,$retval);
+  exec('sudo service svxlink restart 2>&1', $screen, $retval);
 
-    
 
-//debug
+
+  //debug
 //      echo '<pre>';
- //     print_r($ini);
- //     echo '</pre>';
+  //     print_r($ini);
+  //     echo '</pre>';
 //end of debug
 
-
+}
 
 
 //if (fopen($svxConfigFile,'r'))
