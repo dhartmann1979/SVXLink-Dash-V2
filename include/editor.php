@@ -1,5 +1,9 @@
 <?php
-
+include_once 'config.php';
+include_once 'tools.php';
+include_once 'top_menu.php';
+include 'status.php';
+include 'system.php';
 // configuration//
 $id = $_POST['id'];
 if($id="svxlink") {
