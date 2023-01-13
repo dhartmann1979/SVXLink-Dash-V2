@@ -1,5 +1,10 @@
 <?php
-
+function open_for_edit($filename) {
+        if (fopen($filename,'r')){
+                $file_conf = parse_ini_file($filename, true, INI_SCANNER_RAW);
+        }
+        $parts = explode(",", $file_conf['A']['B']);
+}
 
 function getSVXLog() {
 	// Open Logfile and copy loglines into LogLines-Array()
