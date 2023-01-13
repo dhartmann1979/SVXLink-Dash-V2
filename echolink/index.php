@@ -110,15 +110,15 @@ if (fopen($elConfigFile,'r'))
       {
           $elconfig = parse_ini_file($elConfigFile,true,INI_SCANNER_RAW);
       };
-  $logics = explode(" ",$elconfig['ModuleEchoLink']);
-  foreach ($logics as $key) {
+  $module = explode(" ",$elconfig['Modules']);
+  foreach ($module as $key) {
 //if ($logics[0] == "[ModuleEchoLink]") $isEchoLink = true;
 
 
-   //isset($_POST['btnSave']);
+    if isset($_POST['btnSave']);{
     $retval = null;
     $screen = null;
-
+    }
 
     $elconfig['DEFAULT_LANG'] = $_POST['inElDefaultLang'];
     $elconfig['CALLSIGN'] = $_POST['inElCallsign'];
