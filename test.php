@@ -63,11 +63,13 @@ textarea {
 <h1>The input element</h1>
 <html>
 <body>
-
+<?php
+file_get_contents(/etc/svxlink/svxlink.conf);
+?>
 
 <?php
   // match all files that have either .html or .php extension
-$file_matcher = realpath(dirname(__FILE__)) . '/etc/svxlink/*.{conf}';
+/*$file_matcher = realpath(dirname(__FILE__)) . '/etc/svxlink/*.{conf}';
 
 foreach( glob($file_matcher, GLOB_BRACE) as $file ) {
   $file_name = basename($file);
@@ -105,7 +107,7 @@ if (fopen($file,'r'))
       };
 
 //include(__DIR__."/include/editor.php");
-?>
+*/?>
 </form>
 
 <p>Click the "Submit" button and the form-data will be sent to a page on the 
