@@ -74,21 +74,21 @@ if (isset($_POST['btnSave']))
         $screen = null;
 
         
-      	$elconfig['DEFAULT_LANG'] = $_POST['inElDefaultLang'];
-        $elconfig['CALLSIGN'] = $_POST['inElCallsign'];
-        $elconfig['PASSWORD'] = $_POST['inElPassword'];
-        $elconfig['SYSOPNAME'] = $_POST['inElSysOpName'];
-        $elconfig['LOCATION'] = $_POST['inElLocation'];
+      	$elconfig['ModuleEchoLink']['DEFAULT_LANG'] = $_POST['inElDefaultLang'];
+        $elconfig['ModuleEchoLink']['CALLSIGN'] = $_POST['inElCallsign'];
+        $elconfig['ModuleEchoLink']['PASSWORD'] = $_POST['inElPassword'];
+        $elconfig['ModuleEchoLink']['SYSOPNAME'] = $_POST['inElSysOpName'];
+        $elconfig['ModuleEchoLink']['LOCATION'] = $_POST['inElLocation'];
         
-        $elconfig['SERVERS'] = $_POST['inElServers'];
-        $elconfig['PROXY_SERVER'] = $_POST['inElProxyServer'];
-        $elconfig['PROXY_PORT'] = $_POST['inElProxyPort'];
-        $elconfig['PROXY_PASSWORD'] = $_POST['inElProxyPassword'];
+        $elconfig['ModuleEchoLink']['SERVERS'] = $_POST['inElServers'];
+        $elconfig['ModuleEchoLink']['PROXY_SERVER'] = $_POST['inElProxyServer'];
+        $elconfig['ModuleEchoLink']['PROXY_PORT'] = $_POST['inElProxyPort'];
+        $elconfig['ModuleEchoLink']['PROXY_PASSWORD'] = $_POST['inElProxyPassword'];
 
-        $elconfig['DESCRIPTION'] = $_POST['inElDescription'];
+        $elconfig['ModuleEchoLink']['DESCRIPTION'] = $_POST['inElDescription'];
 
 
-        $elconfig['MUTE_LOGIC_LINKING'] = $_POST['inElMuteLogicLinking'];
+        $elconfig['ModuleEchoLink']['MUTE_LOGIC_LINKING'] = $_POST['inElMuteLogicLinking'];
     }
   }
         $ini = build_ini_string($elconfig);
