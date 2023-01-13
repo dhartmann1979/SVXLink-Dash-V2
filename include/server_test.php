@@ -3,6 +3,8 @@
 <body>
 
 <?php
+echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+echo "the full works";
 echo $_SERVER['PHP_SELF'];
 echo "php_self<br>";
 echo $_SERVER['SERVER_NAME'];
