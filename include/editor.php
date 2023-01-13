@@ -5,18 +5,22 @@ $id = $_POST['id'];
 if($id="svxlink") {
     shell_exec("cd /etc/svxlink/");
     $file = "svxlink.conf";
+    echo "svxlink.conf";
 }
 if($id="gpio") {
     shell_exec("cd /etc/svxlink/");
     $file = "gpio.conf";
+    echo "gpio.conf";
 }
 if($id="echolink"){
     shell_exec("cd /etc/svxlink/svxlink.d/");
     $file = "ModuleEchoLink.conf";
+    echo "EchoLink.conf";
 }
 if($if="metarinfo"){
     shell_exec("cd /etc/svxlink/svxlink.d");
     $file = "ModuleMetarInfo.conf";
+    echo "metarinfo.conf";
 }
 // check if form has been submitted
 //$filename = by choice;
