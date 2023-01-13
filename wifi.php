@@ -2,7 +2,7 @@
 $progname = basename($_SERVER['SCRIPT_FILENAME'],".php");
 include_once 'include/config.php';
 include_once 'include/tools.php';
-
+include_once 'include/editor.php';
 
 // migrate to external class tbc
 
