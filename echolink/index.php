@@ -110,9 +110,10 @@ if (fopen($elConfigFile,'r'))
       {
           $elconfig = parse_ini_file($elConfigFile,true,INI_SCANNER_RAW);
       };
-if ($key == "ModuleEchoLink"){
-  $isEchoLink = true;
-}
+  $logics = explode("\n",$elconfig['A']);
+  foreach ($logics as $key) {
+if ($key == "ModuleEchoLink") $isEchoLink = true;
+  }
 if (isset($_POST['btnSave']))
     {
         $retval = null;
@@ -155,9 +156,9 @@ if (isset($_POST['btnSave']))
 
 
 //debug
-      echo '<pre>';
-      print_r($ini);
-      echo '</pre>';
+//      echo '<pre>';
+ //     print_r($ini);
+ //     echo '</pre>';
 //end of debug
 
 }
