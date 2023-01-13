@@ -64,7 +64,8 @@ textarea {
 <html>
 <body>
 <?php
-echo file_get_contents("/etc/svxlink/svxlink.d/ModuleEchoLink.conf");
+$file = file_get_contents("/etc/svxlink/svxlink.d/ModuleEchoLink.conf");
+echo parse_ini_file($file,true,INI_SCANNER_RAW);
 ?>
 
 <?php
