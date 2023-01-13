@@ -64,7 +64,7 @@ textarea {
 <html>
 <body>
 <?php
-file_get_contents(/etc/svxlink/svxlink.conf);
+file_get_contents("/etc/svxlink/svxlink.conf");
 ?>
 
 <?php
