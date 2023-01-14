@@ -10,8 +10,7 @@ else {$svxConfigFile = trim(substr(shell_exec("grep CFGFILE /etc/default/svxlink
          $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
          // check if we are a repeater or a simplex system
          $check_logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
-    echo ("$check_logics[0]");
-         foreach ($check_logics as $logic_key) {
+            foreach ($check_logics as $logic_key) {
             if ($check_logics[0]=="RepeaterLogic") {
               // if we work with CTCSS please set REPORT_CTCSS with correct value in svxlink.conf
               $ctcss = $svxconfig['RepeaterLogic']['REPORT_CTCSS'];
