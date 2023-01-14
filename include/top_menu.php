@@ -12,8 +12,9 @@
 	
 	 
 
-<?php 
-if (fopen($svxConfigFile,'r'))
+<?php
+include_once('parse_svxconf.php') 
+/*if (fopen($svxConfigFile,'r'))
 {
 
   $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
@@ -28,14 +29,15 @@ if (fopen($svxConfigFile,'r'))
   foreach ($modules as $key){
 	if ($key == "EchoLink") $isEchoLink = true;
  }
+ */
  //if ($isEchoLink==true) {echo ' <a href="/echolink.php" style="color: #0000ff;">EchoLink</a> |';};
-$globalRf = $svxconfig['GLOBAL']['RF_MODULE'];
+//$globalRf = $svxconfig['GLOBAL']['RF_MODULE'];
 
-if ($globalRf <> "No")
+/*if ($globalRf <> "No")
 {
 	echo'	<a href="/rf.php" style="color: #0000ff;"> Rf</a> |';
 }
-};
+}*/
 ?>
 	<a href="/log.php" style="color: #0000ff;">Log</a> |
 	<a href="/update.php" style="color: #0000ff;">Update</a> |

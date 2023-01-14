@@ -104,7 +104,7 @@ function build_ini_string(array $a) {
     return $sectionless.$out;
 }
 
-
+/*
 $svxConfigFile = '/etc/svxlink/svxlink.conf';
 if (fopen($svxConfigFile,'r'))
       {
@@ -117,7 +117,8 @@ foreach ($logics as $key) {
  if ($key == "SimplexLogic") $isSimplex = true;
  if ($key == "RepeaterLogic") $isRepeater = true;
   }
-
+*/
+include_once('parse_svxconf.php');
 if (isset($_POST['btnSave']))
     {
         $retval = null;
@@ -140,7 +141,7 @@ if (isset($_POST['btnSave']))
         $svxconfig['ReflectorLogic']['CALLSIGN'] = $_POST['inCallsign'];
 	$svxconfig['ReflectorLogic']['TG_URI'] = $_POST['inReflectorTgUri'];
 
-        if ($isSimplex){
+        if ($system_type=="IS_SIMPLEX"){
 	$svxconfig['SimplexLogic']['DEFAULT_LANG'] = $_POST['inSimplexDefaultLang'];
         $svxconfig['SimplexLogic']['CALLSIGN'] = $_POST['inSimplexCallsign'];
         $svxconfig['SimplexLogic']['MODULES'] = $_POST['inSimplexModules'];
@@ -149,7 +150,7 @@ if (isset($_POST['btnSave']))
         $svxconfig['SimplexLogic']['RGR_SOUND_DELAY'] = $_POST['inRgrDelay'];
         $svxconfig['SimplexLogic']['RGR_SOUND_ALWAYS'] = $_POST['inRgr'];
         };
-        if ($isRepeater) {
+        if ($system_type=="IS_DUPLEX") {
         $svxconfig['RepeaterLogic']['DEFAULT_LANG'] = $_POST['inRepeaterDefaultLang'];
         $svxconfig['RepeaterLogic']['CALLSIGN'] = $_POST['inRepeaterCallsign'];
         $svxconfig['RepeaterLogic']['MODULES'] = $_POST['inRepeaterModules'];
@@ -256,7 +257,7 @@ if (isset($_POST['btnSave']))
 	$inFmNetwork = $svxconfig['ReflectorLogic']['FMNET'];
 	$inReflectorTgUri = $svxconfig['ReflectorLogic']['TG_URI'];
 
-        if ($isSimplex){ 
+        if ($system_type=="IS_SIMPLEX"){ 
 	$inSimplexCallsign = $svxconfig['SimplexLogic']['CALLSIGN'];
 	$inSimplexDefaultLang = $svxconfig['SimplexLogic']['DEFAULT_LANG'];
         $inSimplexModules = $svxconfig['SimplexLogic']['MODULES'];
@@ -265,7 +266,7 @@ if (isset($_POST['btnSave']))
         $inRgrDelay = $svxconfig['SimplexLogic']['RGR_SOUND_DELAY'];
         $inRgr = $svxconfig['SimplexLogic']['RGR_SOUND_ALWAYS'];
 };
-        if ($isRepeater){
+        if ($system_type=="IS_DUPLEX"){
         $inRepeaterCallsign = $svxconfig['RepeaterLogic']['CALLSIGN'];
         $inRepeaterDefaultLang = $svxconfig['RepeaterLogic']['DEFAULT_LANG'];
         $inRepeaterModules = $svxconfig['RepeaterLogic']['MODULES'];
@@ -432,8 +433,8 @@ $conns = null;
 
 
 <?php 
-if ($isSimplex){ include "simplex.php" ;};
-if ($isRepeater) { include "repeater.php";};
+if ($system_type=="IS_SIMPLEX"){ include "simplex.php" ;};
+if ($system_type=="IS_DUPLEX") { include "repeater.php";};
 
 ;
 
