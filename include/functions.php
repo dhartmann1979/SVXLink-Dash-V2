@@ -64,11 +64,11 @@ function getSVXStatusLog() {
 
 function getSVXRstatus() {
 	if (file_exists(SVXLOGPATH."/".SVXLOGPREFIX)) {
-           $slogPath = SVXLOGPATH."/".SVXLOGPREFIX; 
-           $svxrstat = `tail -10000 $slogPath | egrep -a -h "Authentication|Connection established|Heartbeat timeout|No route to host|Connection refused|Connection timed out|Locally ordered disconnect|Deactivating link|Activating link" | tail -1`;}
+           $logPath = SVXLOGPATH."/".SVXLOGPREFIX; 
+           $svxrstat = `tail -10000 $logPath | egrep -a -h "Authentication|Connection established|Heartbeat timeout|No route to host|Connection refused|Connection timed out|Locally ordered disconnect|Deactivating link|Activating link" | tail -1`;}
 	if ($svxrstat=="" &&  file_exists(SVXLOGPATH.".hdd/".SVXLOGPREFIX.".1")) {
-           $slogPath = SVXLOGPATH.".hdd/".SVXLOGPREFIX.".1"; 
-           $svxrstat = `tail -10000 $slogPath | egrep -a -h "Authentication|Connection established|Heartbeat timeout|No route to host|Connection refused|Connection timed out|Locally ordered disconnect|Deactivating link|Activating link" | tail -1`;}
+           $logPath = SVXLOGPATH.".hdd/".SVXLOGPREFIX.".1"; 
+           $svxrstat = `tail -10000 $logPath | egrep -a -h "Authentication|Connection established|Heartbeat timeout|No route to host|Connection refused|Connection timed out|Locally ordered disconnect|Deactivating link|Activating link" | tail -1`;}
            if(strpos($svxrstat,"Authentication OK") || strpos($svxrstat,"Connection established") || strpos($svxrstat,"Activating link")){
               $svxrstatus="Connected";
             }
