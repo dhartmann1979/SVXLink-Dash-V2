@@ -23,9 +23,9 @@ echo "<tr><td style=\"background:#ffffed;\"><span style=\"color:#b5651d;font-wei
  }
 echo "</table>\n";
 echo "<table style=\"margin-top:2px;margin-bottom:13px;\">\n";
-if (($check_logics[0]=="IS_DUPLEX") && (isset($svxconfig['RepeaterLogic']['MODULES'])))
+if (($check_logics[0]=="RepeaterLogic") && (isset($svxconfig['RepeaterLogic']['MODULES'])))
 { $modules = explode(",",str_replace('Module','',$svxconfig['RepeaterLogic']['MODULES'])); }
-if (($check_logics[0]=="IS_SIMPLEX") && (isset($svxconfig['SimplexLogic']['MODULES'])))
+if (($check_logics[0]=="SimplexLogic") && (isset($svxconfig['SimplexLogic']['MODULES'])))
 { $modules = explode(",",str_replace('Module','',$svxconfig['SimplexLogic']['MODULES'])); }
 else
 $modules=""; }
@@ -73,11 +73,11 @@ $ispeak = true ;
 echo getTXInfo();
 if ($ispeak==true) echo getRXPeak();
 echo "</table>\n";*/
-if (($check_logics[0]=="IS_DUPLEX") && ($svxconfig['RepeaterLogic']['TX'] !== "NONE")) {
+if (($check_logics[0]=="RepeaterLogic") && ($svxconfig['RepeaterLogic']['TX'] !== "NONE")) {
   echo "<table  style=\"margin-bottom:13px;\"><tr><th>Repeater Status</th></tr><tr>";
   echo getTXInfo();
   echo "</table>\n"; }
-elseif (($check_logics[0]=="IS_SIMPLEX") && ($svxconfig['SimplexLogic']['TX'] !== "NONE")) {
+elseif (($check_logics[0]=="SimplexLogic") && ($svxconfig['SimplexLogic']['TX'] !== "NONE")) {
   echo "<table  style=\"margin-bottom:13px;\"><tr><th>Repeater Status</th></tr><tr>";
   echo getTXInfo();
   echo "</table>\n"; }
@@ -135,12 +135,12 @@ echo "<table style=\"margin-top:4px;margin-bottom:13px;\"><tr><th colspan=2 >Sys
 echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#000000;font-weight: bold;\">"; 
 echo "Last Reboot<br>",exec('uptime -s');
 echo "</div></td></tr>";
-if ($check_logics[0] == "IS_DUPLEX") {
+if ($check_logics[0] == "RepeaterLogic") {
    echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#0a7d29;font-weight: bold;\">";
    echo "Mode: duplex";
    echo "</div></td></tr>";
    }
-if ($check_logics[0] == "IS_SIMPLEX") {
+if ($check_logics[0] == "SimplexLogic") {
    echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#0a7d29;font-weight: bold;\">";
    echo "Mode: simplex";
    echo "</div></td></tr>";
