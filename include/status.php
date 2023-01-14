@@ -73,11 +73,11 @@ $ispeak = true ;
 echo getTXInfo();
 if ($ispeak==true) echo getRXPeak();
 echo "</table>\n";*/
-if (($system_type=="IS_DUPLEX") && ($svxconfig['RepeaterLogic']['TX'] !== "NONE")) {
+if (($check_logics[0]=="IS_DUPLEX") && ($svxconfig['RepeaterLogic']['TX'] !== "NONE")) {
   echo "<table  style=\"margin-bottom:13px;\"><tr><th>Repeater Status</th></tr><tr>";
   echo getTXInfo();
   echo "</table>\n"; }
-elseif (($system_type=="IS_SIMPLEX") && ($svxconfig['SimplexLogic']['TX'] !== "NONE")) {
+elseif (($check_logics[0]=="IS_SIMPLEX") && ($svxconfig['SimplexLogic']['TX'] !== "NONE")) {
   echo "<table  style=\"margin-bottom:13px;\"><tr><th>Repeater Status</th></tr><tr>";
   echo getTXInfo();
   echo "</table>\n"; }
@@ -135,12 +135,12 @@ echo "<table style=\"margin-top:4px;margin-bottom:13px;\"><tr><th colspan=2 >Sys
 echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#000000;font-weight: bold;\">"; 
 echo "Last Reboot<br>",exec('uptime -s');
 echo "</div></td></tr>";
-if ($system_type == "IS_DUPLEX") {
+if ($check_logics[0] == "IS_DUPLEX") {
    echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#0a7d29;font-weight: bold;\">";
    echo "Mode: duplex";
    echo "</div></td></tr>";
    }
-if ($system_type == "IS_SIMPLEX") {
+if ($check_logics[0] == "IS_SIMPLEX") {
    echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#0a7d29;font-weight: bold;\">";
    echo "Mode: simplex";
    echo "</div></td></tr>";
