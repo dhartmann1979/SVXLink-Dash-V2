@@ -136,12 +136,12 @@ echo "Last Reboot<br>",exec('uptime -s');
 echo "</div></td></tr>";
 if ($system_type == "IS_DUPLEX") {
    echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#0a7d29;font-weight: bold;\">";
-   echo "Mode: duplex";
+   echo "Mode: duplex"."$system_type";
    echo "</div></td></tr>";
    }
 if ($system_type == "IS_SIMPLEX") {
    echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#0a7d29;font-weight: bold;\">";
-   echo "Mode: simplex";
+   echo "Mode: simplex"."$system_type";
    echo "</div></td></tr>";
    }
 
