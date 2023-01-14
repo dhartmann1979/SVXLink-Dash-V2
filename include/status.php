@@ -15,10 +15,13 @@ echo "<table style=\"margin-top:4px;margin-bottom:13px;\">\n";
 echo "<tr><th><span style=\"font-size:12px;\">Logics</span></th></tr>\n";
 if ( (defined('SVXCONFIG')) && (defined('SVXCONFPATH')) ) {$svxConfigFile = SVXCONFPATH."/".SVXCONFIG ; }
 else {$svxConfigFile = SVXCONFPATH."/".SVXCONFIG;
-    if (fopen($svxConfigFile,'r')) {$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW); }
-$logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
-  $inReflectorDefaultLang = explode(",", $svxconfig['ReflectorLogic']['DEFAULT_LANG']);
-foreach ($logics as $logic_key) {
+    if (fopen($svxConfigFile,'r')) 
+    {$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW); }
+    $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
+         
+    $check_logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
+ // $inReflectorDefaultLang = explode(",", $svxconfig['ReflectorLogic']['DEFAULT_LANG']);
+foreach ($check_logics as $logic_key) {
 echo "<tr><td style=\"background:#ffffed;\"><span style=\"color:#b5651d;font-weight: bold;\">".$key."</span></td></tr>";
  }
 echo "</table>\n";
@@ -30,6 +33,8 @@ if (($check_logics[0]=="SimplexLogic") && (isset($svxconfig['SimplexLogic']['MOD
 else
 $modules=""; }
 $modecho = "False";
+$inReflectorDefaultLang = explode(",", $svxconfig['ReflectorLogic']['DEFAULT_LANG']);
+
 if ($modules!="") {
 define("SVXMODULES",$modules);
 $admodules = getActiveModules();
