@@ -6,7 +6,7 @@
 if ( (defined('SVXCONFIG')) && (defined('SVXCONFPATH')) ) {$svxConfigFile = SVXCONFPATH."/".SVXCONFIG ; }
 else {$svxConfigFile = trim(substr(shell_exec("grep CFGFILE /etc/default/svxlink"), strrpos(shell_exec("grep CFGFILE /etc/default/svxlink"), "=")+1)); }
     if (fopen($svxConfigFile,'r'))
-       { $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
+       {$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
          $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
          // check if we are a repeater or a simplex system
          $check_logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
