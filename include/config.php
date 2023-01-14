@@ -1,7 +1,16 @@
 <?php
-// Report all errors except E_NOTICE
-// error_reporting(E_ALL & ~E_NOTICE);
-// disable all 
+
+if ( file_exists(__DIR__.'/config.inc.php') ) { include_once __DIR__.'/config.inc.php'; }
+else {
+// header lines for information
+define("HEADER_CAT","FM-Repeater");
+define("HEADER_QTH",'$qth');
+define("HEADER_QRG",'$freq');
+define("HEADER_SYSOP","");
+define("FMNETWORK_EXTRA","");
+define("FULLACCESS_OUSIDE", "Full Access Outside");
+define("EL_NODE_NR",'$EL_node');
+
 
 $svxConfigFile = '/etc/svxlink/svxlink.conf';
     if (fopen($svxConfigFile,'r'))
@@ -15,14 +24,12 @@ else { $callsign="N0CALL";
 
 
 error_reporting(0);
-define($fmnetwork, "svxportal-uk.ddns.net");
 // Define name of your FM Network
 define("FMNETWORK", $fmnetwork);
 //
 // Select only one URL for SVXReflector API to get connected Nodes
 //
 // FM SVXLink-UK
-define($refApi,"svxportal-uk.ddns.net:81");
 define("URLSVXRAPI", $refApi);
 //
 // Empty address API do not show connected nodes to svxreflector 
