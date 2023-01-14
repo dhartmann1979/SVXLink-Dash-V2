@@ -19,14 +19,15 @@ $logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
   $inReflectorDefaultLang = explode(",", $svxconfig['ReflectorLogic']['DEFAULT_LANG']);
 foreach ($logics as $key) {
   echo "<tr><td style=\"background:#ffffed;\"><span style=\"color:#b5651d;font-weight: bold;\">".$key."</span></td></tr>";
-  if ($key == "SimplexLogic") $isSimplex = true;
-  if ($key == "RepeaterLogic") $isRepeater = true;
  }
 echo "</table>\n";
 echo "<table style=\"margin-top:2px;margin-bottom:13px;\">\n";
-if ($isSimplex) $modules = explode(",",str_replace('Module','',$svxconfig['SimplexLogic']['MODULES']));
-if ($isRepeater) $modules = explode(",",str_replace('Module','',$svxconfig['RepeaterLogic']['MODULES']));
-
+if (($system_type=="IS_DUPLEX") && (isset($svxconfig['RepeaterLogic']['MODULES'])))
+{ $modules = explode(",",str_replace('Module','',$svxconfig['RepeaterLogic']['MODULES'])); }
+elseif (($system_type=="IS_SIMPLEX") && (isset($svxconfig['SimplexLogic']['MODULES'])))
+{ $modules = explode(",",str_replace('Module','',$svxconfig['SimplexLogic']['MODULES'])); }
+else
+{ $modules=""; }
 $modecho = "False";
 if ($modules!="") {
 define("SVXMODULES",$modules);
@@ -67,10 +68,18 @@ echo "</table>";
 if ($svxconfig["Rx1"]["PEAK_METER"] =="1") 
 $ispeak = true ;
 
-echo "<table  style=\"margin-bottom:13px;\"><tr><th>Radio Status</th></tr><tr>";
+/*echo "<table  style=\"margin-bottom:13px;\"><tr><th>Radio Status</th></tr><tr>";
 echo getTXInfo();
 if ($ispeak==true) echo getRXPeak();
-echo "</table>\n";
+echo "</table>\n";*/
+if (($system_type=="IS_DUPLEX") && ($svxconfig['RepeaterLogic']['TX'] !== "NONE")) {
+  echo "<table  style=\"margin-bottom:13px;\"><tr><th>Repeater Status</th></tr><tr>";
+  echo getTXInfo();
+  echo "</table>\n"; }
+elseif ((=="IS_SIMPLEX") && ($svxconfig['SimplexLogic']['TX'] !== "NONE")) {
+  echo "<table  style=\"margin-bottom:13px;\"><tr><th>Repeater Status</th></tr><tr>";
+  echo getTXInfo();
+  echo "</table>\n"; }
 
 echo "<table  style=\"margin-bottom:13px;\"><tr><th>".FMNETWORK."</th></tr><tr>";
   $svxrstatus = getSVXRstatus();
@@ -121,7 +130,33 @@ if ($modecho=="True") {
    echo "</table>\n";
   }
 }
+echo "<table style=\"margin-top:4px;margin-bottom:13px;\"><tr><th colspan=2 >Systeminfo</th></tr><tr>";
+echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#000000;font-weight: bold;\">"; 
+echo "Last Reboot<br>",exec('uptime -s');
+echo "</div></td></tr>";
+if ($system_type == "IS_DUPLEX") {
+   echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#0a7d29;font-weight: bold;\">";
+   echo "Mode: duplex";
+   echo "</div></td></tr>";
+   }
+if ($system_type == "IS_SIMPLEX") {
+   echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#0a7d29;font-weight: bold;\">";
+   echo "Mode: simplex";
+   echo "</div></td></tr>";
+   }
 
+$ip = isset($_SERVER['REMOTE_ADDR']);
+$net1= cidr_match($ip,"192.168.0.126/16");
+$net2= cidr_match($ip,"172.16.0.0/12");
+$net3= cidr_match($ip,"127.0.0.0/8");
+$net4= cidr_match($ip,"192.168.1.0/8");
+
+if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE || $FULLACCESS_OUTSIDE == 1) {
+   echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#ff0000;font-weight: bold;\">";
+   echo "DB Access Level:<BR>Full/Intranet/VPN";
+   echo "</div></td></tr>";
+   }
+   echo "</table>\n";
 } else {
 
 echo "<span style=\"color:red;font-size:13.5px;font-weight: bold;\">SvxLink is not <br>running</span>";
