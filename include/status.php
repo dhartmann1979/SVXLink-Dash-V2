@@ -78,7 +78,7 @@ if (($check_logics[0]=="RepeaterLogic") && ($svxconfig['RepeaterLogic']['TX'] !=
   echo getTXInfo();
   echo "</table>\n"; }
 elseif (($check_logics[0]=="SimplexLogic") && ($svxconfig['SimplexLogic']['TX'] !== "NONE")) {
-  echo "<table  style=\"margin-bottom:13px;\"><tr><th>Repeater Status</th></tr><tr>";
+  echo "<table  style=\"margin-bottom:13px;\"><tr><th>Radio Status</th></tr><tr>";
   echo getTXInfo();
   echo "</table>\n"; }
 
