@@ -2,7 +2,7 @@
 <?php
 $ip = $_SERVER['REMOTE_ADDR']; 
 $net1= cidr_match($ip,"192.168.0.0/16");
-$net2= cidr_match($ip,"172.16.0.0/12");
+$net2= cidr_match($ip,"192.175.43.91/8");
 $net3= cidr_match($ip,"127.0.0.0/8");
 $net4= cidr_match($ip,"192.168.1.0/24");
 $net5 = cidr_match($ip, "192.168.1.254/24");
