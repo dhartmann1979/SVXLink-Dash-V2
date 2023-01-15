@@ -13,7 +13,7 @@ if (isProcessRunning('svxlink')) {
 
 echo "<table style=\"margin-top:4px;margin-bottom:13px;\">\n";
 echo "<tr><th><span style=\"font-size:12px;\">Logics</span></th></tr>\n";
-include_once __DIR__.'/parse_svxconf.php';
+include_once 'parse_svxconf.php';
 $inReflectorDefaultLang = explode(",", $svxconfig['ReflectorLogic']['DEFAULT_LANG']);
 echo "<tr><td style=\"background:#ffffed;\"><span style=\"color:#b5651d;font-weight: bold;\">".$key."</span></td></tr>";
  
