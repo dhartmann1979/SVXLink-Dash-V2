@@ -20,7 +20,7 @@ else {$svxConfigFile = trim(substr(shell_exec("grep CFGFILE /etc/default/svxlink
               $dtmfctrl = $svxconfig['RepeaterLogic']['DTMF_CTRL_PTY'];
               $modules = $svxconfig['MODULES'];
             }
-            elseif ($check_Logics[0] == "SimplexLogic") {
+            if ($check_Logics[0] == "SimplexLogic") {
             // if we work with CTCSS please set REPORT_CTCSS with correct value in svxlink.conf
               $ctcss = $svxconfig['SimplexLogic']['REPORT_CTCSS'];
               $system_type = "IS_SIMPLEX"; // if simplex
