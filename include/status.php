@@ -167,6 +167,7 @@ if (isProcessRunning('svxlink')) {
   }
 
   $ip = isset($_SERVER['REMOTE_ADDR']);
+  echo $ip;
   $net1 = cidr_match($ip, "192.168.0.126/8");
   $net2 = cidr_match($ip, "172.16.0.0/8");
   $net3 = cidr_match($ip, "127.0.0.0/8");
