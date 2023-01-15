@@ -26,10 +26,12 @@ if (isProcessRunning('svxlink')) {
   if (($logic[]="RepeaterLogic") && (isset($svxconfig['RepeaterLogic']['MODULES']))) {
     $modules = explode(",", str_replace('Module','', $svxconfig['RepeaterLogic']['MODULES']));
     $system_type = "IS_DUPLEX";
-  } elseif (($logic[]="SimplexLogic") && (isset($svxconfig['SimplexLogic']['MODULES']))) {
+  } 
+  if (($logic[]="SimplexLogic") && (isset($svxconfig['SimplexLogic']['MODULES']))) {
     $modules = explode(",", str_replace('Module', '', $svxconfig['SimplexLogic']['MODULES']));
     $system_type = "IS_SIMPLEX";
-  } else {
+  } 
+  else {
     $modules = "";
   }
   echo "$system_type";
