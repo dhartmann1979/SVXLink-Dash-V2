@@ -104,7 +104,7 @@ define("SHOWPTT","TRUE");
 define("KEY9", array(' D9 ','D9#','blue'));
 define("KEY10", array(" D0 ","D0#","blue"));
 //
-$svxConfigFile = '/etc/svxlink/svxlink.conf';
+/*$svxConfigFile = '/etc/svxlink/svxlink.conf';
 if (fopen($svxConfigFile,'r'))
    { $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
      $refApi = $svxconfig['ReflectorLogic']['API'];
@@ -116,4 +116,5 @@ if (fopen($svxConfigFile,'r'))
 else { $callsign="N0CALL";
    $fmnetwork="no registered";
     }
+*/
 ?>
