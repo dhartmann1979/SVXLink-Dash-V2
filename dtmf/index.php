@@ -163,7 +163,7 @@ function cidr_match($ip, $cidr) {
 //    header("Refresh: 10; URL=$url");
 
 
-$ip = isset($_SERVER['HTTP_CLIENT']); 
+$ip = isset($_SERVER['REMOTE_ADDR']); 
 $net1= cidr_match($ip,"192.168.0.0/16");
 $net2= cidr_match($ip,"172.16.0.0/12");
 $net3= cidr_match($ip,"127.0.0.0/8");

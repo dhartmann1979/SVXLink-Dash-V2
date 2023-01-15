@@ -126,7 +126,9 @@ if (isProcessRunning('svxlink')) {
       foreach ($users as $user) {
         echo "<a href=\"http://www.qrz.com/db/" . $user . "\" target=\"_blank\"><b>" . str_replace("0", "&Oslash;", $user) . "</b></a> ";
       }
-    } else {echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;color:#b0b0b0;font-weight: bold;\">Not connected";}
+    } else {
+      echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;color:#b0b0b0;font-weight: bold;\">Not connected";
+    }
     echo "</div></td></tr>";
     echo "<tr><th width=50%>TXing</th><td style=\"background:#ffffed;color:red;font-weight: bold;\">" . $echotxing . "</td></tr>";
     echo "</table>\n";
