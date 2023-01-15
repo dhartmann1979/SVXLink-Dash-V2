@@ -57,8 +57,8 @@ echo "</table>";
 if ($svxconfig["Rx1"]["PEAK_METER"] =="1") {
 $ispeak = true ;}
 
-echo "<table  style=\"margin-bottom:13px;\"><tr><th>Radio Status</th></tr><tr>";
-echo getTXInfo();
+//echo "<table  style=\"margin-bottom:13px;\"><tr><th>Radio Status</th></tr><tr>";
+//echo getTXInfo();
 if ($ispeak==true) echo getRXPeak();
 echo "</table>\n";
 if (($system_type="IS_DUPLEX"=="RepeaterLogic") && ($svxconfig['RepeaterLogic']['TX'] !== "NONE")) {
