@@ -76,16 +76,6 @@ if (isProcessRunning('svxlink')) {
   echo "<tr><th width=50%>TG Active</th><td style=\"background: #ffffed;color:#0065ff;font-weight: bold;\">" . $tgselect . "</td></tr>\n";
   echo "</table>";
 
-  if ($svxconfig["Rx1"]["PEAK_METER"] == "1") {
-    $ispeak = true;
-  }
-
-  echo "<table  style=\"margin-bottom:13px;\"><tr><th>Radio Status</th></tr><tr>";
-  echo getTXInfo();
-  if ($ispeak == true)
-    echo getRXPeak();
-  echo "</table>\n";
-  
   if (($system_type = "IS_DUPLEX") && ($svxconfig['RepeaterLogic']['TX'] !== "NONE")) {
     echo "<table  style=\"margin-bottom:13px;\"><tr><th>Repeater Status</th></tr><tr>";
     echo getTXInfo();
@@ -96,6 +86,17 @@ if (isProcessRunning('svxlink')) {
     echo getTXInfo();
     echo "</table>\n";
   }
+  if ($svxconfig["Rx1"]["PEAK_METER"] == "1") {
+    $ispeak = true;
+  }
+
+  echo "<table  style=\"margin-bottom:13px;\"><tr><th>Radio Status</th></tr><tr>";
+  echo getTXInfo();
+  if ($ispeak == true)
+    echo getRXPeak();
+  echo "</table>\n";
+  
+
 
   echo "<table  style=\"margin-bottom:13px;\"><tr><th>" . FMNETWORK . "</th></tr><tr>";
   $svxrstatus = getSVXRstatus();
