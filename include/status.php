@@ -3,7 +3,6 @@ include_once __DIR__.'/config.php';
 include_once __DIR__.'/tools.php';        
 include_once __DIR__.'/functions.php';
 
-
 ?>
 <div style="width:180px;"><span style="font-weight: bold;font-size:14px;">SVXLink Info</span></div>
 <fieldset style="width:175px;background-color:#e8e8e8e8;margin-top:6px;;margin-bottom:0px;margin-left:0px;margin-right:3px;font-size:12px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
@@ -13,6 +12,7 @@ if (isProcessRunning('svxlink')) {
 
 echo "<table style=\"margin-top:4px;margin-bottom:13px;\">\n";
 echo "<tr><th><span style=\"font-size:12px;\">Logics</span></th></tr>\n";
+
 $svxConfigFile = SVXCONFPATH."/".SVXCONFIG;
     if (fopen($svxConfigFile,'r')) {$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW); }
 $logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
@@ -35,7 +35,7 @@ echo "<tr><td style=\"background:#ffffed;\"><span style=\"color:#b5651d;font-wei
  
 echo "</table>\n";
 echo "<table style=\"margin-top:2px;margin-bottom:13px;\">\n";*/
-if ($modules!="") {define("SVXMODULES",$modules);}
+if ($modules!="") {define("SVXMODULES",$modules);
 $admodules = getActiveModules();
  echo "<tr><th><span style=\"font-size:12px;\">Modules Loaded</span></th></tr>\n";
  foreach ($modules as $key) {
