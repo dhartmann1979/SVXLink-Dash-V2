@@ -11,16 +11,20 @@ else {$svxConfigFile = trim(substr(shell_exec("grep CFGFILE /etc/default/svxlink
          // check if we are a repeater or a simplex system
          $check_logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
             foreach ($check_logics as $key) {
+              
             if ($check_logics[0]=="RepeaterLogic") {
               // if we work with CTCSS please set REPORT_CTCSS with correct value in svxlink.conf
               $ctcss = $svxconfig['RepeaterLogic']['REPORT_CTCSS'];
               $system_type="IS_DUPLEX"; // if repeater
-              $dtmfctrl = $svxconfig['RepeaterLogic']['DTMF_CTRL_PTY']; }
+              $dtmfctrl = $svxconfig['RepeaterLogic']['DTMF_CTRL_PTY'];
+              $modules = $svxconfig['MODULES'];
+            }
             if ($check_Logics[0] == "SimplexLogic") {
             // if we work with CTCSS please set REPORT_CTCSS with correct value in svxlink.conf
-            $ctcss = $svxconfig['SimplexLogic']['REPORT_CTCSS'];
-            $system_type = "IS_SIMPLEX"; // if simplex
-            $dtmfctrl = $svxconfig['SimplexLogic']['DTMF_CTRL_PTY'];
+              $ctcss = $svxconfig['SimplexLogic']['REPORT_CTCSS'];
+              $system_type = "IS_SIMPLEX"; // if simplex
+              $dtmfctrl = $svxconfig['SimplexLogic']['DTMF_CTRL_PTY'];
+              $modules = $svxconfig['MODULES'];
         }
          }
          // additional variables need to define in svxlink.conf in stanza [ReflectorLogic]: API, FMNET, TG_URI
