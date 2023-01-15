@@ -36,7 +36,7 @@ if (isProcessRunning('svxlink')) {
   if ($modules != "") {  define("SVXMODULES", $modules);
     $admodules = getActiveModules();
     echo "<tr><th><span style=\"font-size:12px;\">Modules Loaded</span></th></tr>\n";
-    foreach ($adßmodules as $key) {
+    foreach ($admodules as $key) {
       if ($admodules[$key] == "On") {
         $activemod = "<td style=\"background:MediumSeaGreen;color:#464646;font-weight: bold;\">";
       } else {
