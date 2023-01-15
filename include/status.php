@@ -21,7 +21,7 @@ else {$svxConfigFile = SVXCONFPATH."/".SVXCONFIG;
          
     $check_logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
  // $inReflectorDefaultLang = explode(",", $svxconfig['ReflectorLogic']['DEFAULT_LANG']);
-foreach ($check_logics as $logic_key) {
+foreach ($check_logics as $key) {
 echo "<tr><td style=\"background:#ffffed;\"><span style=\"color:#b5651d;font-weight: bold;\">".$key."</span></td></tr>";
  }
 echo "</table>\n";
