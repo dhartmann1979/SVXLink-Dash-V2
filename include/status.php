@@ -115,33 +115,30 @@ if (isProcessRunning('svxlink')) {
   echo "</td></tr>";
   echo "</table>\n";
 
-if ($modecho=="True") {
-  $echolog = getEchoLog();
-  $echotxing = getEchoLinkTX();
-  if (EL_NODE_NR > 1) {
-     echo "<table style=\"margin-top:4px;margin-bottom:13px;\"><tr><th colspan=2 >EchoLink Node #".EL_NODE_NR."</th></tr><tr>"; }
-  else {
-     echo "<table style=\"margin-top:4px;margin-bottom:13px;\"><tr><th colspan=2 >EchoLink Users</th></tr><tr>"; }
-  echo "<tr>";
-  $users = getConnectedEcholink($echolog);
-  if (count($users)!=0){
-  echo "<td colspan=2 style=\"background:#f6f6bd;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#0065ff;font-weight: bold;\">";
-  foreach ($users as $user) {
-    echo "<a href=\"http://www.qrz.com/db/".$user."\" target=\"_blank\"><b>".str_replace("0","&Oslash;",$user)."</b></a> ";
-     }
-   } else { echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;color:#b0b0b0;font-weight: bold;\">None";}
-  echo "</div></td></tr>";
-  if (!empty($echotxing)) {
-  echo "<tr><th width=50%>TX</th><td style=\"background:#ffffed;color:red;font-weight: bold;\">".$echotxing."</td></tr>"; } else {
-  echo "<tr><th width=50%>Logins:</th><td style=\"background:#ffffed;color:black;font-weight: bold;\">".(count($users))."</td></tr>"; }
-  echo "</table>\n";
-  $svxEchoConfigFile = SVXCONFPATH."/".SVXCONFIG."/svxlink.d/ModuleEchoLink.conf";
-    if (fopen($svxEchoConfigFile,'r')) { 
-       $svxeconfig = parse_ini_file($svxEchoConfigFile,true,INI_SCANNER_RAW);
-       $eproxyd= $svxeconfig['ModuleEchoLink']['PROXY_SERVER']; 
-       } else {
-       $eproxyd= ""; 
+  if ($modecho == "True") {
+    $echolog = getEchoLog();
+    $echotxing = getEchoLinkTX();
+    echo "<table style=\"margin-top:4px;margin-bottom:13px;\"><tr><th colspan=2 >EchoLink Users</th></tr><tr>";
+    echo "<tr>";
+    $users = getConnectedEcholink($echolog);
+    if (count($users) != 0) {
+      echo "<td colspan=2 style=\"background:#f6f6bd;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#0065ff;font-weight: bold;\">";
+      foreach ($users as $user) {
+        echo "<a href=\"http://www.qrz.com/db/" . $user . "\" target=\"_blank\"><b>" . str_replace("0", "&Oslash;", $user) . "</b></a> ";
       }
+    } else {echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;color:#b0b0b0;font-weight: bold;\">Not connected";}
+
+    echo "</div></td></tr>";
+    if (!empty($echotxing)) {
+    echo "<tr><th width=50%>TXing</th><td style=\"background:#ffffed;color:red;font-weight: bold;\">" . $echotxing . "</td></tr>";
+    echo "</table>\n";
+    $svxEchoConfigFile = "/etc/svxlink/svxlink.d/ModuleEchoLink.conf";
+    if (fopen($svxEchoConfigFile, 'r')) {
+      $svxeconfig = parse_ini_file($svxEchoConfigFile, true, INI_SCANNER_RAW);
+      $eproxyd = $svxeconfig['PROXY_SERVER'];
+    } else {
+      $eproxyd = "";
+    }
     $eproxy = getEchoLinkProxy();
     if ($eproxy != "" and $eproxyd != "") {
       echo "<table style=\"margin-top:4px;margin-bottom:4px;\"><tr><th>EchoLink Proxy</th></tr><tr>";
