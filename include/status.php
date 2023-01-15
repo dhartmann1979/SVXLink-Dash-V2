@@ -32,7 +32,7 @@ if (isProcessRunning('svxlink')) {
   } else {
     $modules = "";
   }
-
+  echo "$system_type";
   $modecho = "False";
   
   if ($modules != "") {  define("SVXMODULES", $modules);
