@@ -73,8 +73,8 @@ $svxConfigFile = '/etc/svxlink/svxlink.conf';
 if (fopen($svxConfigFile,'r')) {$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW); }
 $logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
 foreach ($logics as $key) {
-  if ($key == "SimplexLogic") $isSimplex = true;
-  if ($key == "RepeaterLogic") $isRepeater = true; 
+  if ($logic == "SimplexLogic") $isSimplex = true;
+  if ($logic == "RepeaterLogic") $isRepeater = true; 
 };
 $tgUri = $svxconfig['ReflectorLogic']['TG_URI'];
 
