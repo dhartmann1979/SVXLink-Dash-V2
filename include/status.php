@@ -24,7 +24,7 @@ if (isProcessRunning('svxlink')) {
   echo "</table>\n";
   echo "<table style=\"margin-top:2px;margin-bottom:13px;\">\n";
   if (($system_type == "IS_DUPLEX") && (isset($svxconfig['RepeaterLogic']['MODULES']))) {
-    $modules = explode(",", str_replace('Module', '', $svxconfig['RepeaterLogic']['MODULES']));
+    $modules = explode(",", str_replace('Module','', $svxconfig['RepeaterLogic']['MODULES']));
   } elseif (($system_type == "IS_SIMPLEX") && (isset($svxconfig['SimplexLogic']['MODULES']))) {
     $modules = explode(",", str_replace('Module', '', $svxconfig['SimplexLogic']['MODULES']));
   } else {
@@ -32,17 +32,11 @@ if (isProcessRunning('svxlink')) {
   }
 
   $modecho = "False";
-  /*include_once 'parse_svxconf.php';
-  $inReflectorDefaultLang = explode(",", $svxconfig['ReflectorLogic']['DEFAULT_LANG']);
-  echo "<tr><td style=\"background:#ffffed;\"><span style=\"color:#b5651d;font-weight: bold;\">".$key."</span></td></tr>";
   
-  echo "</table>\n";
-  echo "<table style=\"margin-top:2px;margin-bottom:13px;\">\n";*/
-  if ($modules != "") {
-    define("SVXMODULES", $modules);
+  if ($modules != "") {  define("SVXMODULES", $modules);
     $admodules = getActiveModules();
     echo "<tr><th><span style=\"font-size:12px;\">Modules Loaded</span></th></tr>\n";
-    foreach ($modules as $key) {
+    foreach ($adßmodules as $key) {
       if ($admodules[$key] == "On") {
         $activemod = "<td style=\"background:MediumSeaGreen;color:#464646;font-weight: bold;\">";
       } else {
