@@ -123,12 +123,12 @@ echo "<table style=\"margin-top:4px;margin-bottom:13px;\"><tr><th colspan=2 >Sys
 echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#000000;font-weight: bold;\">"; 
 echo "Last Reboot<br>",exec('uptime -s');
 echo "</div></td></tr>";
-if ($check_logics[0] == "RepeaterLogic") {
+if ($system_type="IS_DUPLEX") {
    echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#0a7d29;font-weight: bold;\">";
    echo "Mode: duplex";
    echo "</div></td></tr>";
    }
-if ($check_logics[0] == "SimplexLogic") {
+if ($system_type="IS_SIMPLEX") {
    echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#0a7d29;font-weight: bold;\">";
    echo "Mode: simplex";
    echo "</div></td></tr>";
