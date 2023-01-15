@@ -166,10 +166,10 @@ if (isProcessRunning('svxlink')) {
     echo "</div></td></tr>";
   }
 
-  $ip = isset($_SERVER['REMOTE_ADDR']);
-  echo $_SERVER['REMOTE_ADDR'];
-  $net1 = cidr_match($ip, "192.168.0.126/8");
-  $net2 = cidr_match($ip, "172.16.0.0/8");
+  $ip = isset($_SERVER['HTTP_CLIENT_IP']);
+  echo $_SERVER['HTTP_CLIENT_IP'];
+  $net1 = cidr_match($ip, "192.168.0.0/16");
+  $net2 = cidr_match($ip, "172.16.0.0/12");
   $net3 = cidr_match($ip, "127.0.0.0/8");
   $net4 = cidr_match($ip, "192.168.1.0/8");
 
