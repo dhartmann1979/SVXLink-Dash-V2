@@ -10,6 +10,7 @@ else {$svxConfigFile = trim(substr(shell_exec("grep CFGFILE /etc/default/svxlink
          $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
          // check if we are a repeater or a simplex system
          $check_logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
+  echo "$check_logics";
             foreach ($check_logics as $key) {
               
             if ($check_logics[0]=="RepeaterLogic") {
