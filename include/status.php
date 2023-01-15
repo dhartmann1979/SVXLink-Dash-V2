@@ -39,7 +39,7 @@ if ($modules!="") {
 define("SVXMODULES",$modules);
 $admodules = getActiveModules();
  echo "<tr><th><span style=\"font-size:12px;\">Modules Loaded</span></th></tr>\n";
- foreach ($modules as $key) {
+ foreach ($admodules as $key) {
      if ($admodules[$key]=="On"){
     $activemod="<td style=\"background:MediumSeaGreen;color:#464646;font-weight: bold;\">";} else {
     $activemod="<td style=\"background:#ffffed;;color:#b5651d;font-weight: bold;\">";}
