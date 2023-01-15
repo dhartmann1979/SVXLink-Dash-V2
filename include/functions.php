@@ -175,7 +175,7 @@ function getSVXTGTMP() {
 
 function initModuleArray() {
     $modules = Array();
-    foreach (SVXMODULES as $enabled) {
+    foreach ($modules as $enabled) {
                 $modules[$enabled] = 'Off';
         }
     return $modules;
