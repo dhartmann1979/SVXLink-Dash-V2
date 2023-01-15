@@ -25,8 +25,10 @@ if (isProcessRunning('svxlink')) {
   echo "<table style=\"margin-top:2px;margin-bottom:13px;\">\n";
   if (($logic[]="RepeaterLogic") && (isset($svxconfig['RepeaterLogic']['MODULES']))) {
     $modules = explode(",", str_replace('Module','', $svxconfig['RepeaterLogic']['MODULES']));
+    $system_type = "IS_DUPLEX";
   } elseif (($logic[]="SimplexLogic") && (isset($svxconfig['SimplexLogic']['MODULES']))) {
     $modules = explode(",", str_replace('Module', '', $svxconfig['SimplexLogic']['MODULES']));
+    $system_type = "IS_SIMPLEX";
   } else {
     $modules = "";
   }
