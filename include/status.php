@@ -24,9 +24,13 @@ else {$svxConfigFile = SVXCONFPATH."/".SVXCONFIG;
 foreach ($check_logics as $key) {
 
 if (($check_logics[0]=="RepeaterLogic") && (isset($svxconfig['RepeaterLogic']['MODULES'])))
-{ $modules = explode(",",str_replace('Module','',$svxconfig['RepeaterLogic']['MODULES'])); }
+{ $modules = explode(",",str_replace('Module','',$svxconfig['RepeaterLogic']['MODULES'])); 
+$system_type="IS_DUPLEX";
+}
 if (($check_logics[0]=="SimplexLogic") && (isset($svxconfig['SimplexLogic']['MODULES'])))
-{ $modules = explode(",",str_replace('Module','',$svxconfig['SimplexLogic']['MODULES'])); }
+{ $modules = explode(",",str_replace('Module','',$svxconfig['SimplexLogic']['MODULES'])); 
+$system_type="IS_SIMPLEX";
+}
 else
 $modules=""; }
 $modecho = "False";

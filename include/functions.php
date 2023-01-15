@@ -307,7 +307,7 @@ function getTXInfo() {
         //        }
 
 
-           //     $txs =  "<td style=\"background:#c3e5cc;\"><div style=\"margin-top:2px;margin-bottom:2px;color:#464646;font-weight:bold;\"></div></td></tr>\n";
+           //     $txs =  "<td style=\"background:#c3e5cc;\"><div style=\"margin-top:2px;margin-bottom:2px;color:#464646;font-weight:bold;\">Listening</div></td></tr>\n";
         
 	//};
 	        if (strpos($txstat, "OPEN")) { 		
