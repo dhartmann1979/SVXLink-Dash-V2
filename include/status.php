@@ -61,11 +61,11 @@ echo "<table  style=\"margin-bottom:13px;\"><tr><th>Radio Status</th></tr><tr>";
 echo getTXInfo();
 if ($ispeak==true) echo getRXPeak();
 echo "</table>\n";
-if (($check_logics[0]=="RepeaterLogic") && ($svxconfig['RepeaterLogic']['TX'] !== "NONE")) {
+if (($system_type="IS_DUPLEX"=="RepeaterLogic") && ($svxconfig['RepeaterLogic']['TX'] !== "NONE")) {
   echo "<table  style=\"margin-bottom:13px;\"><tr><th>Repeater Status</th></tr><tr>";
   echo getTXInfo();
   echo "</table>\n"; }
-elseif (($check_logics[0]=="SimplexLogic") && ($svxconfig['SimplexLogic']['TX'] !== "NONE")) {
+elseif (($system_type="IS_SIMPLEX"=="SimplexLogic") && ($svxconfig['SimplexLogic']['TX'] !== "NONE")) {
   echo "<table  style=\"margin-bottom:13px;\"><tr><th>Node Status</th></tr><tr>";
   echo getTXInfo();
   echo "</table>\n"; }
