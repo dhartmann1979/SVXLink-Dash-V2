@@ -25,7 +25,7 @@ foreach ($check_logics as $logic_key) {
 echo "<tr><td style=\"background:#ffffed;\"><span style=\"color:#b5651d;font-weight: bold;\">".$key."</span></td></tr>";
  }
 echo "</table>\n";
-echo "<table style=\"margin-top:2px;margin-bottom:13px;\">\n";
+echo "<table style=\"margin-top:2px;margin-bottom:13px;\">$check_logics\n";
 if (($check_logics[0]=="RepeaterLogic") && (isset($svxconfig['RepeaterLogic']['MODULES'])))
 { $modules = explode(",",str_replace('Module','',$svxconfig['RepeaterLogic']['MODULES'])); }
 if (($check_logics[0]=="SimplexLogic") && (isset($svxconfig['SimplexLogic']['MODULES'])))
