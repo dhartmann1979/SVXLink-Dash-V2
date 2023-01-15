@@ -57,10 +57,10 @@ echo "</table>";
 if ($svxconfig["Rx1"]["PEAK_METER"] =="1") {
 $ispeak = true ;}
 
-/*echo "<table  style=\"margin-bottom:13px;\"><tr><th>Radio Status</th></tr><tr>";
+echo "<table  style=\"margin-bottom:13px;\"><tr><th>Radio Status</th></tr><tr>";
 echo getTXInfo();
 if ($ispeak==true) echo getRXPeak();
-echo "</table>\n";*/
+echo "</table>\n";
 if (($check_logics[0]=="RepeaterLogic") && ($svxconfig['RepeaterLogic']['TX'] !== "NONE")) {
   echo "<table  style=\"margin-bottom:13px;\"><tr><th>Repeater Status</th></tr><tr>";
   echo getTXInfo();
