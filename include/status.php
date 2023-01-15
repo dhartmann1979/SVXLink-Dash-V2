@@ -88,7 +88,8 @@ if (isProcessRunning('svxlink')) {
     echo "<table  style=\"margin-bottom:13px;\"><tr><th>Repeater Status</th></tr><tr>";
     echo getTXInfo();
     echo "</table>\n";
-  } elseif (($system_type = "IS_SIMPLEX") && ($svxconfig['SimplexLogic']['TX'] !== "NONE")) {
+  } 
+  if (($system_type = "IS_SIMPLEX") && ($svxconfig['SimplexLogic']['TX'] !== "NONE")) {
     echo "<table  style=\"margin-bottom:13px;\"><tr><th>Node Status</th></tr><tr>";
     echo getTXInfo();
     echo "</table>\n";
