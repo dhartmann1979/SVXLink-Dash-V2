@@ -9,8 +9,7 @@ include_once __DIR__.'/functions.php';
 <?php
 // Check SVXLink is running
 if (isProcessRunning('svxlink')) {
-  echo "YES";
-
+  
   echo "<table style=\"margin-top:4px;margin-bottom:13px;\">\n";
   echo "<tr><th><span style=\"font-size:12px;\">Logics</span></th></tr>\n";
 
