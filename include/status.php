@@ -35,7 +35,7 @@ echo "<tr><td style=\"background:#ffffed;\"><span style=\"color:#b5651d;font-wei
  
 echo "</table>\n";
 echo "<table style=\"margin-top:2px;margin-bottom:13px;\">\n";*/
-if ($modules!="") {define("SVX",$modules);}
+if ($modules!="") {define("SVXMODULES",$modules);}
 $admodules = getActiveModules();
  echo "<tr><th><span style=\"font-size:12px;\">Modules Loaded</span></th></tr>\n";
  foreach ($modules as $key) {
