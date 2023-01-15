@@ -175,7 +175,7 @@ function getSVXTGTMP() {
 
 function initModuleArray() {
     $modules = Array();
-    foreach ($modules as $enabled) {
+    foreach (SVXMODULES as $enabled) {
                 $modules[$enabled] = 'Off';
         }
     return $modules;
@@ -307,7 +307,7 @@ function getTXInfo() {
         //        }
 
 
-           //     $txs =  "<td style=\"background:#c3e5cc;\"><div style=\"margin-top:2px;margin-bottom:2px;color:#464646;font-weight:bold;\">Listening</div></td></tr>\n";
+           //     $txs =  "<td style=\"background:#c3e5cc;\"><div style=\"margin-top:2px;margin-bottom:2px;color:#464646;font-weight:bold;\"></div></td></tr>\n";
         
 	//};
 	        if (strpos($txstat, "OPEN")) { 		
@@ -315,7 +315,7 @@ function getTXInfo() {
                  return "<tr><td style=\"background:#4aa361;color:black;\"><div style=\"margin-top:2px;margin-bottom:2px;font-weight:bold;\">RX</div></td></tr>\n";
         //;;
                 } ;
-                return  "<td style=\"background:#c3e5cc;\"><div style=\"margin-top:2px;margin-bottom:2px;color:#464646;font-weight:bold;\"></div></td></tr>\n"; 
+                return  "<td style=\"background:#c3e5cc;\"><div style=\"margin-top:2px;margin-bottom:2px;color:#464646;font-weight:bold;\">Listening</div></td></tr>\n"; 
 
         }
 }

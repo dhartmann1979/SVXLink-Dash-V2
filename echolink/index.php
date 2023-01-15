@@ -112,7 +112,7 @@ if (fopen($elConfigFile,'r'))
       };
   $module = str_split($elconfig['ModuleEchoLink']);
   foreach ($module as $key) {
-//if ($module[0] == "[ModuleEchoLink]") $isEchoLink = true;
+//if ($logics[0] == "[ModuleEchoLink]") $isEchoLink = true;
   }
 
 if (isset($_POST['btnSave'])) {
