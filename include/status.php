@@ -76,10 +76,10 @@ echo "<table  style=\"margin-bottom:13px;\"><tr><th>".FMNETWORK."</th></tr><tr>"
   if ($svxrstatus=="Connected") {
    echo "<td style=\"background:#c3e5cc;\"><div style=\"margin-top:2px;margin-bottom:2px;white-space:normal;color:#b44010;font-weight:bold;\">";
    echo $svxrstatus."</div>";}
-  if ($svxrstatus=="Not connected") {
+  elseif ($svxrstatus=="Not connected") {
    echo "<td style=\"background:#ff9;\"><div style=\"margin-top:2px;margin-bottom:2px;color:#454545;font-weight:bold;\">";
    echo $svxrstatus."</div>";}
-  if ($svxrstatus=="No status") {
+  elseif ($svxrstatus=="No status") {
    echo "<td style=\"background:#ffffed;\"><div style=\"margin-top:2px;margin-bottom:2px;color:#b0b0b0;font-weight:bold;\">"; 
    echo $svxrstatus."</div>";}
    echo "</td></tr>";
@@ -128,7 +128,7 @@ if ($system_type="IS_DUPLEX") {
    echo "Mode: duplex";
    echo "</div></td></tr>";
    }
-if ($system_type="IS_SIMPLEX") {
+elseif ($system_type="IS_SIMPLEX") {
    echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#0a7d29;font-weight: bold;\">";
    echo "Mode: simplex";
    echo "</div></td></tr>";
