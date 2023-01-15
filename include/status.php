@@ -145,10 +145,12 @@ if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE || $FULLACC
   echo "DB Access Level:<BR>Full/Intranet/VPN";
   echo "</div></td></tr>";
 
-  echo "</table>\n";
+  //echo "</table>\n";
 } else {
 
-echo "<span style=\"color:red;font-size:13.5px;font-weight: bold;\">SvxLink is not <br>running</span></table>\n";
+echo "<span style=\"color:red;font-size:13.5px;font-weight: bold;\">SvxLink is not <br>running</span>\n";
 }
+echo "</table>";
 ?>
+
 </fieldset>
