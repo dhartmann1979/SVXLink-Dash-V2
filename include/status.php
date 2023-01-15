@@ -13,12 +13,28 @@ if (isProcessRunning('svxlink')) {
 
 echo "<table style=\"margin-top:4px;margin-bottom:13px;\">\n";
 echo "<tr><th><span style=\"font-size:12px;\">Logics</span></th></tr>\n";
-include_once 'parse_svxconf.php';
+$svxConfigFile = SVXCONFPATH."/".SVXCONFIG;
+    if (fopen($svxConfigFile,'r')) {$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW); }
+$logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
+foreach ($logics as $key) {
+  echo "<tr><td style=\"background:#ffffed;\"><span style=\"color:#b5651d;font-weight: bold;\">".$key."</span></td></tr>";
+}
+echo "</table>\n";
+echo "<table style=\"margin-top:2px;margin-bottom:13px;\">\n";
+if (($system_type=="IS_DUPLEX") && (isset($svxconfig['RepeaterLogic']['MODULES'])))
+{ $modules = explode(",",str_replace('Module','',$svxconfig['RepeaterLogic']['MODULES'])); }
+elseif (($system_type=="IS_SIMPLEX") && (isset($svxconfig['SimplexLogic']['MODULES'])))
+{ $modules = explode(",",str_replace('Module','',$svxconfig['SimplexLogic']['MODULES'])); }
+else
+{ $modules=""; }
+
+$modecho = "False";
+/*include_once 'parse_svxconf.php';
 $inReflectorDefaultLang = explode(",", $svxconfig['ReflectorLogic']['DEFAULT_LANG']);
 echo "<tr><td style=\"background:#ffffed;\"><span style=\"color:#b5651d;font-weight: bold;\">".$key."</span></td></tr>";
  
 echo "</table>\n";
-echo "<table style=\"margin-top:2px;margin-bottom:13px;\">\n";
+echo "<table style=\"margin-top:2px;margin-bottom:13px;\">\n";*/
 if ($modules!="") {define("SVXMODULES",$modules);}
 $admodules = getActiveModules();
  echo "<tr><th><span style=\"font-size:12px;\">Modules Loaded</span></th></tr>\n";
