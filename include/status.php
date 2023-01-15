@@ -170,7 +170,7 @@ if (isProcessRunning('svxlink')) {
   $net1 = cidr_match($ip, "192.168.0.126/8");
   $net2 = cidr_match($ip, "172.16.0.0/8");
   $net3 = cidr_match($ip, "127.0.0.0/8");
-  $net4 = cidr_match($ip, "192.168.1.198/8");
+  $net4 = cidr_match($ip, "192.168.1.0/8");
 
   if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE || $FULLACCESS_OUTSIDE == 1) {
     echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#ff0000;font-weight: bold;\">";
