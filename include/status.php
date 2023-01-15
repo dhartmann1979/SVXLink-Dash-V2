@@ -2,13 +2,14 @@
 include_once __DIR__.'/config.php';         
 include_once __DIR__.'/tools.php';        
 include_once __DIR__.'/functions.php';
-
+// Left Vertical Box
 ?>
 <div style="width:180px;"><span style="font-weight: bold;font-size:14px;">SVXLink Info</span></div>
 <fieldset style="width:175px;background-color:#e8e8e8e8;margin-top:6px;;margin-bottom:0px;margin-left:0px;margin-right:3px;font-size:12px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
 <?php
-
+// Check SVXLink is running
 if (isProcessRunning('svxlink')) {
+  echo "YES";
 
   echo "<table style=\"margin-top:4px;margin-bottom:13px;\">\n";
   echo "<tr><th><span style=\"font-size:12px;\">Logics</span></th></tr>\n";
