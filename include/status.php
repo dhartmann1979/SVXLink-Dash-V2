@@ -20,10 +20,10 @@ echo "<tr><td style=\"background:#ffffed;\"><span style=\"color:#b5651d;font-wei
 echo "</table>\n";
 echo "<table style=\"margin-top:2px;margin-bottom:13px;\">\n";
 if ($modules!="") {
-define("SVXMODULES",$modules);
+define("SVXMODULES",$modules);}
 $admodules = getActiveModules();
  echo "<tr><th><span style=\"font-size:12px;\">Modules Loaded</span></th></tr>\n";
- foreach ($modules as $key) {
+ foreach ($admodules as $key) {
      if ($admodules[$key]=="On"){
     $activemod="<td style=\"background:MediumSeaGreen;color:#464646;font-weight: bold;\">";} else {
     $activemod="<td style=\"background:#ffffed;;color:#b5651d;font-weight: bold;\">";}
@@ -55,8 +55,8 @@ if ( $tgselect=="0"){$tgselect="";}
 echo "<tr><th width=50%>TG Active</th><td style=\"background: #ffffed;color:#0065ff;font-weight: bold;\">".$tgselect."</td></tr>\n";
 echo "</table>";
 
-if ($svxconfig["Rx1"]["PEAK_METER"] =="1") 
-$ispeak = true ;
+if ($svxconfig["Rx1"]["PEAK_METER"] =="1") {
+$ispeak = true ;}
 
 /*echo "<table  style=\"margin-bottom:13px;\"><tr><th>Radio Status</th></tr><tr>";
 echo getTXInfo();
@@ -142,14 +142,14 @@ $net3= cidr_match($ip,"127.0.0.0/8");
 $net4= cidr_match($ip,"192.168.1.0/8");
 
 if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE || $FULLACCESS_OUTSIDE == 1) {
-   echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#ff0000;font-weight: bold;\">";
-   echo "DB Access Level:<BR>Full/Intranet/VPN";
-   echo "</div></td></tr>";
-   }
-   echo "</table>\n";
+  echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#ff0000;font-weight: bold;\">";
+  echo "DB Access Level:<BR>Full/Intranet/VPN";
+  echo "</div></td></tr>";
+
+  echo "</table>\n";
 } else {
 
-echo "<span style=\"color:red;font-size:13.5px;font-weight: bold;\">SvxLink is not <br>running</span>";
+echo "<span style=\"color:red;font-size:13.5px;font-weight: bold;\">SvxLink is not <br>running</span></table>\n";
 }
 ?>
 </fieldset>
