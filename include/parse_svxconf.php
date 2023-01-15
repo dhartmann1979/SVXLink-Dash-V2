@@ -25,12 +25,12 @@ else {$svxConfigFile = trim(substr(shell_exec("grep CFGFILE /etc/default/svxlink
               $system_type = "IS_SIMPLEX"; // if simplex
               $dtmfctrl = $svxconfig['SimplexLogic']['DTMF_CTRL_PTY'];
               $modules = $svxconfig['MODULES'];
-        }
+            }
          }
-         // additional variables need to define in svxlink.conf in stanza [ReflectorLogic]: API, FMNET, TG_URI
+         // additional variables 
          // FMNET - Name of FM-Network
          // API - URI for access the status of SVXReflector you are connected
-         // TG_URI ??? I don't know...
+         // TG_URI ...
          $refApi = $svxconfig['ReflectorLogic']['API'];
          $fmnetwork =$svxconfig['ReflectorLogic']['FMNET'];
          $tgUri = $svxconfig['ReflectorLogic']['TG_URI'];
