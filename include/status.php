@@ -12,7 +12,7 @@ include_once __DIR__.'/functions.php';
 if (isProcessRunning('svxlink')) {
 
 echo "<table style=\"margin-top:4px;margin-bottom:13px;\">\n";
-echo "<tr><th><span style=\"font-size:12px;\">Logics</span></th></tr>\n";
+echo "<tr><th><span style=\"font-size:12px;\">Active Logics</span></th></tr>\n";
 if ( (defined('SVXCONFIG')) && (defined('SVXCONFPATH')) ) {$svxConfigFile = SVXCONFPATH."/".SVXCONFIG ; }
 else {$svxConfigFile = SVXCONFPATH."/".SVXCONFIG;
     if (fopen($svxConfigFile,'r')) 
@@ -39,7 +39,7 @@ if ($modules!="") {
 define("SVXMODULES",$modules);
 $admodules = getActiveModules();
  echo "<tr><th><span style=\"font-size:12px;\">Modules Loaded</span></th></tr>\n";
- foreach ($admodules as $key) {
+ foreach ($modules as $key) {
      if ($admodules[$key]=="On"){
     $activemod="<td style=\"background:MediumSeaGreen;color:#464646;font-weight: bold;\">";} else {
     $activemod="<td style=\"background:#ffffed;;color:#b5651d;font-weight: bold;\">";}
