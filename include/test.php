@@ -21,11 +21,10 @@ $i = 0;
 for ($i = 0;  ($i <= 15); $i++) { //Last 15 calls
 	if (isset($lastHeard[$i])) {
 		$listElem = $lastHeard[$i];
-    echo "$lastHeard[$i]";
 		if ( $listElem[1] ) {
       if (isset($svxconfig['GLOBAL']['TIMESTAMP_FORMAT'])) {
         $local_time = date(strtotime($listElem[0]));
-        echo "$local_time";
+        echo "$local_time" . " " . "$listElem[0]" . " " . "$listElem[0]" . " " . "$listElem[1]" . " " . "$listElem[2]" . " " . "$listElem[3]";
       }
         else {
         $local_time = date(strtotime($listElem[0])); 
