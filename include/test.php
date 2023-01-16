@@ -18,7 +18,7 @@ include_once __DIR__.'/tgdb.php';
     </tr>
 <?php
 $t = "Mon Jan 16 10:42:29";
-echo substr($t, -7);
+echo substr($t, -8);
 $i = 0;
 for ($i = 0;  ($i <= 15); $i++) { //Last 15 calls
 	if (isset($lastHeard[$i])) {
