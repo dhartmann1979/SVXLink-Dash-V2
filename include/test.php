@@ -24,7 +24,7 @@ for ($i = 0;  ($i <= 15); $i++) { //Last 15 calls
 		if ( $listElem[1] ) {
       if (isset($svxconfig['GLOBAL']['TIMESTAMP_FORMAT'])) {
         $local_time = date(strtotime($listElem[0]));
-        echo "$local_time" . " " . "$listElem[0]" . " " . "$listElem[0]" . " " . "$listElem[1]" . " " . "$listElem[2]" . " " . "$listElem[3]";
+        echo "$local_time" . " " . "$listElem[0]" . " " . "$listElem[0]" . " " . "$listElem[1]" . " " . "$listElem[2]" . " " . "$listElem[3]"."\n";
       }
         else {
         $local_time = date(strtotime($listElem[0])); 
