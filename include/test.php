@@ -19,8 +19,7 @@ else {$svxConfigFile = SVXCONFPATH."/".SVXCONFIG;
   }
   if (fopen($svxConfigFile,'r')) 
     {$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW); }
-    $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
-    echo "$callsign";     
+    $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];     
     $check_logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
     
     
