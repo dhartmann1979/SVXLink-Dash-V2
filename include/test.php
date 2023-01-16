@@ -1,174 +1,65 @@
 <?php
 include_once __DIR__.'/config.php';         
 include_once __DIR__.'/tools.php';        
-include_once __DIR__.'/functions.php';
-
-
+include_once __DIR__.'/functions.php';    
+include_once __DIR__.'/tgdb.php';    
 ?>
-<div style="width:180px;"><span style="font-weight: bold;font-size:14px;">SVXLink Info</span></div>
-<fieldset style="width:175px;background-color:#e8e8e8e8;margin-top:6px;;margin-bottom:0px;margin-left:0px;margin-right:3px;font-size:12px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+<span style="font-weight: bold;font-size:14px;">SVXReflector Activity</span>
+<fieldset style=" width:620px;box-shadow:0 0 10px #999;background-color:#e8e8e8e8;margin-top:10px;margin-left:0px;margin-right:0px;font-size:12px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+  <form method="post">
+  <table style="margin-top:3px;">
+    <tr height=25px>
+      <th width=150px>Time (<?php echo date('T')?>)</th>
+      <th width=100px>Callsign</th>
+      <th width=100px>TG #</th>
+	<th width=30px> M </th>
+	<th width=30px> A </th>
+      <th>TG Name</th>
+    </tr>
 <?php
+$i = 0;
+for ($i = 0;  ($i <= 15); $i++) { //Last 15 calls
+	if (isset($lastHeard[$i])) {
+		$listElem = $lastHeard[$i];
+		if ( $listElem[1] ) {
+      if (isset($svxconfig['GLOBAL']['TIMESTAMP_FORMAT'])) {
+        $local_time = strftime($svxconfig['GLOBAL']['TIMESTAMP_FORMAT'],strtotime($listElem[0])); }
+        else {
+        $local_time = strftime("%H:%M:%S %d %b",strtotime($listElem[0])); }
+        //$local_time = date("%e F Y", strtotime('2010-01-08'))
+    echo"<tr height=24px style=\"font-size:12.5px;>\">";
+		echo"<td align=\"left\">&nbsp; '$local_time[0]' </td>";
+                if ($listElem[3] == "OFF" ) {$bgcolor=""; $tximg="";}
+                if ($listElem[3] == "ON" ) {$bgcolor=""; $tximg="<img src=images/tx.gif height=21 alt='TXing' title='TXing' style=\"vertical-align: middle;\">";}
+                $ref = substr($listElem[1],0,3);
+                $call=$listElem[1];
+                $ssid = strpos($listElem[1],"-");
+                if ((!preg_match('/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/', $listElem[1]) or $ref=="XLX" or $ref=="YSF" or $ref=="M17" or substr($listElem[1],0,3)=="TG" )) {
+                  echo "<td $bgcolor align='left' valign='middle' class=mh_call>&nbsp;&nbsp;<b>$listElem[1]</b>&nbsp;$tximg</td>";
+                } else {
+                  if ($ssid){
+                  $call = substr($listElem[1],0,$ssid);}
+                  echo "<td $bgcolor align=\"left\">&nbsp;&nbsp;<a href=\"http://www.qrz.com/db/".$call."\" target=\"_blank\" class=\"qrz_link\"><b>$listElem[1]</b></a>&nbsp;$tximg</td>";
+               }
+		//echo "<td align=\"left\">&nbsp;<span style=\"color:#b5651d;font-weight:bold;\">$listElem[2]</span></td>";
+		$tgnumber = substr($listElem[2],3);
+                $name=$tgdb_array[$tgnumber];
+		echo "<td align=\"left\">&nbsp;<span style=\"color:#b5651d;font-weight:bold;\">$tgnumber</span></td>";
+		echo "<td><button type=submit id=jumptoM name=jmptoM class=monitor_id value=\"$listElem[2]\"><i class=\"material-icons\"style=\"font-size:15px;\">volume_up</i></button></td>";
+		//echo "<td onlick='monitorTmpTG(".$tgnumber.")'> M </a></td>";
+		//echo "<td><button> T </button></td>";
+                echo "<td><button type=submit id=jumptoA name=jmptoA class=active_id value=\"$listElem[2]\"><i class=\"material-icons\"style=\"font-size:15px;\">cell_tower</i></button></td>";
+	       //$tgnumber = substr($listElem[2],3);
+               //$name=$tgdb_array[$tgnumber];
 
-if (isProcessRunning('svxlink')) {
-
-echo "<table style=\"margin-top:4px;margin-bottom:13px;\">\n";
-echo "<tr><th><span style=\"font-size:12px;\">Active Logics</span></th></tr>\n";
-  if ((defined('SVXCONFIG')) && (defined('SVXCONFPATH'))) {
-    $svxConfigFile = SVXCONFPATH . "/" . SVXCONFIG;}
-else {$svxConfigFile = SVXCONFPATH."/".SVXCONFIG;
-  }
-  if (fopen($svxConfigFile,'r')) 
-    {$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW); }
-    $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];     
-    $check_logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
-    
-    
- // $inReflectorDefaultLang = explode(",", $svxconfig['ReflectorLogic']['DEFAULT_LANG']);
-foreach ($check_logics as $key) {
-echo "<tr><td style=\"background:#ffffed;\"><span style=\"color:#b5651d;font-weight: bold;\">".$key."</span></td></tr>";
- }
-echo "</table>\n";
-echo "<table style=\"margin-top:2px;margin-bottom:13px;\">\n";
-if (($check_logics[0]=="RepeaterLogic") && (isset($svxconfig['RepeaterLogic']['MODULES'])))
-{ $modules = explode(",",str_replace('Module','',$svxconfig['RepeaterLogic']['MODULES'])); }
-if (($check_logics[0]=="SimplexLogic") && (isset($svxconfig['SimplexLogic']['MODULES'])))
-{ $modules = explode(",",str_replace('Module','',$svxconfig['SimplexLogic']['MODULES'])); }
-else
-$modules=""; 
-$modecho = "False";
-$inReflectorDefaultLang = explode(",", $svxconfig['ReflectorLogic']['DEFAULT_LANG']);
-
-if ($modules!="") {
-define("SVXMODULES",$modules);
-$admodules = getActiveModules();
- echo "<tr><th><span style=\"font-size:12px;\">Modules Loaded</span></th></tr>\n";
- foreach ($modules as $key) {
-     if ($admodules[$key]=="On"){
-    $activemod="<td style=\"background:MediumSeaGreen;color:#464646;font-weight: bold;\">";} else {
-    $activemod="<td style=\"background:#ffffed;;color:#b5651d;font-weight: bold;\">";}
-
-   echo "<tr>".$activemod."".$key."</td></tr>";
-
-   if ($key=="EchoLink") {$modecho ="True";}}
-
-} else {
-  echo "<tr><td style=\"background: #ffffed;\" ><span style=\"color:#b0b0b0;\"><b>No Modules</span></td></tr>";
+               if ( $name==""){ $name ="------";}
+               if ( $tgnumber>=1239900 and $tgnumber<= 1239999){ $name ="AUTO QSY";}
+		echo "<td style=\"font-weight:bold;color:#464646;\">&nbsp;<b>".$name."</b></td>";
+		echo"</tr>\n";
+		}
+	}
 }
-echo "</table>\n";
 
-$tgtmp = trim(getSVXTGTMP());
-echo "<table colspan=2 style=\"margin-top:4px;margin-bottom:13px;\">\n";
-$tgdefault = $svxconfig['ReflectorLogic']['DEFAULT_TG'];
-$tgmon = explode(",",$svxconfig['ReflectorLogic']['MONITOR_TGS']);
-echo "<tr><th width=50%>TG Default</th><td style=\"background:#ffffed;color:green;font-weight: bold;\">".$tgdefault."</td></tr>\n";
-echo "<tr><th width=50%>TG Monitor</th><td style=\"background:#ffffed;color:#b44010;font-weight: bold;\">";
-echo "<div style=\"white-space:normal;\">";
- foreach ($tgmon as $key) {
-   echo $key." ";
-   }
-echo "<span style=\"background: #ffffed;color:#0065ff;font-weight: bold;\">".$tgtmp."</span>";
-echo "</div></td></tr>\n";
-
-$tgselect = trim(getSVXTGSelect());
-if ( $tgselect=="0"){$tgselect="";}
-echo "<tr><th width=50%>TG Active</th><td style=\"background: #ffffed;color:#0065ff;font-weight: bold;\">".$tgselect."</td></tr>\n";
-echo "</table>";
-
-if ($svxconfig["Rx1"]["PEAK_METER"] =="1") 
-$ispeak = true ;
-
-//echo "<table  style=\"margin-bottom:13px;\"><tr><th>Radio Status</th></tr><tr>";
-//echo getTXInfo();
-//if ($ispeak==true) echo getRXPeak();
-//echo "</table>\n";
-if (($check_logics[0]=="RepeaterLogic") && ($svxconfig['RepeaterLogic']['TX'] !== "NONE")) {
-  echo "<table  style=\"margin-bottom:13px;\"><tr><th>Repeater Status</th></tr><tr>";
-  echo getTXInfo();
-  echo "</table>\n"; }
-if (($check_logics[0]=="SimplexLogic") && ($svxconfig['SimplexLogic']['TX'] !== "NONE")) {
-  echo "<table  style=\"margin-bottom:13px;\"><tr><th>Radio Status</th></tr><tr>";
-  echo getTXInfo();
-  echo "</table>\n"; }
-
-echo "<table  style=\"margin-bottom:13px;\"><tr><th>".FMNETWORK."</th></tr><tr>";
-  $svxrstatus = getSVXRstatus();
-  echo "<tr>";
-  if ($svxrstatus=="Connected") {
-   echo "<td style=\"background:#c3e5cc;\"><div style=\"margin-top:2px;margin-bottom:2px;white-space:normal;color:#b44010;font-weight:bold;\">";
-   echo $svxrstatus."</div>";}
-  if ($svxrstatus=="Not connected") {
-   echo "<td style=\"background:#ff9;\"><div style=\"margin-top:2px;margin-bottom:2px;color:#454545;font-weight:bold;\">";
-   echo $svxrstatus."</div>";}
-  if ($svxrstatus=="No status") {
-   echo "<td style=\"background:#ffffed;\"><div style=\"margin-top:2px;margin-bottom:2px;color:#b0b0b0;font-weight:bold;\">"; 
-   echo $svxrstatus."</div>";}
-   echo "</td></tr>";
-echo "</table>\n";
-
-if ($modecho=="True") {
-  $echolog = getEchoLog();
-  $echotxing = getEchoLinkTX();
-  echo "<table style=\"margin-top:4px;margin-bottom:13px;\"><tr><th colspan=2 >EchoLink Users</th></tr><tr>";
-  echo "<tr>";
-  $users = getConnectedEcholink($echolog);
-  if (count($users)!=0){
-  echo "<td colspan=2 style=\"background:#f6f6bd;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#0065ff;font-weight: bold;\">";
-  foreach ($users as $user) {
-    echo "<a href=\"http://www.qrz.com/db/".$user."\" target=\"_blank\"><b>".str_replace("0","&Oslash;",$user)."</b></a> ";
-     }
-   } else { echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;color:#b0b0b0;font-weight: bold;\">Not connected";}
-  echo "</div></td></tr>";
-  echo "<tr><th width=50%>TXing</th><td style=\"background:#ffffed;color:red;font-weight: bold;\">".$echotxing."</td></tr>";
-  echo "</table>\n";
-  $svxEchoConfigFile = "/etc/svxlink/svxlink.d/ModuleEchoLink.conf";
-    if (fopen($svxEchoConfigFile,'r')) { 
-       $svxeconfig = parse_ini_file($svxEchoConfigFile,true,INI_SCANNER_RAW);
-       $eproxyd= $svxeconfig['PROXY_SERVER']; 
-       } else {
-       $eproxyd= ""; 
-      }
-  $eproxy = getEchoLinkProxy();
-  if ($eproxy!="" and $eproxyd!="") {
-   echo "<table style=\"margin-top:4px;margin-bottom:4px;\"><tr><th>EchoLink Proxy</th></tr><tr>"; 
-   echo "<tr><td style=\"background:#ffffed;\">";
-   echo "<div style=\"margin-top:2px;margin-bottom:2px;white-space:normal;color:black;font-weight:500;\">";
-   if ($eproxy!="Access denied to proxy") {
-   echo $eproxy;
-   } else { echo "<div style=\"margin-top:2px;margin-bottom:2px;color:red;font-weight: bold;\">".$eproxy; }
-   echo "</div></td></tr>";
-   echo "</table>\n";
-  }
-}
-echo "<table style=\"margin-top:4px;margin-bottom:13px;\"><tr><th colspan=2 >Systeminfo</th></tr><tr>";
-echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#000000;font-weight: bold;\">"; 
-echo "Last Reboot<br>",exec('uptime -s');
-echo "</div></td></tr>";
-if ($check_logics[0] == "RepeaterLogic") {
-   echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#0a7d29;font-weight: bold;\">";
-   echo "Mode: duplex";
-   echo "</div></td></tr>";
-   }
-if ($check_logics[0] == "SimplexLogic") {
-   echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#0a7d29;font-weight: bold;\">";
-   echo "Mode: simplex";
-   echo "</div></td></tr>";
-   }
-
-$ip = isset($_SERVER['REMOTE_ADDR']);
-$net1= cidr_match($ip,"192.168.0.126/16");
-$net2= cidr_match($ip,"192.175.43.91/8");
-$net3= cidr_match($ip,"127.0.0.0/8");
-$net4= cidr_match($ip,"192.168.1.0/8");
-
-if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE || $FULLACCESS_OUTSIDE == 1) {
-   echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#ff0000;font-weight: bold;\">";
-   echo "DB Access Level:<BR>Full/Intranet/VPN";
-   echo "</div></td></tr>";
-   }
-   echo "</table>\n";
-} else {
-
-echo "<span style=\"color:red;font-size:13.5px;font-weight: bold;\">SvxLink is not <br>running</span>";
-}
 ?>
+  </table></form>
 </fieldset>
