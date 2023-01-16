@@ -14,17 +14,15 @@ if (isProcessRunning('svxlink')) {
 echo "<table style=\"margin-top:4px;margin-bottom:13px;\">\n";
 echo "<tr><th><span style=\"font-size:12px;\">Active Logics</span></th></tr>\n";
   if ((defined('SVXCONFIG')) && (defined('SVXCONFPATH'))) {
-    $svxConfigFile = SVXCONFPATH . "/" . SVXCONFIG;
-
-    echo "$svxConfigFile";}
+    $svxConfigFile = SVXCONFPATH . "/" . SVXCONFIG;}
 else {$svxConfigFile = SVXCONFPATH."/".SVXCONFIG;
-    echo "$svxConfigFile";}
+  }
   if (fopen($svxConfigFile,'r')) 
     {$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW); }
     $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
     echo "$callsign";     
     $check_logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
-    print_r($check_logics);
+    
     
  // $inReflectorDefaultLang = explode(",", $svxconfig['ReflectorLogic']['DEFAULT_LANG']);
 foreach ($check_logics as $key) {
