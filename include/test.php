@@ -13,9 +13,13 @@ if (isProcessRunning('svxlink')) {
 
 echo "<table style=\"margin-top:4px;margin-bottom:13px;\">\n";
 echo "<tr><th><span style=\"font-size:12px;\">Active Logics</span></th></tr>\n";
-if ( (defined('SVXCONFIG')) && (defined('SVXCONFPATH')) ) {$svxConfigFile = SVXCONFPATH."/".SVXCONFIG ; }
+  if ((defined('SVXCONFIG')) && (defined('SVXCONFPATH'))) {
+    $svxConfigFile = SVXCONFPATH . "/" . SVXCONFIG;
+
+    echo "$svxConfigFile";}
 else {$svxConfigFile = SVXCONFPATH."/".SVXCONFIG;
-    if (fopen($svxConfigFile,'r')) 
+    echo "$svxConfigFile";}
+  if (fopen($svxConfigFile,'r')) 
     {$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW); }
     $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
     echo "$callsign";     
@@ -33,7 +37,7 @@ if (($check_logics[0]=="RepeaterLogic") && (isset($svxconfig['RepeaterLogic']['M
 if (($check_logics[0]=="SimplexLogic") && (isset($svxconfig['SimplexLogic']['MODULES'])))
 { $modules = explode(",",str_replace('Module','',$svxconfig['SimplexLogic']['MODULES'])); }
 else
-$modules=""; }
+$modules=""; 
 $modecho = "False";
 $inReflectorDefaultLang = explode(",", $svxconfig['ReflectorLogic']['DEFAULT_LANG']);
 
