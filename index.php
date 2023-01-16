@@ -84,7 +84,7 @@ include_once __DIR__."/include/buttons.php";
 
     echo '<script type="text/javascript">'."\n";
     echo 'function reloadStatusInfo(){'."\n";
-    echo '  $("#statusInfo").load("include/status.php",function(){ setTimeout(reloadStatusInfo,3000) });'."\n";
+    echo '$("#statusInfo").load("include/status.php",function(){ setTimeout(reloadStatusInfo,3000) });'."\n";
     echo '}'."\n";
     echo 'setTimeout(reloadStatusInfo,3000);'."\n";
     echo '$(window).trigger(\'resize\');'."\n";
