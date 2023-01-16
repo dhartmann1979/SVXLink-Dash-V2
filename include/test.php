@@ -24,9 +24,9 @@ for ($i = 0;  ($i <= 15); $i++) { //Last 15 calls
 		if ( $listElem[1] ) {
 
       if (isset($svxconfig['GLOBAL']['TIMESTAMP_FORMAT'])) {
-        $local_time = substr($listElem[0],-7,7); }
+        $local_time = substr($listElem[0],-8,7); }
         else {
-        $local_time = substr($listElem[0],-7,7); }
+        $local_time = substr($listElem[0],-8,7); }
         //$local_time = date("%e F Y", strtotime('2010-01-08'))
     echo"<tr height=24px style=\"font-size:12.5px;>\">";
 		echo"<td align=\"left\">&nbsp; '$local_time[0]' </td>";
