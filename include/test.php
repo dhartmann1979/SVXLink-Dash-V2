@@ -20,7 +20,7 @@ else {$svxConfigFile = SVXCONFPATH."/".SVXCONFIG;
     $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
     echo "$callsign";     
     $check_logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
-    print_r $check_logics;
+    print_r($check_logics);
     
  // $inReflectorDefaultLang = explode(",", $svxconfig['ReflectorLogic']['DEFAULT_LANG']);
 foreach ($check_logics as $key) {
