@@ -23,11 +23,12 @@ for ($i = 0;  ($i <= 15); $i++) { //Last 15 calls
 		$listElem = $lastHeard[$i];
 		if ( $listElem[1] ) {
       if (isset($svxconfig['GLOBAL']['TIMESTAMP_FORMAT'])) {
-        $local_time = date(strtotime($listElem[0]));
+        $local_time = date(strtotime($listElem[0]));echo "$listElem[0]"." "."$local_time";
          }
         else {
         $local_time = date(strtotime($listElem[0])); 
-      echo "$listElem[0]"." "."$local_time";}
+      echo "$listElem[0]"." "."$local_time";
+    }
         //$local_time = date("%e F Y", strtotime('2010-01-08'))
     echo"<tr height=24px style=\"font-size:12.5px;>\">";
 		echo"<td align=\"left\">&nbsp; '$local_time[0]' </td>";
