@@ -166,7 +166,7 @@ if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE || $FULLACC
    echo "</div></td></tr>";
    
    echo "</table>\n";
-} else {
+} elseif (isProcessRunning('svxlink')!== true) {
 
 echo "<span style=\"color:red;font-size:13.5px;font-weight: bold;\">SvxLink is not <br>running</span>";
 }
