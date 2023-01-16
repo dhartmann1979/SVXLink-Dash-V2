@@ -45,10 +45,10 @@ for ($i = 0;  ($i <= 15); $i++) { //Last 15 calls
 		$tgnumber = substr($listElem[2],3);
                 $name=$tgdb_array[$tgnumber];
 		echo "<td align=\"left\">&nbsp;<span style=\"color:#b5651d;font-weight:bold;\">$tgnumber</span></td>";
-		echo "<td><button type=submit id=jumptoM name=jmptoM class=monitor_id value=\"$listElem[2]\"><i class=\"material-icons\"style=\"font-size:15px;\">$listElem[3]</i></button></td>";
+		echo "<td><button type=submit id=jumptoM name=jmptoM class=monitor_id value=\"$listElem[2]\"><i class=\"material-icons\"style=\"font-size:12px;\">$listElem[3]</i></button></td>";
 		//echo "<td onlick='monitorTmpTG(".$tgnumber.")'> M </a></td>";
 		//echo "<td><button> T </button></td>";
-                echo "<td><button type=submit id=jumptoA name=jmptoA class=active_id value=\"$listElem[2]\"><i class=\"material-icons\"style=\"font-size:15px;\">$listElem[4]</i></button></td>";
+                echo "<td><button type=submit id=jumptoA name=jmptoA class=active_id value=\"$listElem[2]\"><i class=\"material-icons\"style=\"font-size:12px;\">$listElem[4]</i></button></td>";
 	       //$tgnumber = substr($listElem[2],3);
                //$name=$tgdb_array[$tgnumber];
 
