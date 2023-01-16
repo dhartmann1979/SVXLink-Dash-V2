@@ -20,7 +20,7 @@ include_once __DIR__.'/tgdb.php';
 $i = 0;
 for ($i = 0;  ($i <= 15); $i++) { //Last 15 calls
 	if (isset($lastHeard[$i])) {
-		$listElem = $lastHeard[$i]; echo $listElem[3]." ".$listElem[4]." ";
+		$listElem = $lastHeard[$i]; echo $listElem[3]." ".$listElem[4]." ".$listElem[5]." ";
     if ($listElem[1]) {
       if (isset($svxconfig['GLOBAL']['TIMESTAMP_FORMAT'])) {
         $local_time = substr($listElem[0],-8); }
