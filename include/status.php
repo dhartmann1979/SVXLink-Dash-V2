@@ -13,10 +13,11 @@ if (isProcessRunning('svxlink')) {
 //Check Logics
 echo "<table style=\"margin-top:4px;margin-bottom:13px;\">\n";
 echo "<tr><th><span style=\"font-size:12px;\">Active Logics</span></th></tr>\n";
-if ( (defined('SVXCONFIG')) && (defined('SVXCONFPATH')) ) {$svxConfigFile = SVXCONFPATH."/".SVXCONFIG ; }
-else {$svxConfigFile = SVXCONFPATH."/".SVXCONFIG;
-    if (fopen($svxConfigFile,'r')) 
-    {$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW); }
+//if ( (defined('SVXCONFIG')) && (defined('SVXCONFPATH')) ) {}
+$svxConfigFile = SVXCONFPATH."/".SVXCONFIG ; 
+//else {$svxConfigFile = SVXCONFPATH."/".SVXCONFIG;
+    fopen($svxConfigFile,'r'); 
+    $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW); 
     $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
          
     $check_logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
@@ -163,7 +164,7 @@ if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE || $FULLACC
    echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#ff0000;font-weight: bold;\">";
    echo "DB Access Level:<BR>Full/Intranet/VPN";
    echo "</div></td></tr>";
-   }
+   
    echo "</table>\n";
 } else {
 
