@@ -22,6 +22,8 @@ for ($i = 0;  ($i <= 15); $i++) { //Last 15 calls
 	if (isset($lastHeard[$i])) {
 		$listElem = $lastHeard[$i];
 		if ( $listElem[1] ) {
+      for ($t = 0; ($t <= 4); $t++) {
+        echo "$listElem[$t]";}
       if (isset($svxconfig['GLOBAL']['TIMESTAMP_FORMAT'])) {
         $local_time = strftime($svxconfig['GLOBAL']['TIMESTAMP_FORMAT'],strtotime($listElem[0])); }
         else {
