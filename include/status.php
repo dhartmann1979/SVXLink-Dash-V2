@@ -1,28 +1,26 @@
 <?php
-include_once 'config.php';         
-include_once 'tools.php';        
-include_once 'functions.php';
+include_once __DIR__.'/config.php';         
+include_once __DIR__.'/tools.php';        
+include_once __DIR__.'/functions.php';
 
 
 ?>
 <div style="width:180px;"><span style="font-weight: bold;font-size:14px;">SVXLink Info</span></div>
 <fieldset style="width:175px;background-color:#e8e8e8e8;margin-top:6px;;margin-bottom:0px;margin-left:0px;margin-right:3px;font-size:12px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
 <?php
-// SVXLink Info
+
 if (isProcessRunning('svxlink')) {
-//Check Logics
+
 echo "<table style=\"margin-top:4px;margin-bottom:13px;\">\n";
 echo "<tr><th><span style=\"font-size:12px;\">Active Logics</span></th></tr>\n";
-  if ((defined('SVXCONFIG')) && (defined('SVXCONFPATH'))) {
-    $svxConfigFile = SVXCONFPATH . "/" . SVXCONFIG;
-  } 
+if ( (defined('SVXCONFIG')) && (defined('SVXCONFPATH')) ) {$svxConfigFile = SVXCONFPATH."/".SVXCONFIG ; }
 else {$svxConfigFile = SVXCONFPATH."/".SVXCONFIG;
-    fopen($svxConfigFile,'r'); 
-    $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW); 
+    if (fopen($svxConfigFile,'r')) 
+    {$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW); }
     $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
          
     $check_logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
- //$inReflectorDefaultLang = explode(",", $svxconfig['ReflectorLogic']['DEFAULT_LANG']);
+ // $inReflectorDefaultLang = explode(",", $svxconfig['ReflectorLogic']['DEFAULT_LANG']);
 foreach ($check_logics as $key) {
 echo "<tr><td style=\"background:#ffffed;\"><span style=\"color:#b5651d;font-weight: bold;\">".$key."</span></td></tr>";
  }
@@ -54,7 +52,7 @@ $admodules = getActiveModules();
   echo "<tr><td style=\"background: #ffffed;\" ><span style=\"color:#b0b0b0;\"><b>No Modules</span></td></tr>";
 }
 echo "</table>\n";
-//Check TalkGroups
+
 $tgtmp = trim(getSVXTGTMP());
 echo "<table colspan=2 style=\"margin-top:4px;margin-bottom:13px;\">\n";
 $tgdefault = $svxconfig['ReflectorLogic']['DEFAULT_TG'];
@@ -73,10 +71,9 @@ if ( $tgselect=="0"){$tgselect="";}
 echo "<tr><th width=50%>TG Active</th><td style=\"background: #ffffed;color:#0065ff;font-weight: bold;\">".$tgselect."</td></tr>\n";
 echo "</table>";
 
-if ($svxconfig["Rx1"]["PEAK_METER"] == "1") {
-  $ispeak = true;
-}
-// Radio or Repeater Status
+if ($svxconfig["Rx1"]["PEAK_METER"] =="1") 
+$ispeak = true ;
+
 //echo "<table  style=\"margin-bottom:13px;\"><tr><th>Radio Status</th></tr><tr>";
 //echo getTXInfo();
 //if ($ispeak==true) echo getRXPeak();
@@ -104,7 +101,7 @@ echo "<table  style=\"margin-bottom:13px;\"><tr><th>".FMNETWORK."</th></tr><tr>"
    echo $svxrstatus."</div>";}
    echo "</td></tr>";
 echo "</table>\n";
-//EchoLink Status
+
 if ($modecho=="True") {
   $echolog = getEchoLog();
   $echotxing = getEchoLinkTX();
@@ -139,8 +136,6 @@ if ($modecho=="True") {
    echo "</table>\n";
   }
 }
-
-//System Status
 echo "<table style=\"margin-top:4px;margin-bottom:13px;\"><tr><th colspan=2 >Systeminfo</th></tr><tr>";
 echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#000000;font-weight: bold;\">"; 
 echo "Last Reboot<br>",exec('uptime -s');
@@ -166,9 +161,9 @@ if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE || $FULLACC
    echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#ff0000;font-weight: bold;\">";
    echo "DB Access Level:<BR>Full/Intranet/VPN";
    echo "</div></td></tr>";
-   
+   }
    echo "</table>\n";
-} elseif (isProcessRunning('svxlink')!== true) {
+} else {
 
 echo "<span style=\"color:red;font-size:13.5px;font-weight: bold;\">SvxLink is not <br>running</span>";
 }
