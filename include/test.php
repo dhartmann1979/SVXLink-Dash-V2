@@ -22,12 +22,11 @@ for ($i = 0;  ($i <= 15); $i++) { //Last 15 calls
 	if (isset($lastHeard[$i])) {
 		$listElem = $lastHeard[$i];
 		if ( $listElem[1] ) {
-      for ($t = 0; ($t <= 4); $t++) {
-        echo "$listElem[$t]"." ";}
+
       if (isset($svxconfig['GLOBAL']['TIMESTAMP_FORMAT'])) {
-        $local_time = strftime($svxconfig['GLOBAL']['TIMESTAMP_FORMAT'],strtotime($listElem[0])); }
+        $local_time = substr($listElem[0],-7); }
         else {
-        $local_time = strftime("%H:%M:%S %d %b",strtotime($listElem[0])); }
+        $local_time = substr($listElem[0],-7); }
         //$local_time = date("%e F Y", strtotime('2010-01-08'))
     echo"<tr height=24px style=\"font-size:12.5px;>\">";
 		echo"<td align=\"left\">&nbsp; '$local_time[0]' </td>";
