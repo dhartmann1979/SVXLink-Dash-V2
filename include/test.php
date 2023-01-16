@@ -17,8 +17,6 @@ include_once __DIR__.'/tgdb.php';
       <th>TG Name</th>
     </tr>
 <?php
-$listElem[0] = "Mon Jan 16 10:42:29";
-echo substr($listElem[0], -8);
 $i = 0;
 for ($i = 0;  ($i <= 15); $i++) { //Last 15 calls
 	if (isset($lastHeard[$i])) {
@@ -32,7 +30,7 @@ for ($i = 0;  ($i <= 15); $i++) { //Last 15 calls
         $local_time = substr($listElem[0],-8); }
         //$local_time = date("%e F Y", strtotime('2010-01-08'))
     echo"<tr height=24px style=\"font-size:12.5px;>\">";
-		echo"<td align=\"left\">&nbsp; '$local_time' </td>";
+		echo"<td align=\"left\">&nbsp; $local_time </td>";
                 if ($listElem[3] == "OFF" ) {$bgcolor=""; $tximg="";}
                 if ($listElem[3] == "ON" ) {$bgcolor=""; $tximg="<img src=images/tx.gif height=21 alt='TXing' title='TXing' style=\"vertical-align: middle;\">";}
                 $ref = substr($listElem[1],0,3);
