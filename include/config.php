@@ -67,11 +67,11 @@ define("URLSVXRAPI", $refApi);
 define("CPU_TEMP_OFFSET","0");
 //
 // Path and file name of confguration
-define("SVXCONFPATH", "/etc/svxlink");
+define("SVXCONFPATH", "/etc/svxlink/");
 define("SVXCONFIG", "svxlink.conf");
 //
 // Path and file name of log
-define("SVXLOGPATH", "/var/log");
+define("SVXLOGPATH", "/var/log/");
 define("SVXLOGPREFIX", "svxlink.log");
 //
 //

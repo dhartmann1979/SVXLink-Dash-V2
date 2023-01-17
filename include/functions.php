@@ -12,14 +12,14 @@ function getSVXLog() {
 	$logLines1 = array();
 	$logLines2 = array();
 //	if (file_exists(LOGPATH."/".SVXLOGPREFIX."-".gmdate("Y-m-d").".log")) {
-	if (file_exists(SVXLOGPATH."/".SVXLOGPREFIX)) {
-		$logPath = SVXLOGPATH."/".SVXLOGPREFIX;
+	if (file_exists(SVXLOGPATH.SVXLOGPREFIX)) {
+		$logPath = SVXLOGPATH.SVXLOGPREFIX;
 		$logLines1 = explode("\n", `tail -10000 $logPath | egrep -a -h "Talker start on|Talker stop on" `);
 	}
 	$logLines1 = array_slice($logLines1, -250);
 	if (sizeof($logLines1) < 250) {
-		if (file_exists(SVXLOGPATH.".hdd/".SVXLOGPREFIX.".1")) {
-			$logPath = SVXLOGPATH.".hdd/".SVXLOGPREFIX.".1";
+		if (file_exists(SVXLOGPATH.SVXLOGPREFIX.".1")) {
+			$logPath = SVXLOGPATH.SVXLOGPREFIX.".1";
 			$logLines2 = explode("\n", `tail -10000 $logPath | egrep -a -h "Talker start on|Talker stop on" `);
 		}
 	}
@@ -35,14 +35,14 @@ function getSVXStatusLog() {
 	$logLines = array();
 	$logLines1 = array();
 	$logLines2 = array();
-	if (file_exists(SVXLOGPATH."/".SVXLOGPREFIX)) {
-		$logPath = SVXLOGPATH."/".SVXLOGPREFIX;
+	if (file_exists(SVXLOGPATH.SVXLOGPREFIX)) {
+		$logPath = SVXLOGPATH.SVXLOGPREFIX;
 		$logLines1 = explode("\n", `tail -10000 $logPath | egrep -a -h "EchoLink QSO|ransmitter|Selecting" `);
 	}
 	$logLines1 = array_slice($logLines1, -250);
 	if (sizeof($logLines1) < 250) {
-		if (file_exists(SVXLOGPATH.".hdd/".SVXLOGPREFIX.".1")) {
-			$logPath = SVXLOGPATH.".hdd/".SVXLOGPREFIX.".1";
+		if (file_exists(SVXLOGPATH.SVXLOGPREFIX.".1")) {
+			$logPath = SVXLOGPATH.SVXLOGPREFIX.".1";
 			$logLines2 = explode("\n", `tail -10000 $logPath |egrep -a -h "Talker start on|Talker stop on" `);
 		}
 	}
@@ -63,11 +63,11 @@ function getSVXStatusLog() {
 //2021-07-22 19:07:03: RefLogic: Authentication OK
 
 function getSVXRstatus() {
-	if (file_exists(SVXLOGPATH."/".SVXLOGPREFIX)) {
-           $logPath = SVXLOGPATH."/".SVXLOGPREFIX; 
+	if (file_exists(SVXLOGPATH.SVXLOGPREFIX)) {
+           $logPath = SVXLOGPATH.SVXLOGPREFIX; 
            $svxrstat = `tail -10000 $logPath | egrep -a -h "Authentication|Connection established|Heartbeat timeout|No route to host|Connection refused|Connection timed out|Locally ordered disconnect|Deactivating link|Activating link" | tail -1`;}
-	if ($svxrstat=="" &&  file_exists(SVXLOGPATH.".hdd/".SVXLOGPREFIX.".1")) {
-           $logPath = SVXLOGPATH.".hdd/".SVXLOGPREFIX.".1"; 
+	if ($svxrstat=="" &&  file_exists(SVXLOGPATH.SVXLOGPREFIX.".1")) {
+           $logPath = SVXLOGPATH.SVXLOGPREFIX.".1"; 
            $svxrstat = `tail -10000 $logPath | egrep -a -h "Authentication|Connection established|Heartbeat timeout|No route to host|Connection refused|Connection timed out|Locally ordered disconnect|Deactivating link|Activating link" | tail -1`;}
            if(strpos($svxrstat,"Authentication OK") || strpos($svxrstat,"Connection established") || strpos($svxrstat,"Activating link")){
               $svxrstatus="Connected";
@@ -84,11 +84,11 @@ function getSVXRstatus() {
 //2021-06-19 20:53:19: Connected to EchoLink proxy 44.137.75.82:8100
 
 function getEchoLinkProxy() {
-	if (file_exists(SVXLOGPATH."/".SVXLOGPREFIX)) {
-           $elogPath = SVXLOGPATH."/".SVXLOGPREFIX; 
+	if (file_exists(SVXLOGPATH.SVXLOGPREFIX)) {
+           $elogPath = SVXLOGPATH.SVXLOGPREFIX; 
            $echoproxy = `tail -10000 $elogPath | grep -a -h "EchoLink proxy" | tail -1`;}
-	if ($echoproxy=="" && file_exists(SVXLOGPATH.".hdd/".SVXLOGPREFIX.".1")) {
-           $elogPath = SVXLOGPATH.".hdd/".SVXLOGPREFIX.".1"; 
+	if ($echoproxy=="" && file_exists(SVXLOGPATH.SVXLOGPREFIX.".1")) {
+           $elogPath = SVXLOGPATH.SVXLOGPREFIX.".1"; 
            $echoproxy = `tail -10000 $elogPath | grep -a -h "EchoLink proxy" | tail -1`;}
            if(strpos($echoproxy,"Connected to EchoLink proxy")){
               $proxy=substr($echoproxy,strpos($echoproxy,"Connected to EchoLink proxy")+27);
@@ -108,8 +108,8 @@ function getEchoLinkProxy() {
 
 
 function getEchoLog() {
-	if (file_exists(SVXLOGPATH."/".SVXLOGPREFIX)) {
-           $elogPath = SVXLOGPATH."/".SVXLOGPREFIX; 
+	if (file_exists(SVXLOGPATH.SVXLOGPREFIX)) {
+           $elogPath = SVXLOGPATH.SVXLOGPREFIX; 
            $echolog = explode("\n",`tail -10000 $elogPath | grep -a -h "EchoLink QSO" `);}
            $echolog = array_slice($echolog, -250);
       return $echolog;
@@ -143,7 +143,7 @@ function getConnectedEcholink($echolog) {
 
 
 function getEchoLinkTX() {
-        $logPath = SVXLOGPATH."/".SVXLOGPREFIX;
+        $logPath = SVXLOGPATH.SVXLOGPREFIX;
         $echotxing="";
         $logLine = `tail -10000 $logPath | egrep -a -h "### EchoLink" | tail -1`;
         if (strpos($logLine,"### EchoLink talker start")) {
@@ -153,7 +153,7 @@ function getEchoLinkTX() {
 }
 
 function getSVXTGSelect() {
-        $logPath = SVXLOGPATH."/".SVXLOGPREFIX;
+        $logPath = SVXLOGPATH.SVXLOGPREFIX;
         $tgselect="0";
         $logLine = `tail -10000 $logPath | egrep -a -h "Selecting" | tail -1`;
         if (strpos($logLine,"TG #")) {
@@ -163,7 +163,7 @@ function getSVXTGSelect() {
 }
 
 function getSVXTGTMP() {
-        $logPath = SVXLOGPATH."/".SVXLOGPREFIX;
+        $logPath = SVXLOGPATH.SVXLOGPREFIX;
         $tgselect="0";
         $logLine = `tail -10000 $logPath | egrep -a -h "emporary monitor" | tail -1`;
         if (strpos($logLine,"Add")) {
@@ -183,7 +183,7 @@ function initModuleArray() {
 
 function getActiveModules() {
     $logLines = array();
-    $logPath = SVXLOGPATH."/".SVXLOGPREFIX;
+    $logPath = SVXLOGPATH.SVXLOGPREFIX;
     $logLines = explode("\n",`tail -10000 $logPath | egrep -a -h "Activating module|Deactivating module" `);
     $logLines = array_slice($logLines, -250);
     $modules = initModuleArray();
@@ -283,8 +283,8 @@ function getLastHeard($logLines) {
 //14.06.2021 16:57:33: Tx1: Turning the transmitter OFF
 
 function getTXInfo() {
-	$logPath = SVXLOGPATH."/".SVXLOGPREFIX;
-	if (file_exists(SVXLOGPATH."/".SVXLOGPREFIX)) { 
+	$logPath = SVXLOGPATH.SVXLOGPREFIX;
+	if (file_exists(SVXLOGPATH.SVXLOGPREFIX)) { 
                 $txstat =`tail -10000 $logPath | egrep -a -h "Turning the transmitter|squelch is|squelch for" | tail -1`; 
 	        //print($txstat);
                 
@@ -325,8 +325,8 @@ function getTXInfo() {
 //2022-11-08 00:36:01: Rx1: Distortion detected! Please lower the input volume!
 
 function getRXPeak() {
-        $logPath = SVXLOGPATH."/".SVXLOGPREFIX;
-        if (file_exists(SVXLOGPATH."/".SVXLOGPREFIX)) { 
+        $logPath = SVXLOGPATH.SVXLOGPREFIX;
+        if (file_exists(SVXLOGPATH.SVXLOGPREFIX)) { 
                 $txstat =`tail -100 $logPath | egrep -a -h "Distortion detected!" | tail -1`; 
                 //print($txstat);
 		$timestamp = substr($txstat, 0, 19);
