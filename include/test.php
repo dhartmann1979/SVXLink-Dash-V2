@@ -3,6 +3,8 @@
 <body>
 
 <?php
+include_once "include/config.php";
+include_once "include/functions.php";
 exec("cd ~");
 $filejson = "/etc/svxlink/node_info.json";
 

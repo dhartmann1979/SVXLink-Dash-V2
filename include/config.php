@@ -43,6 +43,7 @@ define("EL_NODE_NR",'$EL_node');
         define("SVXCONFIG", "svxlink.conf");
         define("SVXLOGPATH", "/var/log");
         define("SVXLOGPREFIX","svxlink.log");
+        define("nodeInfo", "node_info.json");
         }
         include_once 'parse_svxconf.php';
         
