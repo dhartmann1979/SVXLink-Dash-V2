@@ -70,7 +70,7 @@ include_once "include/functions.php";
 
 
 //$svxConfigFile = '/etc/svxlink/svxlink.conf';
-$nodeInfoFile = '/etc/svxlink/node_info.json';
+$nodeInfoFile = SVXCONFPATH.nodeInfo;
 //$svxConfigFile = '/var/www/html/svxlink.conf';    
 
 
