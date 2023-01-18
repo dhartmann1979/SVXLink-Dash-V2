@@ -9,7 +9,9 @@ $jsonobj = '/etc/svxlink/node_info.json';
 $fp= fopen($jsonobj, 'r');
 
 if ($fp) {
-   echo explode("\n", fread($fp, filesize($jsonobj)));}
+   $array = explode("\n", fread($fp, filesize($jsonobj)));
+    echo $array . "\n";
+}
 fclose($fp);
 ?>
 
