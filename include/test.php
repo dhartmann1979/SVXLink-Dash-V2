@@ -15,7 +15,7 @@ if(file_exists($nodeInfoFile))
     print_r($filedata);
 	$nodeInfo = json_decode($filedata,true);
     print_r($nodeInfo);
- 	build_ini_string(array($nodeInfo));
+ 	build_ini_string(array($filedata));
 
 };
 	var_dump($nodeInfo);
