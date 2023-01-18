@@ -57,8 +57,8 @@ for ($i = 0;  ($i <= 15); $i++) { //Last 15 calls
 		echo "<td style=\"font-weight:bold;color:#464646;\">&nbsp;<b>".$name."</b></td>";
 		echo"</tr>\n";
 		}
-	}
-}
+	
+
 
 ?>
   </table></form>
