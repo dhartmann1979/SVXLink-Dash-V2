@@ -99,13 +99,13 @@ if (isset($_POST['btnSave']))
         $retval = null;
         $screen = null;
 	
-    $nodeInfo["Location"] = $_POST['inLocation']; 
-    $nodeInfo["Locator"] = $_POST['inLocator'];
-    $nodeInfo["SysOp"] = $_POST['inSysOp'];
-	$nodeInfo["LAT"] = $_POST['inLAT']; 
-    $nodeInfo["LONG"] = $_POST['inLONG'];
-    $nodeInfo["RXFREQ"] = $_POST['inRXFREQ'];
-	$nodeInfo["TXFREQ"] = $_POST['inTXFREQ']; 
+    $nodeInfo["nodeLocation"] = $_POST['inLocation']; 
+    $nodeInfo["hidden"] = $_POST['inHidden'];
+    $nodeInfo["sysop"] = $_POST['inSysOp'];
+	$nodeInfo["lat"] = $_POST['inLAT']; 
+    $nodeInfo["long"] = $_POST['inLONG'];
+    $nodeInfo["freq"] = $_POST['inRXFREQ'];
+	$nodeInfo["sqlType"] = $_POST['inSQUELCH']; 
     $nodeInfo["Website"] = $_POST['inWebsite'];
     $nodeInfo["Mode"] = $_POST['inMode'];
 	$nodeInfo["Type"] = $_POST['inType']; 
@@ -133,22 +133,22 @@ if (isset($_POST['btnSave']))
 };
 
   	$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
-    $inCallsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
-	$inLocation = $nodeInfo["nodeLocation"];
-    $inLocator = $nodeInfo["loc"]; 
-    $inSysOp = $nodeInfo["sysop"];
-	$inLAT = $nodeInfo["lat"];
-    $inLONG = $nodeInfo["long"]; 
-    $inRXFREQ = $nodeInfo["freq"];
-	$inTXFREQ = $nodeInfo["TXFREQ"];
-    $inWebsite = $nodeInfo["Website"]; 
-    $inMode = $nodeInfo["Mode"];
-	$inType = $nodeInfo["Type"];
-    $inEcholink = $nodeInfo["Echolink"]; 
-    $innodeLocation = $nodeInfo["nodeLocation"];
-	$inSysop = $nodeInfo["Sysop"]; 
-    $inCTCSS = $nodeInfo["CTCSS"];
-	$inLinkedTo = $nodeInfo["LinkedTo"];
+echo    $inCallsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
+echo	$inLocation = $nodeInfo["nodeLocation"];
+echo    $inLocator = $nodeInfo["loc"]; 
+echo    $inSysOp = $nodeInfo["sysop"];
+echo	$inLAT = $nodeInfo["lat"];
+echo    $inLONG = $nodeInfo["long"]; 
+echo    $inRXFREQ = $nodeInfo["freq"];
+echo	$inTXFREQ = $nodeInfo["TXFREQ"];
+echo    $inWebsite = $nodeInfo["Website"]; 
+echo    $inMode = $nodeInfo["Mode"];
+echo	$inType = $nodeInfo["Type"];
+echo    $inEcholink = $nodeInfo["Echolink"]; 
+echo    $innodeLocation = $nodeInfo["nodeLocation"];
+echo	$inSysop = $nodeInfo["Sysop"]; 
+echo    $inCTCSS = $nodeInfo["CTCSS"];
+echo	$inLinkedTo = $nodeInfo["LinkedTo"];
     
 ?>
 
