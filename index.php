@@ -1,5 +1,7 @@
 <?php
 $progname = basename($_SERVER['SCRIPT_FILENAME'],".php");
+echo "$progname"; // test
+break; // test
 include_once 'include/config.php';
 include_once 'include/tools.php';
 include_once 'include/functions.php';
