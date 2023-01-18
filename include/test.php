@@ -3,6 +3,7 @@
 <body>
 
 <?php
+exec("cd ~");
 $filejson = "/etc/svxlink/node_info.json";
 
 if(file_exists('$filejson'))
