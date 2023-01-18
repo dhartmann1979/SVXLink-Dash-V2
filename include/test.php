@@ -18,6 +18,15 @@ if(file_exists($nodeInfoFile))
   build_ini_string(array($nodeInfo));
 
 };
+	echo $nodeInfo[0];
+	echo $nodeInfo[1];
+	echo $nodeInfo[2];
+	echo $nodeInfo[3];
+	echo $nodeInfo[4];
+	echo $nodeInfo[5];
+	echo $nodeInfo[6];
+	echo $nodeInfo[7];
+	echo $nodeInfo[8];
 
 	 $message = "<h3 class='text-success'>JSON file data</h3>";
 }
