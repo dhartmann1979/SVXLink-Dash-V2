@@ -5,12 +5,13 @@
 <?php
 //include_once "include/functions.php";
 function build_ini_string(array $a) {
-	echo $a;
+	//echo $a;
         $out = '';
         $sectionless = '';
         foreach($a as $rootkey => $rootvalue){
             if(is_array($rootvalue)){
-                // find out if the root-level item is an indexed or associative array
+                
+				// find out if the root-level item is an indexed or associative array
                 $indexed_root = array_keys($rootvalue) == range(0, count($rootvalue) - 1);
                 // associative arrays at the root level have a section heading
                 if(!$indexed_root) $out .= PHP_EOL."[$rootkey]".PHP_EOL;
