@@ -5,7 +5,7 @@
 <?php
 exec("cd ~");
 
-$jsonobj = '/etc/svxlink/node_info.json';
+$jsonobj = "/etc/svxlink/node_info.json";
 $fp= fopen($jsonobj, 'r',true);
 
 if ($fp) {
