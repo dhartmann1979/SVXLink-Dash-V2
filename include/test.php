@@ -7,6 +7,7 @@ include_once "include/config.php";
 include_once "include/functions.php";
 exec("cd ~");
 $filejson = "SVXCONFPATH"."nodeInfo";
+echo $filejson;
 
 if(file_exists('$filejson'))
 {
