@@ -3,9 +3,9 @@
 <body>
 
 <?php
-include_once "include/config.php";
 include_once "include/functions.php";
-
+define("SVXCONFPATH", "/etc/svxlink/");
+define("nodeInfo", "node_info.json");
 echo SVXCONFPATH;
 echo nodeInfo;
 $filejson = SVXCONFPATH.nodeInfo;
