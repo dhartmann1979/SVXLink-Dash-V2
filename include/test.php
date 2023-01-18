@@ -13,10 +13,10 @@ echo nodeInfo."\n";
 $filejson = SVXCONFPATH.nodeInfo;
 
 
-if(file_exists('$filejson'))
+if(file_exists($filejson))
 {
 
-	$filename = '$filejson';
+	$filename = $filejson;
 	$data = file_get_contents($filename); //data read from json file
 	print_r($data);
 	$users = json_decode($data);  //decode a data
