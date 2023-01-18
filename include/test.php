@@ -7,9 +7,9 @@ include_once "include/functions.php";
 define("SVXCONFPATH", "/etc/svxlink/");
 define("nodeInfo", "node_info.json");
 echo SVXCONFPATH;
-echo nodeInfo;
+echo nodeInfo."\n";
 $filejson = SVXCONFPATH.nodeInfo;
-echo $filejson;
+
 
 if(file_exists('$filejson'))
 {
