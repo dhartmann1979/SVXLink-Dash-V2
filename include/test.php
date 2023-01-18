@@ -6,13 +6,16 @@
 exec("cd ~");
 
 $jsonobj = "/etc/svxlink/node_info.json";
-$fp= fopen($jsonobj, 'r',true);
+if(file_exists('$jsonobj'))
+{
+	$filename = $jsonobj;
+	$data = file_get_contents($filename); //data read from json file
+	print_r($data);
+	$users = json_decode($data);  //decode a data
 
-if ($fp) {
-   $array = explode("\n", fread($fp, filesize($jsonobj)));
-    echo $array . "\n";
+	print_r($users); //array format data printing
+	 $message = "<h3 class='text-success'>JSON file data</h3>";
 }
-fclose($fp);
 ?>
 
 </body>
