@@ -152,8 +152,8 @@ if (isset($_POST['btnSave']))
     
 ?>
 
-<!--<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
--->
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+
 <table>
         <tr>
         <th width = "380px">Node Info Input</th>
