@@ -10,18 +10,18 @@ define("SVXCONFPATH", "/etc/svxlink/");
 define("nodeInfo", "node_info.json");
 echo SVXCONFPATH;
 echo nodeInfo."\n";
-$filejson = SVXCONFPATH.nodeInfo;
+$nodeInfoFile = SVXCONFPATH.nodeInfo;
 
 
-if(file_exists($filejson))
+if(fopen($nodeInfoFile,'r'))
 {
+	$filedata = file_get_contents($nodeInfoFile); //data read from json file
+	print_r($filedata);
+	$nodeInfo = json_decode($filedata,true);  //decode a data
 
-	$filename = $filejson;
-	$data = file_get_contents($filename); //data read from json file
-	print_r($data);
-	$users = json_decode($data);  //decode a data
+	print_r($nodeInfo); //array format data printing
+	echo build_ini_string(array($nodeInfo));
 
-	print_r($users); //array format data printing
 	 $message = "<h3 class='text-success'>JSON file data</h3>";
 } else
 	echo "not found";
