@@ -6,7 +6,7 @@
 exec("cd ~");
 
 $jsonobj = '/etc/svxlink/node_info.json';
-$fp= fopen($jsonobj, 'r');
+$fp= fopen($jsonobj, 'r',true);
 
 if ($fp) {
    $array = explode("\n", fread($fp, filesize($jsonobj)));
