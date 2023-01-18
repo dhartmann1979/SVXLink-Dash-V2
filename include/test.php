@@ -4,6 +4,7 @@
 
 <?php
 $filejson = "/etc/svxlink/node_info.json";
+var_dump($filejson);
 if(file_exists('$filejson'))
 {
 	$filename = '$filejson';
