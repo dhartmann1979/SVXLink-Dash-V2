@@ -10,15 +10,16 @@ function build_ini_string(array $a) {
         $sectionless = '';
         foreach($a as $rootkey => $rootvalue){
             if(is_array($rootvalue)){
-                
+			echo $rootkey;    
 				// find out if the root-level item is an indexed or associative array
                 $indexed_root = array_keys($rootvalue) == range(0, count($rootvalue) - 1);
                 // associative arrays at the root level have a section heading
                 if(!$indexed_root) $out .= PHP_EOL."[$rootkey]".PHP_EOL;
                 // loop through items under a section heading
                 foreach($rootvalue as $key => $value){
-                    if(is_array($value)){
-                        // indexed arrays under a section heading will have their key omitted
+            
+					if(is_array($value)){				
+						// indexed arrays under a section heading will have their key omitted
                         $indexed_item = array_keys($value) == range(0, count($value) - 1);
                         foreach($value as $subkey=>$subvalue){
                             // omit subkey for indexed arrays
@@ -42,6 +43,7 @@ function build_ini_string(array $a) {
                 $sectionless .= "$rootkey = $rootvalue" . PHP_EOL;
             }
         }
+		echo $sectionless.$out;
         return $sectionless.$out;
     }
 
