@@ -6,12 +6,11 @@
 exec("cd ~");
 
 $jsonobj = '/etc/svxlink/node_info.json';
-$file = fopen($jsonobj, 'r');
-while (!feof($file)) {
-    $line_of_text = fgets($file);
-    $members = explode('\n', $line_of_text);
-}
-fclose($file);
+$fp= fopen($jsonobj, 'r');
+
+if ($fp) {
+   echo explode("\n", fread($fp, filesize($jsonobj)));}
+fclose($fp);
 ?>
 
 </body>
