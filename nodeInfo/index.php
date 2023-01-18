@@ -65,8 +65,8 @@ textarea {
 <h1 id="node_info" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">Node Info Configurator</h1>
 
 
-<?php 
-
+<?php
+include_once "include/functions.php";
 
 
 //$svxConfigFile = '/etc/svxlink/svxlink.conf';
