@@ -73,7 +73,7 @@ include_once "include/functions.php";
 $nodeInfoFile = SVXCONFPATH.nodeInfo;
 //$svxConfigFile = '/var/www/html/svxlink.conf';    
 
-
+echo $nodeInfoFile;
 if (fopen($nodeInfoFile,'r'))
 {
 	$filedata = file_get_contents($nodeInfoFile);
