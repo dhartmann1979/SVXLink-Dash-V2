@@ -4,6 +4,8 @@
 
 <?php
 include_once "include/functions.php";
+
+exec("cd ~");
 define("SVXCONFPATH", "/etc/svxlink/");
 define("nodeInfo", "node_info.json");
 echo SVXCONFPATH;
