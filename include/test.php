@@ -6,7 +6,7 @@
 exec("cd ~");
 
 $jsonobj = "/etc/svxlink/node_info.json";
-if(file_exists('$jsonobj'))
+if(file_exists($jsonobj))
 {
 	$filename = $jsonobj;
 	$data = file_get_contents($filename); //data read from json file
