@@ -3,17 +3,22 @@
 <body>
 
 <?php
+include_once 'include/functions.php';
 exec("cd ~");
 
-$jsonobj = "/etc/svxlink/node_info.json";
-if(file_exists($jsonobj))
+$nodeInfoFile = "/etc/svxlink/node_info.json";
+if(file_exists($nodeInfoFile))
 {
-	$filename = $jsonobj;
-	$data = file_get_contents($filename); //data read from json file
-	print_r($data);
-	$users = json_decode($data);  //decode a data
+	if (fopen($nodeInfoFile,'r'))
+{
+	$filedata = file_get_contents($nodeInfoFile);
+    //print_r($filedata);
+	$nodeInfo = json_decode($filedata,true);
+    //print_r($nodeInfo);
+  build_ini_string(array($nodeInfo));
 
-	print_r($users."\n\r"); //array format data printing
+};
+
 	 $message = "<h3 class='text-success'>JSON file data</h3>";
 }
 ?>

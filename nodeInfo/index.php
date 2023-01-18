@@ -80,8 +80,7 @@ if (fopen($nodeInfoFile,'r'))
     //print_r($filedata);
 	$nodeInfo = json_decode($filedata,true);
     //print_r($nodeInfo);
-$array =	build_ini_string(array($nodeInfo));
-echo $array;
+  build_ini_string(array($nodeInfo));
 
 };
 
