@@ -369,21 +369,23 @@ function getConfigItem($section, $key, $configs) {
 	return substr($configs[$sectionpos], strlen($key) + 1);
 }
 
-function get_string_between($string, $start, $end) {
-    $string = " ".$string;
-    $ini = strpos($string,$start);
-    if ($ini == 0) {
-	return "";
-    }
-    $ini += strlen($start);   
-    $len = strpos($string,$end,$ini) - $ini;
-    return substr($string,$ini,$len);
-}
+function get_string_between($string, $start, $end)
+{ 
+                $string = " " . $string;
+                $ini = strpos($string, $start);
+                if ($ini == 0) {
+                        return "";
+                }
+                $ini += strlen($start);
+                $len = strpos($string, $end, $ini) - $ini;
+                return substr($string, $ini, $len);
+        }
 
-$logLinesSVX = getSVXLog();
-$reverseLogLinesSVX = $logLinesSVX;
-array_multisort($reverseLogLinesSVX,SORT_DESC);
-$lastHeard = getLastHeard($reverseLogLinesSVX);
+        $logLinesSVX = getSVXLog();
+        $reverseLogLinesSVX = $logLinesSVX;
+        array_multisort($reverseLogLinesSVX, SORT_DESC);
+        $lastHeard = getLastHeard($reverseLogLinesSVX);
+
 function build_ini_string(array $a) {
         $out = '';
         $sectionless = '';
