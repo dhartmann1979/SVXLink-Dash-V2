@@ -5,7 +5,7 @@
 <?php
 include_once 'include/functions.php';
 exec("cd ~");
-
+echo "testing\n";
 $nodeInfoFile = "/etc/svxlink/node_info.json";
 if(file_exists($nodeInfoFile))
 {
