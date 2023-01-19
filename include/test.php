@@ -25,7 +25,7 @@ define("nodeInfo", "node_info.json");
 echo SVXCONFPATH;
 echo nodeInfo."\n";
 $nodeInfoFile = SVXCONFPATH.nodeInfo;
-
+echo $nodeInfoFile;
 
 $object=json_decode($nodeInfoFile,true);
 printobj($object);
