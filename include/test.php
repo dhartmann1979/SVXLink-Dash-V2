@@ -22,8 +22,6 @@ return;
 exec("cd ~");
 define("SVXCONFPATH", "/etc/svxlink/");
 define("nodeInfo", "node_info.json");
-echo SVXCONFPATH;
-echo nodeInfo."\n";
 $nodeInfoFile = SVXCONFPATH.nodeInfo;
 echo $nodeInfoFile;
 
