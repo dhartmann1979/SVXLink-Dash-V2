@@ -424,5 +424,16 @@ function get_string_between($string, $start, $end)
                 }
                 return $sectionless.$out;
             }
-        
+            function printobj($o){
+                foreach($o as $p=>$v){
+                  if(is_object($v)){
+                   printobj($v);
+                  }elseif(is_array($v)){
+                   printobj(json_decode(json_encode($v)));
+                  }else{
+                   print $p." = ".$v."\n";
+                  }
+                }
+              return;
+              }
 ?>
