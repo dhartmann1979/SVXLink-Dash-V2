@@ -27,7 +27,7 @@ echo $nodeInfoFile;
 
 $object=json_decode($nodeInfoFile,true);
 echo $object;
-printobj($object);
+echo printobj($object);
 /*
 if(fopen($nodeInfoFile,'r'))
 {
