@@ -1,7 +1,9 @@
 <html>
     <body>
     <?php
-$json = file_get_contents("/etc/svxlink/node_info.json",false);
+    $filename = "/etc/svxlink/node_info.json";
+    echo $filename;
+$json = file_get_contents($filename,false);
     
 $json_array = json_decode($json, true);
     
