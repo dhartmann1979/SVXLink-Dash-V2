@@ -1,7 +1,7 @@
 <html>
     <body>
     <?php
-$json = file_get_contents("/etc/svxlink/node_info.json");
+$json = file_get_contents("/etc/svxlink/node_info.json",false);
 $json_array = json_decode($json, true);
 foreach($json_array as $id=>$para)
 {
