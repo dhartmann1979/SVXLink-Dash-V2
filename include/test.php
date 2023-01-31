@@ -27,7 +27,7 @@ $decoded = json_decode($object, true);
 <td><?= $decoded['tx']['K']['name']['freq']['pwr']['ant']['comment']['height']['dir']['gain']['Antenna_Type']; ?></td>
 
 
-<tr> <th>Location : </th><td><?= $decoded['nodeLocation']; ?> SYSOP : <?= $decoded['sysop']; ?></td> </tr>
+<tr> <th>Location : </th><td><?= $decoded['nodeLocation']; ?> <th>SYSOP : </th> <?= $decoded['sysop']; ?></td> </tr>
 <tr> <th>Coordinates : </th> <td><?= $decoded['pos']['lat']['long']['loc']; ?></td>
 </tr>
 
