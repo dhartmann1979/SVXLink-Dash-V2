@@ -10,7 +10,7 @@ $json_array = json_decode($json, true);
 foreach($json_array as $para) {
     $iterator = new RecursiveArrayIterator($para);
         
-    traverseStructure($iterator);
+    echo traverseStructure($iterator);
     echo "================\n";
 }
 function traverseStructure($iterator) {
