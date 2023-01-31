@@ -19,7 +19,8 @@ echo $nodeInfoFile;
 $object=file_get_contents($nodeInfoFile);
 var_dump($object);
 
-    ?>
+$decoded = json_decode($object, true);
+var_dump($decoded);  ?>
 
 </body>
 </html>
