@@ -3,24 +3,23 @@
     <?php
 $json = file_get_contents("/etc/svxlink/node_info.json",false);
 $json_array = json_decode($json, true);
-foreach($json_array as $id=>$para)
-{
-    foreach($para as $key=>$value)
-    {
-        if(is_array($value))
-        {
-            foreach($value as $subkey=>$subvalue)
-            {
-                    echo $subkey . " : " . $subvalue . "\n";
+function traverseStructure($iterator){
+    while ( $iterator -> valid()){
+        if ($iterator -> hasChildren()) {
+                traverseStructure($iterator->getChildren());
             }
-        }
-        else
-        {
-                echo $key . " : " . $value . "\n";
-        }
+            else {
+                echo $iterator->key() . ' : ' . $iterator;
+            }
+            $iterator->next();
     }
-        echo "=================================\n";
 }
+    foreach($json_array as $para) {
+            $iterator = new RecursiveArrayIterator($para);
+            traverseStructure($iterator);
+            echo "================\n";
+    }
+
 ?>
 </body>
 </html>
