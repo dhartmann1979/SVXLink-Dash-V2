@@ -17,9 +17,8 @@ $nodeInfoFile = SVXCONFPATH . nodeInfo;
 
 $object=file_get_contents($nodeInfoFile);
 $decoded = json_decode($object, true);
-foreach($object() as $a => $b) {
-  echo $a . " " . $b . " \n";
-}
+
+
 ?>
 <table>
 <td><?= $decoded['nodeLocation']['hidden']['sysop']['qth']['name'] ; ?>;</td>
