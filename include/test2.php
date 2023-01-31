@@ -1,4 +1,6 @@
-<?php
+<html>
+    <body>
+    <?php
 $getjson = file_get_contents("/etc/svxlink/node_info.json");
 $getjson_array = json_decode($getjson, true);
 function traverseGeoJSON($iterator) {
@@ -16,3 +18,5 @@ foreach($geoJSON_array as $location)
     traverseGeoJSON($iterator);
 }
 ?>
+</body>
+</html>
