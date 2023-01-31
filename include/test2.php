@@ -5,6 +5,7 @@ $json = file_get_contents("/etc/svxlink/node_info.json",false);
 $json_array = json_decode($json, true);
 foreach($json_array as $para) {
     $iterator = new RecursiveArrayIterator($para);
+        echo $iterator;
     traverseStructure($iterator);
     echo "================\n";
 }
