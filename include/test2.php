@@ -14,10 +14,10 @@ foreach($json_array as $para) {
 function traverseStructure($iterator){
     while ( $iterator -> valid()){
         if ($iterator -> hasChildren()) {
-                traverseStructure($iterator->getChildren());
+                traverseStructure($iterator -> getChildren());
             }
             else {
-                echo $iterator->key() . ' : ' . $iterator;
+                echo $iterator->key() . ' : ' . $iterator->current() . PHP_EOL;
             }
             $iterator->next();
     }
