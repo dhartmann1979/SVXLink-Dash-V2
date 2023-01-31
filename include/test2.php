@@ -11,13 +11,13 @@ foreach($json_array as $para) {
     traverseStructure($iterator);
     echo "================\n";
 }
-function traverseStructure($iterator){
-    while ( $iterator -> valid()){
+function traverseStructure($iterator) {
+    while ( $iterator -> valid()) {
         if ($iterator -> hasChildren()) {
                 traverseStructure($iterator -> getChildren());
             }
             else {
-                echo $iterator->key() . ' : ' . $iterator->current() . PHP_EOL;
+                echo $iterator -> key() . ' : ' . $iterator->current() . PHP_EOL;
             }
             $iterator->next();
     }
