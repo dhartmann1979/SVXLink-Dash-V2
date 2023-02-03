@@ -19,8 +19,8 @@ $var = $_POST['var'];
 echo $var;
 
 
-exec("sudo cp /etc/svxlink/svxlink.conf /var/www/html/include/svxlink.txt");
-exec("echo COMPLETE");
+$var= shell_exec("sudo cp /etc/svxlink/svxlink.conf /var/www/html/include/svxlink.txt");
+echo shell_exec("echo COMPLETE");
 //if(isset($_POST['filename'])) $var=$_POST['filename'];
 $a=file_get_contents($var,false);
 echo($a);
