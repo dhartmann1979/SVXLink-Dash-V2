@@ -14,10 +14,13 @@
 global $variable;
 $src = "/etc/svxlink/svxlink.conf";
 $dest = "var/www/html/include/svxlink.txt";
+echo ('$src');
+echo ('$dest');
+
 
 
 exec("sudo cp '$src' '$dest'",$output,$return_var);
-var_dump($output+1, $return_var);
+var_dump($output, $return_var);
 
 $filename = fopen($dest, "r");
 $members = array();
