@@ -4,7 +4,7 @@
 
 <h1>The input element</h1>
 
-<form action="">
+<form action="#">
   <label for="filename">File name:</label>
   <input type="text" id="filename" name="filename"><br><br>
   <input type="submit" value="Submit">
