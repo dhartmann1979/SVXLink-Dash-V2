@@ -11,12 +11,12 @@
 </body>
 </html>
 <?php
-global $var;
+global $variable;
 
 
 
-$var= shell_exec("sudo cp /etc/svxlink/svxlink.conf /var/www/html/include/svxlink.txt");
-echo "<pre>$var</pre>";
+$variable= shell_exec("sudo cp /etc/svxlink/svxlink.conf /var/www/html/include/svxlink.txt | "ls -l /var/www/html/include/");
+echo "<pre>$variable</pre>";
 echo "complete";
 $filename = fopen("include/svxlink.txt", "r");
 $members = array();
