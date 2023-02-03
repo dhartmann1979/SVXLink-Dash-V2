@@ -436,4 +436,17 @@ function get_string_between($string, $start, $end)
                 }
               return;
               }
+
+function getSVXLinkConfig() {
+	// loads /etc/svxlink/svxlink.conf into array for further use
+	$conf = array();
+	if ($configs = @fopen(SVXCONFPATH."/".SVXCONFIG, 'r')) {
+		while ($config = fgets($configs)) {
+			array_push($conf, trim ( $config, " \t\n\r\0\x0B"));
+		}
+		fclose($configs);
+	}
+	return $conf;
+}
+
 ?>
