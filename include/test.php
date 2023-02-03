@@ -17,7 +17,7 @@ $dest = "var/www/html/include/svxlink.txt";
 
 
 exec("sudo cp '$src' '$dest'",$output,$return_var);
-var_dump($output, $return_var);
+var_dump($output+1, $return_var);
 
 $filename = fopen($dest, "r");
 $members = array();
