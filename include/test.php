@@ -16,11 +16,10 @@ $src = "/etc/svxlink/svxlink.conf";
 $dest = "var/www/html/include/svxlink.txt";
 
 
-exec("sudo cp '$source' '$dest'",$output,$return_var);
+exec("sudo cp '$src' '$dest'",$output,$return_var);
 var_dump($output, $return_var);
 
-
-$filename = fopen("include/svxlink.txt", "r");
+$filename = fopen($dest, "r");
 $members = array();
 
 while (!feof($file)) {
