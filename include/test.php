@@ -6,8 +6,8 @@
 
 <form action="#">
   <label for="filename">File name:</label>
-  <input type="text" id="filename" name="filename"><br><br>
-  <input type="submit" value="Submit">
+  <input type='hidden' name='var' value='<?php echo "$var";?>'/> 
+
 </form>
 
 <p>click 'submit' </p>
@@ -18,7 +18,7 @@
 <?php
 exec("sudo cp /etc/svxlink/svxlink.conf /var/www/html/include/svxlink.txt");
 exec("echo COMPLETE");
-if(isset($_POST['filename'])) $var=$_POST['filename'];
+//if(isset($_POST['filename'])) $var=$_POST['filename'];
 $a=file_get_contents($var,false);
 echo($a);
 ?>
