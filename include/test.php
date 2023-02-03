@@ -14,8 +14,8 @@
 global $variable;
 $src = "/etc/svxlink/svxlink.conf";
 $dest = "var/www/html/include/svxlink.txt";
-echo ('$src');
-echo ('$dest');
+echo ($src);
+echo ($dest);
 
 
 
