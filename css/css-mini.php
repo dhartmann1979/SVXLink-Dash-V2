@@ -3,7 +3,7 @@ header("Content-type: text/css");
 
     $backgroundPage = "edf0f5";
     $backgroundContent = "f1f1f1";
-    $backgroundBanners = "0000ff";
+    $backgroundBanners = "3083b8";
     $textBanners = "ffffff";
     $bannerDropShaddows = "303030";
     $tableHeadDropShaddow = "8b0000";

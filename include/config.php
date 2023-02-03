@@ -1,9 +1,4 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'].'/include/config.php';       // Config  
-include_once $_SERVER['DOCUMENT_ROOT'].'/include/tools.php';        // Tools
-include_once $_SERVER['DOCUMENT_ROOT'].'/include/functions.php';  //  Functions
-//include_once $_SERVER['DOCUMENT_ROOT'].'/config/language.php';        // Translation Code
-
 
 if ( file_exists(__DIR__.'/config.inc.php') ) { include_once __DIR__.'/config.inc.php'; }
 else {
@@ -48,7 +43,6 @@ define("EL_NODE_NR",'$EL_node');
         define("SVXCONFIG", "svxlink.conf");
         define("SVXLOGPATH", "/var/log");
         define("SVXLOGPREFIX","svxlink.log");
-        define("nodeInfo", "node_info.json");
         }
         include_once 'parse_svxconf.php';
         
