@@ -23,7 +23,7 @@ echo exec("whoami")."\n\r";
 exec("sudo cp '$src' '$dest'",$output,$return_var);
 var_dump($output, $return_var);
 
-$filename = fopen("svxlink.txt", "r");
+$filename = fopen("/var/www/html/include/svxlink.txt", "r");
 $members = array();
 
 while (!feof($file)) {
