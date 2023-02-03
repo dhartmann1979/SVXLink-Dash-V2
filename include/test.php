@@ -4,18 +4,21 @@
 
 <h1>The input element</h1>
 
-<form action="#">
-  <label for="filename">File name:</label>
-  <input type='hidden' name='var' value='<?php echo "$var";?>'/> 
-
+<form action="#" method="post">
+    <input type="text" value="<?php echo $var?>" name="var" />
+    <input type="submit" value="Send" />
 </form>
 
 <p>click 'submit' </p>
 
 </body>
 </html>
-
 <?php
+
+$var = $_POST['var'];
+echo $var;
+
+
 exec("sudo cp /etc/svxlink/svxlink.conf /var/www/html/include/svxlink.txt");
 exec("echo COMPLETE");
 //if(isset($_POST['filename'])) $var=$_POST['filename'];
