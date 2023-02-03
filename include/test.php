@@ -15,7 +15,7 @@ global $variable;
 
 
 
-$variable= shell_exec("sudo cp /etc/svxlink/svxlink.conf /var/www/html/include/svxlink.txt | ls -l /var/www/html/include/");
+$variable= shell_exec("cd ~ | sudo cp /etc/svxlink/svxlink.conf /var/www/html/include/svxlink.txt | ls -l /var/www/html/include/");
 echo "<pre>$variable</pre>";
 echo "complete";
 $filename = fopen("include/svxlink.txt", "r");
