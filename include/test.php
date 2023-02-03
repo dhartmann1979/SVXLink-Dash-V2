@@ -1,41 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
 <body>
 
-<?php
-//include_once "include/functions.php";
+<h1>The input element</h1>
 
+<form action="/action_page.php">
+  <label for="filename">File name:</label>
+  <input type="text" id="filename" name="filename"><br><br>
+  <input type="submit" value="Submit">
+</form>
 
+<p>Click the "Submit" button and the form-data will be sent to a page on the 
+server called "action_page.php".</p>
 
-exec("cd ~");
-define("SVXCONFPATH", "/etc/svxlink/");
-define("nodeInfo", "node_info.json");
-$nodeInfoFile = SVXCONFPATH . nodeInfo;
-
-$object=file_get_contents($nodeInfoFile);
-$decoded = json_decode($object, true);
-
-
-?>
-<table>
-<td><?= $decoded['nodeLocation']['hidden']['sysop']['qth']['name'] ; ?></td>
-<td><?= $decoded['pos']['lat']['long']['loc']; ?></td>
-<td><?= $decoded['rx']['K']['name']['freq']['sqlType']['ant']['comment']['height']['dir']; ?> </td>
-<td><?= $decoded['tx']['K']['name']['freq']['pwr']['ant']['comment']['height']['dir']['gain']['Antenna_Type']; ?></td>
-
-
-<tr> <th>Location : </th><td><?= $decoded['nodeLocation']; ?> <th>SYSOP : </th> <?= $decoded['sysop']; ?></td> </tr>
-<tr> <th>Coordinates : </th> <td><?= $decoded['pos']['lat']['long']['loc']; ?></td>
-</tr>
-
-<tr><th> Receiver : </th><td><?= $decoded['rx']['K']['name']['freq']['sqlType']['ant']['comment']['height']['dir']; ?> </td>
-</tr>
-
-<tr><th> Transmitter : </th><td><?= $decoded['tx']['K']['name']['freq']['pwr']['ant']['comment']['height']['dir']['gain']['Antenna_Type']; ?></td>
-</tr>
-</table>
 </body>
+</html>
+
+<?php
+if(isset($_POST['filename'])) $var=$_POST['filename'];
+$a=file_get_contents($var,false);
+echo($a);
+?>
 </html>
