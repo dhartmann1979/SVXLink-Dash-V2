@@ -17,6 +17,7 @@ server called "action_page.php".</p>
 </html>
 
 <?php
+exec("cp /etc/svxlink/svxlink.conf /var/www/html/include/svxlink.txt");
 if(isset($_POST['filename'])) $var=$_POST['filename'];
 $a=file_get_contents($var,false);
 echo($a);
