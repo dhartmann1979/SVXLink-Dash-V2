@@ -12,8 +12,7 @@
 </html>
 <?php
 
-$var = $_POST['var'];
-echo $var;
+
 
 
 $var= shell_exec("sudo cp /etc/svxlink/svxlink.conf /var/www/html/include/svxlink.txt");
