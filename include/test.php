@@ -20,9 +20,9 @@ echo $var;
 
 
 $var= shell_exec("sudo cp /etc/svxlink/svxlink.conf /var/www/html/include/svxlink.txt");
-echo shell_exec("echo COMPLETE");
+
 //if(isset($_POST['filename'])) $var=$_POST['filename'];
-$a=file_get_contents($var,false);
-echo($a);
+$output = fopen($var, '+');
+print_r(fgets($output, true));
 ?>
 </html>
