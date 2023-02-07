@@ -16,7 +16,7 @@ $filename = "/etc/svxlink/node_info.json";
 
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
   <textarea name="fileContent"><?php
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if ($_SERVER['PHP_SELF'] == 'POST') {
       $file = fopen('$filename', "w");
       fwrite($file, $_POST['fileContent']);
       fclose($file);
