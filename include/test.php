@@ -24,7 +24,7 @@ include_once __DIR__.'/tgdb.php';
       $data = json_decode($_POST['fileContent'], true);
     } else {
       $file = fopen($filename, "r");
-      $content = fread($file, filesize('$filename'));
+      $content = fread($file, filesize($filename));
       echo $content;
       fclose($file);
       $data = json_decode($content, true);
@@ -32,6 +32,13 @@ include_once __DIR__.'/tgdb.php';
   ?></textarea>
   <input type="submit" value="Save">
 </form>
+<table>
+  <?php
+    foreach ($data as $key => $value) {
+      echo "<tr><td>$key</td><td>$value</td></tr>";
+    }
+  ?>
+</table>
 </center>
 </div>
 </fieldset>
