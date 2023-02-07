@@ -98,17 +98,8 @@ include_once __DIR__."/include/buttons.php";
     echo '</div>'."\n";
     echo '</td>'."\n";
 
-
-
-
-
-    echo '<td valign="center" style="height:auto;border:none;  background-color:#f1f1f1;">';
-
-	echo '<iframe src="/dtmf"  width="600" height="400" title="DTMF"></iframe>';
-
-
-
-
+    echo '<td valign="middle"  style="height:495px; width=620px; text-align: center; border:none;  background-color:#f1f1f1;">';	
+    echo '<iframe src="/dtmf"  width="615" height="490" title="DTMF"></iframe>';
     echo '</td>';
 ?>
 </tr></table>
