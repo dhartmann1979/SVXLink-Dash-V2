@@ -92,17 +92,17 @@ textarea {
 
 //$svxConfigFile = '/var/www/html/svxlink.conf';    
 
-if ($_SERVER['PHP_SELF'] == 'POST') 
-{
+
 $file = fopen($nodeInfoFile,'w');
 fwrite($file, $_POST['file_content']);
 fclose($file);
 	$nodeInfo = json_decode('file_content',true);
-  } else {
+/*  } else {
   $file = fopen($nodeInfoFile, 'r');
   $content =fread($file, filesize($nodeInfoFile));
   fclose($file);
   }
+  */
     //print_r($nodeInfo);
 	build_ini_string(array($nodeInfo));
 //        print_r($sectionless . $out);
