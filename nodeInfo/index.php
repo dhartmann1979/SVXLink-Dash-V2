@@ -124,11 +124,11 @@ if (isset($_POST['btnSave']))
 
 	///file manipulation section
 		//archive the current config
-		exec('sudo cp /etc/svxlink/node_info.json /etc/svxlink/node_info.json.' .date("YmdThis"), $screen, $retval);
+//		exec('sudo cp /etc/svxlink/node_info.json /etc/svxlink/node_info.json.' .date("YmdThis"), $screen, $retval);
 		//move generated file to current config
-		exec('sudo mv /var/www/html/nodeInfo/node_info.json /etc/svxlink/node_info.json', $screen, $retval);
+//		exec('sudo mv /var/www/html/nodeInfo/node_info.json /etc/svxlink/node_info.json', $screen, $retval);
         	//Service SVXlink restart
-       	exec('sudo service svxlink restart 2>&1',$screen,$retval);
+ //      	exec('sudo service svxlink restart 2>&1',$screen,$retval);
 
 };
 
