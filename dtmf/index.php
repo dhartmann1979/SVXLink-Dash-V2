@@ -43,7 +43,14 @@ pre {
     direction: ltl;
 }
 
-
+textarea {
+    background-color: #111;
+    border: 1px solid #000;
+    color: #ffffff;
+    padding: 1px;
+    font-family: courier new;
+    font-size:10px;
+}
 .button {
   border: none;
   color: #454545;
