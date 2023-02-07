@@ -123,11 +123,11 @@ if (fopen($nodeInfoFile,'r'))
 
 
 
-//if (fopen($ReflectorConfigFile,'r'))
-//      {
+if (fopen($ReflectorConfigFile,'r'))
+     {
 
-//        $ReflectorConfig = parse_ini_file($ReflectorConfigFile,true,INI_SCANNER_RAW);
-//};
+       $ReflectorConfig = parse_ini_file($ReflectorConfigFile,true,INI_SCANNER_RAW);
+};
 
 
 
