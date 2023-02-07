@@ -82,7 +82,7 @@ include_once __DIR__."/include/buttons.php";
     echo '<tr style="border:none;">';
 	//echo'<tr>';
     echo '<td width="100px" valign="top" class="hide" style="height:auto;border:0;background-color:#f1f1f1;">';
-    //echo '<div class="nav" style="margin-bottom:10px;margin-top:10px;">'."\n";
+    //echo '<div class="nav" style="margin-bottom:1px;margin-top:10px;">'."\n";
 
     echo '<script type="text/javascript">'."\n";
     echo 'function reloadStatusInfo(){'."\n";
