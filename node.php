@@ -10,8 +10,8 @@ $svxConfigFile = '/etc/svxlink/svxlink.conf';
         $fmnetwork =$svxconfig['ReflectorLogic']['FMNET'];
         $tgUri = $svxconfig['reflectorLogic']['TG_URI'];  
 }
-else { $callsign="NOCALL"; 
-       $fmnetwork="Not Registered";
+else { $callsign="N0CALL"; 
+       $fmnetwork="not registered";
 	}
 
 ?>
