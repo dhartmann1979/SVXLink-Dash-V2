@@ -76,7 +76,7 @@ textarea {
     } else {
       $file = fopen($nodeInfoFile, "r");
       $content = fread($file, filesize($nodeInfoFile));
-      //echo $content;
+      echo $content;
       fclose($file);
       $nodeInfo = json_decode($content, true);
     }
