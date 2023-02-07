@@ -63,54 +63,34 @@ textarea {
 <div style="padding:0px;width:550px;background-image: linear-gradient(to bottom, #e9e9e9 50%, #bcbaba 100%);border-radius: 10px;-moz-border-radius:10px;-webkit-border-radius:10px;border: 1px solid LightGrey;margin-left:0px; margin-right:0px;margin-top:4px;margin-bottom:0px;line-height:1.6;white-space:normal;">
 <center>
 <h1 id="node_info" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">Node Info Configurator</h1>
-
+<?php $nodeInfoFile = '/etc/svxlink/node_info.json';?>
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+  <textarea name="fileContent"><?php
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $file = fopen('$nodeInfoFile', "w");
+      fwrite($file, $_POST['fileContent']);
+      fclose($file);
+      $data = json_decode($_POST['fileContent'], true);
+    } else {
+      $file = fopen("data.json", "r");
+      $content = fread($file, filesize("data.json"));
+      echo $content;
+      fclose($file);
+      $data = json_decode($content, true);
+    }
+  ?></textarea>
+  <input type="submit" value="Save">
+</form>
 
 <?php 
-function build_ini_string(array $a) {
-    $out = '';
-    $sectionless = '';
-    foreach($a as $rootkey => $rootvalue){
-        if(is_array($rootvalue)){
-            // find out if the root-level item is an indexed or associative array
-            $indexed_root = array_keys($rootvalue) == range(0, count($rootvalue) - 1);
-            // associative arrays at the root level have a section heading
-            if(!$indexed_root) $out .= PHP_EOL."[$rootkey]".PHP_EOL;
-            // loop through items under a section heading
-            foreach($rootvalue as $key => $value){
-                if(is_array($value)){
-                    // indexed arrays under a section heading will have their key omitted
-                    $indexed_item = array_keys($value) == range(0, count($value) - 1);
-                    foreach($value as $subkey=>$subvalue){
-                        // omit subkey for indexed arrays
-                        if($indexed_item) $subkey = "";
-                        // add this line under the section heading
-                        $out .= "{$key}[$subkey] = $subvalue" . PHP_EOL;
-                    }
-                }else{
-                    if($indexed_root){
-                        // root level indexed array becomes sectionless
-                        $sectionless .= "{$rootkey}[] = $value" . PHP_EOL;
-                    }else{
-                        // plain values within root level sections
-                        $out .= "$key = $value" . PHP_EOL;
-                    }
-                }
-            }
 
-        }else{
-            // root level sectionless values
-            $sectionless .= "$rootkey = $rootvalue" . PHP_EOL;
-        }
-    }
-    return $sectionless.$out;
-}
 
 
 //$svxConfigFile = '/etc/svxlink/svxlink.conf';
-$nodeInfoFile = '/etc/svxlink/node_info.json';
+
 //$svxConfigFile = '/var/www/html/svxlink.conf';    
 
-
+/*
 if (fopen($nodeInfoFile,'r'))
 {
 	$filedata = file_get_contents($nodeInfoFile);
@@ -130,7 +110,7 @@ if (fopen($nodeInfoFile,'r'))
 //};
 
 
-
+*/
 if (isset($_POST['btnSave']))
     {
         $retval = null;
