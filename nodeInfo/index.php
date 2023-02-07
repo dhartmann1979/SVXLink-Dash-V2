@@ -66,7 +66,7 @@ textarea {
 <?php $nodeInfoFile = '/etc/svxlink/node_info.json';?>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
   <textarea name="fileContent"><?php
-    #$filename = "/etc/svxlink/node_info.json";
+/*    $filename = "/etc/svxlink/node_info.json";
   
     if ($_SERVER['PHP_SELF'] == 'POST') {
       $file = fopen($nodeInfoFile, "w");
@@ -79,7 +79,7 @@ textarea {
       echo $content;
       fclose($file);
       $nodeInfo = json_decode($content, true);
-    }
+    }*/
   ?></textarea>
 <!--  <input type="submit" value="Save">-->
 </form>
@@ -92,16 +92,21 @@ textarea {
 
 //$svxConfigFile = '/var/www/html/svxlink.conf';    
 
-/*
-if (fopen($nodeInfoFile,'r'))
+if ($_SERVER['PHP_SELF'] == 'POST') 
 {
-	$filedata = file_get_contents($nodeInfoFile);
-    //print_r($filedata);
-	$nodeInfo = json_decode($filedata,true);
+$file = fopen($nodeInfoFile,'w');
+fwrite($file, $_POST['file_content']);
+fclose($file);
+	$nodeInfo = json_decode('file_content',true);
+  } else {
+  $file = fopen($nodeInfoFile, 'r');
+  $content =fread($file, filesize($nodeInfoFile));
+  fclose($file);
+  }
     //print_r($nodeInfo);
 	build_ini_string(array($nodeInfo));
 //        print_r($sectionless . $out);
-};
+
 
 
 
@@ -112,7 +117,7 @@ if (fopen($nodeInfoFile,'r'))
 //};
 
 
-*/
+
 if (isset($_POST['btnSave']))
     {
         $retval = null;
