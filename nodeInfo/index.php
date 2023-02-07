@@ -81,7 +81,7 @@ textarea {
       $nodeInfo = json_decode($content, true);
     }
   ?></textarea>
-<!--  <input type="submit" value="Save">-->
+<input type="submit" value="Save">
 </form>
 
 <?php 
@@ -118,7 +118,7 @@ fclose($file);
 
 
 
-if (isset($_POST['btnSave']))
+//mif (isset($_POST['btnSave']))
     {
         $retval = null;
         $screen = null;
