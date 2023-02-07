@@ -16,14 +16,14 @@ include_once __DIR__.'/tgdb.php';
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
   <textarea name="fileContent"><?php
     $filename = "/etc/svxlink/node_info.json";
-  echo '$filename';
+  echo $filename;
     if ($_SERVER['PHP_SELF'] == 'POST') {
-      $file = fopen('$filename', "w");
+      $file = fopen($filename, "w");
       fwrite($file, $_POST['fileContent']);
       fclose($file);
       $data = json_decode($_POST['fileContent'], true);
     } else {
-      $file = fopen('$filename', "r");
+      $file = fopen($filename, "r");
       $content = fread($file, filesize('$filename'));
       echo $content;
       fclose($file);
