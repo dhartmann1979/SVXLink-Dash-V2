@@ -66,7 +66,6 @@ textarea {
 
 <?php
 include_once('include/functions.php');
-
 /*
 $svxConfigFile = '/etc/svxlink/svxlink.conf';
 if (fopen($svxConfigFile,'r'))
@@ -259,7 +258,7 @@ if (isset($_POST['btnSave']))
 	$inRx1PeakMeter = $svxconfig['Rx1']['PEAK_METER'];
 
 //}
-//    else { $callsign="N0CALL";}
+//    else { $callsign="NOCALL";}
 
 
 

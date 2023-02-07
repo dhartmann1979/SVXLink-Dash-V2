@@ -67,7 +67,6 @@ textarea {
 <?php
 include_once('include/functions.php');
 
-
 $elConfigFile = '/etc/svxlink/svxlink.d/ModuleEchoLink.conf';
 if (fopen($elConfigFile,'r'))
       {
@@ -158,7 +157,7 @@ if (isset($_POST['btnSave'])) {
         $inElMuteLogicLinking = $elconfig['ModuleEchoLink']['MUTE_LOGIC_LINKING'];
 
 //}
-//    else { $callsign="N0CALL";}
+//    else { $callsign="NOCALL";}
 
 
 

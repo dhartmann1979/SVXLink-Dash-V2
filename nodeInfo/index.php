@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    
+    <meta charset="UTF-8">  
     <link href="/css/css.php" type="text/css" rel="stylesheet" />
 <style type="text/css">
 body {
@@ -65,13 +64,13 @@ textarea {
 <h1 id="node_info" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">Node Info Configurator</h1>
 
 
-<?php
-include_once('include/functions.php');
+<?php 
 
 
-//$svxConfigFile = '/etc/svxlink/svxlink.conf';
+
+//$ReflectorConfigFile = '/etc/svxlink/svxreflector.conf';
 $nodeInfoFile = '/etc/svxlink/node_info.json';
-//$svxConfigFile = '/var/www/html/svxlink.conf';    
+//$ReflectorConfigFile = '/var/www/html/svxreflector.conf';    
 
 
 if (fopen($nodeInfoFile,'r'))
@@ -80,20 +79,20 @@ if (fopen($nodeInfoFile,'r'))
     //print_r($filedata);
 	$nodeInfo = json_decode($filedata,true);
     //print_r($nodeInfo);
-	build_ini_string(array($nodeInfo));
+    build_ini_string(array($nodeInfo));
 //        print_r($sectionless . $out);
 };
 
 
+/*
+if (fopen($ReflectorConfigFile,'r'))
+     {
 
-//if (fopen($svxConfigFile,'r'))
-//      {
-
-//        $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
-//};
+       $ReflectorConfig = parse_ini_file($ReflectorConfigFile,true,INI_SCANNER_RAW);
+};
 
 
-
+*/
 if (isset($_POST['btnSave']))
     {
         $retval = null;
@@ -116,7 +115,7 @@ if (isset($_POST['btnSave']))
 	$nodeInfo["LinkedTo"] = $_POST['inLinkedTo'];
 
 	$jsonNodeInfo = json_encode($nodeInfo);
-	file_put_contents("/var/www/html/nodeInfo/node_info.json", $jsonNodeInfo ,FILE_USE_INCLUDE_PATH);
+	//file_put_contents("/var/www/html/nodeInfo/node_info.json", $jsonNodeInfo ,FILE_USE_INCLUDE_PATH);
 
         $retval = null;
         $screen = null;
@@ -124,16 +123,16 @@ if (isset($_POST['btnSave']))
 
 	///file manipulation section
 		//archive the current config
-		exec('sudo cp /etc/svxlink/node_info.json /etc/svxlink/node_info.json.' .date("YmdThis"), $screen, $retval);
+//		exec('sudo cp /etc/svxlink/node_info.json /etc/svxlink/node_info.json.' .date("YmdThis"), $screen, $retval);
 		//move generated file to current config
-		exec('sudo mv /var/www/html/nodeInfo/node_info.json /etc/svxlink/node_info.json', $screen, $retval);
+//		exec('sudo mv /var/www/html/nodeInfo/node_info.json /etc/svxlink/node_info.json', $screen, $retval);
         	//Service SVXlink restart
-       	exec('sudo service svxlink restart 2>&1',$screen,$retval);
+ //      	exec('sudo service svxlink restart 2>&1',$screen,$retval);
 
 };
 
-  	$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
-    $inCallsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
+  	$ReflectorConfig = parse_ini_file($ReflectorConfigFile,true,INI_SCANNER_RAW);
+    $inCallsign = $ReflectorConfig['ReflectorLogic']['CALLSIGN'];
 	$inLocation = $nodeInfo["nodeLocation"];
     $inLocator = $nodeInfo["loc"]; 
     $inSysOp = $nodeInfo["sysop"];

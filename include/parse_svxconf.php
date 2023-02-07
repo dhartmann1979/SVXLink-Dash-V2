@@ -33,7 +33,7 @@ else {$svxConfigFile = trim(substr(shell_exec("grep CFGFILE /etc/default/svxlink
          $nodeinfoFile = $svxconfig['ReflectorLogic']['NODE_INFO_FILE'];
     $globalRf = $svxconfig['GLOBAL']['RF_MODULE'];
        }
-else { $callsign="N0CALL";
+else { $callsign="NOCALL";
        $fmnetwork="no registered";
        $refApi="";
         }
