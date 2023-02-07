@@ -12,7 +12,7 @@ if (fopen($svxConfigFile, 'r')) {
     $tgUri = $svxconfig['ReflectorLogic']['TG_URI'];
 }
 else { $callsign="N0CALL"; 
-       $fmnetwork="not registered";
+       $fmnetwork="Not Registered";
 	}
 
 ?>
