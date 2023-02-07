@@ -16,7 +16,7 @@ include_once __DIR__.'/tgdb.php';
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
   <textarea name="fileContent"><?php
     $filename = "/etc/svxlink/node_info.json";
-  echo $filename;
+  
     if ($_SERVER['PHP_SELF'] == 'POST') {
       $file = fopen($filename, "w");
       fwrite($file, $_POST['fileContent']);
@@ -32,16 +32,18 @@ include_once __DIR__.'/tgdb.php';
   ?></textarea>
   <input type="submit" value="Save">
 </form>
-<table>
+
+</center>
+</div>
+
+</fieldset>
+</center>
+<div><table>
   <?php
     foreach ($data as $key => $value) {
       echo "<tr><td>$key</td><td>$value</td></tr>";
     }
   ?>
-</table>
-</center>
-</div>
-</fieldset>
-</center>
+</table></div>
 </body>
 
