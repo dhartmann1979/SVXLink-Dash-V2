@@ -296,7 +296,7 @@ if (isset($_POST['btnSave']))
 	$inRx1PeakMeter = $svxconfig['Rx1']['PEAK_METER'];
 
 //}
-//    else { $callsign="N0CALL";}
+//    else { $callsign="NOCALL";}
 
 
 

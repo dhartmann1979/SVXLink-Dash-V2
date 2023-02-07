@@ -8,7 +8,7 @@ $svxConfigFile = '/etc/svxlink/svxlink.conf';
          $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
          $fmnetwork =$svxconfig['ReflectorLogic']['FMNET'];  
 	 $tgUri = $svxconfig['ReflectorLogic']['TG_URI']; }
-else { $callsign="N0CALL"; 
+else { $callsign="NOCALL"; 
        $fmnetwork="no registered";
 	}
 
