@@ -2,8 +2,7 @@
 include_once __DIR__.'/config.php';         
 include_once __DIR__.'/tools.php';        
 include_once __DIR__.'/functions.php';    
-include_once __DIR__.'/tgdb.php';
-$filename = "/etc/svxlink/node_info.json";    
+include_once __DIR__.'/tgdb.php';   
 ?>
 <body style="background-color: #e1e1e1;font: 11pt arial, sans-serif;">
 <center>
@@ -16,6 +15,7 @@ $filename = "/etc/svxlink/node_info.json";
 
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
   <textarea name="fileContent"><?php
+    $filename = "/etc/svxlink/node_info.json"; 
     if ($_SERVER['PHP_SELF'] == 'POST') {
       $file = fopen('$filename', "w");
       fwrite($file, $_POST['fileContent']);
