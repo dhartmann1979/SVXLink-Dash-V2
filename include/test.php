@@ -16,7 +16,7 @@ include_once __DIR__.'/tgdb.php';
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
   <textarea name="fileContent"><?php
     $filename = "/etc/svxlink/node_info.json";
-  
+  echo '$filename';
     if ($_SERVER['PHP_SELF'] == 'POST') {
       $file = fopen($filename, "w");
       fwrite($file, $_POST['fileContent']);
