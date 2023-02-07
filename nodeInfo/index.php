@@ -66,22 +66,22 @@ textarea {
 <?php $nodeInfoFile = '/etc/svxlink/node_info.json';?>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
   <textarea name="fileContent"><?php
-    $filename = "/etc/svxlink/node_info.json";
+    #$filename = "/etc/svxlink/node_info.json";
   
     if ($_SERVER['PHP_SELF'] == 'POST') {
-      $file = fopen($filename, "w");
+      $file = fopen($nodeInfoFile, "w");
       fwrite($file, $_POST['fileContent']);
       fclose($file);
       $data = json_decode($_POST['fileContent'], true);
     } else {
-      $file = fopen($filename, "r");
-      $content = fread($file, filesize($filename));
-      echo $content;
+      $file = fopen($nodeInfoFile, "r");
+      $content = fread($file, filesize($nodeInfoFile));
+      //echo $content;
       fclose($file);
-      $data = json_decode($content, true);
+      $nodeInfo = json_decode($content, true);
     }
   ?></textarea>
-  <input type="submit" value="Save">
+<!--  <input type="submit" value="Save">-->
 </form>
 
 <?php 
@@ -112,7 +112,7 @@ if (fopen($nodeInfoFile,'r'))
 //};
 
 
-
+*/
 if (isset($_POST['btnSave']))
     {
         $retval = null;
@@ -168,7 +168,7 @@ if (isset($_POST['btnSave']))
 	$inSysop = $nodeInfo["Sysop"]; 
     $inCTCSS = $nodeInfo["CTCSS"];
 	$inLinkedTo = $nodeInfo["LinkedTo"];
-*/    
+    
 ?>
 
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
