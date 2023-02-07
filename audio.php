@@ -11,7 +11,7 @@ $svxConfigFile = '/etc/svxlink/svxlink.conf';
        { $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
          $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
          $fmnetwork =$svxconfig['ReflectorLogic']['FMNET'];   }
-else { $callsign="N0CALL"; 
+else { $callsign="NOCALL"; 
        $fmnetwork="no registered";
 	}
 
@@ -62,7 +62,7 @@ $svxConfigFile = '/etc/svxlink/svxlink.conf';
     if (fopen($svxConfigFile,'r')) 
        { $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW); 
          $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];}
-    else { $callsign="N0CALL";}
+    else { $callsign="NOCALL";}
 ?>
 <span style="font-size: 32px;letter-spacing:4px;font-family: &quot;sans-serif&quot;, sans-serif;font-weight:500;color:PaleBlue"><?php echo $callsign; ?></span>
 <p style="margin-top:0px;margin-bottom:0px;">

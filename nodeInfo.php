@@ -9,7 +9,7 @@ $svxConfigFile = '/etc/svxlink/svxlink.conf';
        { $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
          $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
          $fmnetwork =$svxconfig['ReflectorLogic']['FMNET'];   }
-else { $callsign="N0CALL"; 
+else { $callsign="NOCALL"; 
        $fmnetwork="no registered";
 	}
 

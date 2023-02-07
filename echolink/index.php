@@ -157,7 +157,7 @@ if (isset($_POST['btnSave'])) {
         $inElMuteLogicLinking = $elconfig['ModuleEchoLink']['MUTE_LOGIC_LINKING'];
 
 //}
-//    else { $callsign="N0CALL";}
+//    else { $callsign="NOCALL";}
 
 
 
