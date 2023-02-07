@@ -110,7 +110,7 @@ if (fopen($nodeInfoFile,'r'))
 //};
 
 
-*/
+
 if (isset($_POST['btnSave']))
     {
         $retval = null;
@@ -166,7 +166,7 @@ if (isset($_POST['btnSave']))
 	$inSysop = $nodeInfo["Sysop"]; 
     $inCTCSS = $nodeInfo["CTCSS"];
 	$inLinkedTo = $nodeInfo["LinkedTo"];
-    
+*/    
 ?>
 
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
