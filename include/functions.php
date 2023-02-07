@@ -422,5 +422,15 @@ function build_ini_string(array $a) {
         }
         return $sectionless.$out;
     }
-
+    function cidr_match($ip, $cidr) {
+        $outcome = false;
+        $pattern = '/^(([01]?\d?\d|2[0-4]\d|25[0-5])\.){3}([01]?\d?\d|2[0-4]\d|25[0-5])\/(\d{1}|[0-2]{1}\d{1}|3[0-2])$/';
+        if (preg_match($pattern, $cidr)){
+            list($subnet, $mask) = explode('/', $cidr);
+            if (ip2long($ip) >> (32 - $mask) == ip2long($subnet) >> (32 - $mask)) {
+                $outcome = true;
+            }
+        }
+        return $outcome;
+    }
 ?>
