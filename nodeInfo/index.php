@@ -66,7 +66,7 @@ textarea {
 <?php $nodeInfoFile = '/etc/svxlink/node_info.json';?>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
   <textarea name="fileContent"><?php
-/*    $filename = "/etc/svxlink/node_info.json";
+    $filename = "/etc/svxlink/node_info.json";
   
     if ($_SERVER['PHP_SELF'] == 'POST') {
       $file = fopen($nodeInfoFile, "w");
@@ -79,7 +79,7 @@ textarea {
       echo $content;
       fclose($file);
       $nodeInfo = json_decode($content, true);
-    }*/
+    }
   ?></textarea>
 <!--  <input type="submit" value="Save">-->
 </form>
@@ -92,21 +92,21 @@ textarea {
 
 //$svxConfigFile = '/var/www/html/svxlink.conf';    
 
-
+/*
 $file = fopen($nodeInfoFile,'w');
 fwrite($file, $_POST['file_content']);
 fclose($file);
 	$nodeInfo = json_decode('file_content',true);
-/*  } else {
+  } else {
   $file = fopen($nodeInfoFile, 'r');
   $content =fread($file, filesize($nodeInfoFile));
   fclose($file);
   }
-  */
+  
     //print_r($nodeInfo);
 	build_ini_string(array($nodeInfo));
 //        print_r($sectionless . $out);
-
+*/
 
 
 
@@ -140,7 +140,7 @@ if (isset($_POST['btnSave']))
 	$nodeInfo["LinkedTo"] = $_POST['inLinkedTo'];
 
 	$jsonNodeInfo = json_encode($nodeInfo);
-	file_put_contents("/var/www/html/nodeInfo/node_info.json", $jsonNodeInfo ,FILE_USE_INCLUDE_PATH);
+	//file_put_contents("/var/www/html/nodeInfo/node_info.json", $jsonNodeInfo ,FILE_USE_INCLUDE_PATH);
 
         $retval = null;
         $screen = null;
