@@ -38,12 +38,6 @@ include_once __DIR__.'/tgdb.php';
 
 </fieldset>
 </center>
-<div><table>
-  <?php
-    foreach ($data as $key => $value) {
-      echo "<tr><td>$key</td><td>$value</td></tr>";
-    }
-  ?>
-</table></div>
+
 </body>
 

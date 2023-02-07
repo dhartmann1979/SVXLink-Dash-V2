@@ -66,14 +66,16 @@ textarea {
 <?php $nodeInfoFile = '/etc/svxlink/node_info.json';?>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
   <textarea name="fileContent"><?php
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      $file = fopen('$nodeInfoFile', "w");
+    $filename = "/etc/svxlink/node_info.json";
+  
+    if ($_SERVER['PHP_SELF'] == 'POST') {
+      $file = fopen($filename, "w");
       fwrite($file, $_POST['fileContent']);
       fclose($file);
       $data = json_decode($_POST['fileContent'], true);
     } else {
-      $file = fopen("data.json", "r");
-      $content = fread($file, filesize("data.json"));
+      $file = fopen($filename, "r");
+      $content = fread($file, filesize($filename));
       echo $content;
       fclose($file);
       $data = json_decode($content, true);
