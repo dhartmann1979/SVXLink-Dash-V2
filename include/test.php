@@ -40,4 +40,13 @@ include_once __DIR__.'/tgdb.php';
 </center>
 
 </body>
+</html>
+<?php
+global $variable;
+$src = "/etc/svxlink/svxlink.conf";
+$dest = "var/www/html/include/svxlink.txt";
+echo ($src."\n");
+echo ($dest."\n");
+echo exec("whoami");
+
 
