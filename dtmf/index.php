@@ -43,14 +43,7 @@ pre {
     direction: ltl;
 }
 
-textarea {
-    background-color: #111;
-    border: 1px solid #000;
-    color: #ffffff;
-    padding: 1px;
-    font-family: courier new;
-    font-size:10px;
-}
+
 .button {
   border: none;
   color: #454545;
@@ -153,7 +146,17 @@ textarea {
 <center>
 <h1 id="dtmf_keyboard" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">DTMF Keyboard</h1>
 <?php
-
+function cidr_match($ip, $cidr) {
+    $outcome = false;
+    $pattern = '/^(([01]?\d?\d|2[0-4]\d|25[0-5])\.){3}([01]?\d?\d|2[0-4]\d|25[0-5])\/(\d{1}|[0-2]{1}\d{1}|3[0-2])$/';
+    if (preg_match($pattern, $cidr)){
+        list($subnet, $mask) = explode('/', $cidr);
+        if (ip2long($ip) >> (32 - $mask) == ip2long($subnet) >> (32 - $mask)) {
+            $outcome = true;
+        }
+    }
+    return $outcome;
+}
 
     $url=$_SERVER['REQUEST_URI']."/include";
 //    header("Refresh: 10; URL=$url");
@@ -163,7 +166,7 @@ $ip = isset($_SERVER['REMOTE_ADDR']);
 $net1= cidr_match($ip,"192.168.0.0/16");
 $net2= cidr_match($ip,"192.175.43.91/8");
 $net3= cidr_match($ip,"127.0.0.0/8");
-$net4= cidr_match($ip,"192.168.1.0/8");
+$net4= cidr_match($ip,"10.0.0.0/8");
 $net5 = cidr_match($ip, "192.168.1.254/24");
 if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE || $net5 == TRUE) {
 
