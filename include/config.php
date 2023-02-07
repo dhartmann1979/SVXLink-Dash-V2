@@ -113,7 +113,7 @@ if (fopen($svxConfigFile,'r'))
      $freq = $svxconfig['Rx1']['RX'];
     $EL_node = $svxconfig['LocationInfo']['LOCATION'];
     }
-else { $callsign="NOCALL";
+else { $callsign="N0CALL";
    $fmnetwork="no registered";
     }
 ?>

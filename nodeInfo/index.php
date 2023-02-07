@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">  
+    <meta charset="UTF-8">
+    
     <link href="/css/css.php" type="text/css" rel="stylesheet" />
 <style type="text/css">
 body {
@@ -65,12 +66,49 @@ textarea {
 
 
 <?php 
+function build_ini_string(array $a) {
+    $out = '';
+    $sectionless = '';
+    foreach($a as $rootkey => $rootvalue){
+        if(is_array($rootvalue)){
+            // find out if the root-level item is an indexed or associative array
+            $indexed_root = array_keys($rootvalue) == range(0, count($rootvalue) - 1);
+            // associative arrays at the root level have a section heading
+            if(!$indexed_root) $out .= PHP_EOL."[$rootkey]".PHP_EOL;
+            // loop through items under a section heading
+            foreach($rootvalue as $key => $value){
+                if(is_array($value)){
+                    // indexed arrays under a section heading will have their key omitted
+                    $indexed_item = array_keys($value) == range(0, count($value) - 1);
+                    foreach($value as $subkey=>$subvalue){
+                        // omit subkey for indexed arrays
+                        if($indexed_item) $subkey = "";
+                        // add this line under the section heading
+                        $out .= "{$key}[$subkey] = $subvalue" . PHP_EOL;
+                    }
+                }else{
+                    if($indexed_root){
+                        // root level indexed array becomes sectionless
+                        $sectionless .= "{$rootkey}[] = $value" . PHP_EOL;
+                    }else{
+                        // plain values within root level sections
+                        $out .= "$key = $value" . PHP_EOL;
+                    }
+                }
+            }
+
+        }else{
+            // root level sectionless values
+            $sectionless .= "$rootkey = $rootvalue" . PHP_EOL;
+        }
+    }
+    return $sectionless.$out;
+}
 
 
-
-//$ReflectorConfigFile = '/etc/svxlink/svxreflector.conf';
+//$svxConfigFile = '/etc/svxlink/svxlink.conf';
 $nodeInfoFile = '/etc/svxlink/node_info.json';
-//$ReflectorConfigFile = '/var/www/html/svxreflector.conf';    
+//$svxConfigFile = '/var/www/html/svxlink.conf';    
 
 
 if (fopen($nodeInfoFile,'r'))
@@ -79,20 +117,20 @@ if (fopen($nodeInfoFile,'r'))
     //print_r($filedata);
 	$nodeInfo = json_decode($filedata,true);
     //print_r($nodeInfo);
-    build_ini_string(array($nodeInfo));
+	build_ini_string(array($nodeInfo));
 //        print_r($sectionless . $out);
 };
 
 
-/*
-if (fopen($ReflectorConfigFile,'r'))
-     {
 
-       $ReflectorConfig = parse_ini_file($ReflectorConfigFile,true,INI_SCANNER_RAW);
-};
+//if (fopen($svxConfigFile,'r'))
+//      {
+
+//        $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
+//};
 
 
-*/
+
 if (isset($_POST['btnSave']))
     {
         $retval = null;
@@ -115,7 +153,7 @@ if (isset($_POST['btnSave']))
 	$nodeInfo["LinkedTo"] = $_POST['inLinkedTo'];
 
 	$jsonNodeInfo = json_encode($nodeInfo);
-	//file_put_contents("/var/www/html/nodeInfo/node_info.json", $jsonNodeInfo ,FILE_USE_INCLUDE_PATH);
+	file_put_contents("/var/www/html/nodeInfo/node_info.json", $jsonNodeInfo ,FILE_USE_INCLUDE_PATH);
 
         $retval = null;
         $screen = null;
@@ -123,16 +161,16 @@ if (isset($_POST['btnSave']))
 
 	///file manipulation section
 		//archive the current config
-//		exec('sudo cp /etc/svxlink/node_info.json /etc/svxlink/node_info.json.' .date("YmdThis"), $screen, $retval);
+		exec('sudo cp /etc/svxlink/node_info.json /etc/svxlink/node_info.json.' .date("YmdThis"), $screen, $retval);
 		//move generated file to current config
-//		exec('sudo mv /var/www/html/nodeInfo/node_info.json /etc/svxlink/node_info.json', $screen, $retval);
+		exec('sudo mv /var/www/html/nodeInfo/node_info.json /etc/svxlink/node_info.json', $screen, $retval);
         	//Service SVXlink restart
- //      	exec('sudo service svxlink restart 2>&1',$screen,$retval);
+       	exec('sudo service svxlink restart 2>&1',$screen,$retval);
 
 };
 
-  	$ReflectorConfig = parse_ini_file($ReflectorConfigFile,true,INI_SCANNER_RAW);
-    $inCallsign = $ReflectorConfig['ReflectorLogic']['CALLSIGN'];
+  	$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
+    $inCallsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
 	$inLocation = $nodeInfo["nodeLocation"];
     $inLocator = $nodeInfo["loc"]; 
     $inSysOp = $nodeInfo["sysop"];
