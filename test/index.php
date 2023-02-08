@@ -71,8 +71,8 @@ include_once('include/functions.php');
 $nodeInfoFile = '/etc/svxlink/node_info.json';
 //$svxConfigFile = '/var/www/html/svxlink.conf';    
 
-/*
-if (fopen($nodeInfoFile,'r'))
+
+if (fopen($nodeInfoFile,'w'))
 {
 	$filedata = file_get_contents($nodeInfoFile);
     //print_r($filedata);
@@ -81,7 +81,7 @@ if (fopen($nodeInfoFile,'r'))
 	build_ini_string(array($nodeInfo));
 //        print_r($sectionless . $out);
 };
-*/
+
 
 
 //if (fopen($svxConfigFile,'r'))
@@ -92,7 +92,7 @@ if (fopen($nodeInfoFile,'r'))
 
 
 
-//if (isset($_POST['btnSave']))
+if (isset($_POST['btnSave']))
 ?>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
   <?php
