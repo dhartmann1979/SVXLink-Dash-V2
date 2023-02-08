@@ -124,10 +124,10 @@ file_put_contents("/var/www/html/nodeInfo/node_info.json", $jsonNodeInfo ,FILE_U
     foreach ($nodeInfo as $key => $value) {
       if (is_array($value)) {
         foreach ($value as $k => $v) {
-          echo "<label>$k</label><input type='text' name='$key-$k' value='$v'><br>";
+          //echo "<label>$k</label><input type='text' name='$key-$k' value='$v'><br>";
         }
       } else {
-        echo "<label>$key</label><input type='text' name='$key' value='$value'><br>";
+        //echo "<label>$key</label><input type='text' name='$key' value='$value'><br>";
       }
     }
   ?>
