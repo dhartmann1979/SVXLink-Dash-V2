@@ -93,24 +93,6 @@ if (fopen($nodeInfoFile,'w'))
 
 
 if (isset($_POST['btnSave']))
-?>
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-  <?php
-    $file = "/etc/svxlink/node_info.json";
-    $nodeInfo = json_decode(file_get_contents($file), true);
-    foreach ($nodeInfo as $key => $value) {
-      echo "<label>$key</label><input type='text' name='$key' value='$value'><br>";
-    }
-  ?>
-  <input type="submit" name="submit" value="Save">
-</form>
-<?php if (!empty($_POST['submit'])) {
-  $nodeInfo = $_POST;
-  $json = json_encode($nodeInfo, JSON_PRETTY_PRINT);
-  file_put_contents($file, $json);
-  echo "Changes saved successfully.";
-}
-
     {
         $retval = null;
         $screen = null;
