@@ -67,6 +67,7 @@ textarea {
 
 <?php
 include_once('include/functions.php');
+/*
 //$svxConfigFile = '/etc/svxlink/svxlink.conf';
 $nodeInfoFile = '/etc/svxlink/node_info.json';?>
 <!--<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
@@ -114,8 +115,8 @@ file_put_contents("/var/www/html/nodeInfo/node_info.json", $jsonNodeInfo ,FILE_U
 
   ?></textarea>
   <input type="submit" value="Save">
-</form>-->
-<p>begin</p>
+</form>-->*/
+?>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
   <?php
     $file = "/etc/svxlink/node_info.json";
@@ -133,9 +134,16 @@ file_put_contents("/var/www/html/nodeInfo/node_info.json", $jsonNodeInfo ,FILE_U
   <input type="submit" name="submit" value="Save">
 </form>
 <!--
-In the PHP code, the $file variable stores the path to the node_info.json file. The file_get_contents() function reads the contents of the file and returns it as a string. The json_decode() function is then used to convert the string into a PHP associative array. The resulting array is stored in the $nodeInfo variable.
+In the PHP code, the $file variable stores the path to the node_info.json file. 
+The file_get_contents() function reads the contents of the file and returns it as a string. 
+The json_decode() function is then used to convert the string into a PHP associative array. 
+The resulting array is stored in the $nodeInfo variable.
 
-The outer foreach loop iterates over each key-value pair in the $nodeInfo array. If the value is an array, an inner foreach loop is used to iterate over the nested elements, creating a form field for each one. A label with the key name is displayed, followed by a text input with the corresponding value. The name of each input is set to a combination of the outer key and inner key, separated by a hyphen, so that the values can be retrieved in the PHP code after the form is submitted.
+The outer foreach loop iterates over each key-value pair in the $nodeInfo array. 
+If the value is an array, an inner foreach loop is used to iterate over the nested elements, creating a form field for each one. 
+A label with the key name is displayed, followed by a text input with the corresponding value. 
+The name of each input is set to a combination of the outer key and inner key, 
+separated by a hyphen, so that the values can be retrieved in the PHP code after the form is submitted.
 
 If the value is not an array, a form field is created with the key name as the label and the value as the text input.
 
@@ -156,7 +164,10 @@ if (!empty($_POST['submit'])) {
   echo "Changes saved successfully.";
 }
 ?>
-<!-- In this example, the updated values are stored in the $_POST array. A new associative array $nodeInfo is created, which will store the updated data in the correct structure. The strpos() function is used to check if a hyphen is present in the key name, indicating that it's a nested value. If a hyphen is present, the `explode' function stores the $key -->
+<!-- In this example, the updated values are stored in the $_POST array. 
+A new associative array $nodeInfo is created, which will store the updated data in the correct structure. 
+The strpos() function is used to check if a hyphen is present in the key name, indicating that it's a nested value. 
+If a hyphen is present, the `explode' function stores the $key -->
 <!--
 <?php
         
@@ -188,7 +199,7 @@ if (!empty($_POST['submit'])) {
 	  $inLinkedTo = $nodeInfo["LinkedTo"];
     
 ?>
-
+-->
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
 <table>
@@ -295,7 +306,7 @@ if (!empty($_POST['submit'])) {
 
 
 </form>
--->
+
 <p style="margin: 0 auto;"></p>
 <p style="margin-bottom:-2px;"></p>
 
