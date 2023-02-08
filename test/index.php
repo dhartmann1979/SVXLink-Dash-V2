@@ -114,6 +114,8 @@ if (isset($_POST['btnSave']))
 	$nodeInfo["LinkedTo"] = $_POST['inLinkedTo'];
 
 	$jsonNodeInfo = json_encode($nodeInfo);
+  exec("sudo touch /var/www/html/NodeInfo/node_info.json");
+  
 	file_put_contents("/var/www/html/nodeInfo/node_info.json", $jsonNodeInfo ,FILE_USE_INCLUDE_PATH);
 
         $retval = null;
@@ -130,23 +132,21 @@ if (isset($_POST['btnSave']))
 
 };
 
-  	$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
-    $inCallsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
-	$inLocation = $nodeInfo["nodeLocation"];
+  	$inLocation = $nodeInfo["nodeLocation"];
     $inLocator = $nodeInfo["loc"]; 
     $inSysOp = $nodeInfo["sysop"];
-	$inLAT = $nodeInfo["lat"];
+	  $inLAT = $nodeInfo["lat"];
     $inLONG = $nodeInfo["long"]; 
     $inRXFREQ = $nodeInfo["freq"];
-	$inTXFREQ = $nodeInfo["TXFREQ"];
+	  $inTXFREQ = $nodeInfo["TXFREQ"];
     $inWebsite = $nodeInfo["Website"]; 
     $inMode = $nodeInfo["Mode"];
-	$inType = $nodeInfo["Type"];
+	  $inType = $nodeInfo["Type"];
     $inEcholink = $nodeInfo["Echolink"]; 
     $innodeLocation = $nodeInfo["nodeLocation"];
-	$inSysop = $nodeInfo["Sysop"]; 
+	  $inSysop = $nodeInfo["Sysop"]; 
     $inCTCSS = $nodeInfo["CTCSS"];
-	$inLinkedTo = $nodeInfo["LinkedTo"];
+	  $inLinkedTo = $nodeInfo["LinkedTo"];
     
 ?>
 
