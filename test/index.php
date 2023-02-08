@@ -115,6 +115,7 @@ file_put_contents("/var/www/html/nodeInfo/node_info.json", $jsonNodeInfo ,FILE_U
   ?></textarea>
   <input type="submit" value="Save">
 </form>-->
+<p>begin</p>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
   <?php
     $file = "/etc/svxlink/node_info.json";
