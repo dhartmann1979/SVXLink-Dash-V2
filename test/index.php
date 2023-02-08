@@ -131,22 +131,23 @@ file_put_contents("/var/www/html/nodeInfo/node_info.json", $jsonNodeInfo ,FILE_U
         //echo "<label>$key</label><input type='text' name='$key' value='$value'><br>";
       }
     }
-  
-    $nodeInfo["Location"] = $_POST['inLocation']; 
-    $nodeInfo["Locator"] = $_POST['inLocator'];
-    $nodeInfo["SysOp"] = $_POST['inSysOp'];
-    $nodeInfo["LAT"] = $_POST['inLAT']; 
-    $nodeInfo["LONG"] = $_POST['inLONG'];
-    $nodeInfo["RXFREQ"] = $_POST['inRXFREQ'];
-    $nodeInfo["TXFREQ"] = $_POST['inTXFREQ']; 
-    $nodeInfo["Website"] = $_POST['inWebsite'];
-    $nodeInfo["Mode"] = $_POST['inMode'];
-    $nodeInfo["Type"] = $_POST['inType']; 
-    $nodeInfo["Echolink"] = $_POST['inEcholink'];
-    $nodeInfo["nodeLocation"] = $_POST['innodeLocation'];
-    $nodeInfo["Compound"] = $_POST['inCompound'];
-    $nodeInfo["CTCSS"] = $_POST['inCTCSS'];
-    $nodeInfo["LinkedTo"] = $_POST['inLinkedTo'];
+    $inLocation = $nodeInfo["nodeLocation"];
+    $inLocator = $nodeInfo["loc"]; 
+    $inSysOp = $nodeInfo["sysop"];
+	  $inLAT = $nodeInfo["lat"];
+    $inLONG = $nodeInfo["long"]; 
+    $inRXFREQ = $nodeInfo["freq"];
+	  $inTXFREQ = $nodeInfo["TXFREQ"];
+    $inWebsite = $nodeInfo["Website"]; 
+    $inMode = $nodeInfo["Mode"];
+	  $inType = $nodeInfo["Type"];
+    $inEcholink = $nodeInfo["Echolink"]; 
+    $innodeLocation = $nodeInfo["nodeLocation"];
+	  $inSysop = $nodeInfo["Sysop"]; 
+    $inCTCSS = $nodeInfo["CTCSS"];
+	  $inLinkedTo = $nodeInfo["LinkedTo"];
+
+    
 ?>  <!--<input type="submit" name="submit" value="Save">-->
 </form>
 <!--
@@ -183,7 +184,21 @@ The strpos() function is used to check if a hyphen is present in the key name, i
 If a hyphen is present, the `explode' function stores the $key -->
 <!--
 <?php
-        
+        $nodeInfo["Location"] = $_POST['inLocation']; 
+        $nodeInfo["Locator"] = $_POST['inLocator'];
+        $nodeInfo["SysOp"] = $_POST['inSysOp'];
+        $nodeInfo["LAT"] = $_POST['inLAT']; 
+        $nodeInfo["LONG"] = $_POST['inLONG'];
+        $nodeInfo["RXFREQ"] = $_POST['inRXFREQ'];
+        $nodeInfo["TXFREQ"] = $_POST['inTXFREQ']; 
+        $nodeInfo["Website"] = $_POST['inWebsite'];
+        $nodeInfo["Mode"] = $_POST['inMode'];
+        $nodeInfo["Type"] = $_POST['inType']; 
+        $nodeInfo["Echolink"] = $_POST['inEcholink'];
+        $nodeInfo["nodeLocation"] = $_POST['innodeLocation'];
+        $nodeInfo["Compound"] = $_POST['inCompound'];
+        $nodeInfo["CTCSS"] = $_POST['inCTCSS'];
+        $nodeInfo["LinkedTo"] = $_POST['inLinkedTo'];
 
 	///file manipulation section
 		//archive the current config
@@ -195,21 +210,7 @@ If a hyphen is present, the `explode' function stores the $key -->
 
 
 
-  	$inLocation = $nodeInfo["nodeLocation"];
-    $inLocator = $nodeInfo["loc"]; 
-    $inSysOp = $nodeInfo["sysop"];
-	  $inLAT = $nodeInfo["lat"];
-    $inLONG = $nodeInfo["long"]; 
-    $inRXFREQ = $nodeInfo["freq"];
-	  $inTXFREQ = $nodeInfo["TXFREQ"];
-    $inWebsite = $nodeInfo["Website"]; 
-    $inMode = $nodeInfo["Mode"];
-	  $inType = $nodeInfo["Type"];
-    $inEcholink = $nodeInfo["Echolink"]; 
-    $innodeLocation = $nodeInfo["nodeLocation"];
-	  $inSysop = $nodeInfo["Sysop"]; 
-    $inCTCSS = $nodeInfo["CTCSS"];
-	  $inLinkedTo = $nodeInfo["LinkedTo"];
+  	
     
 ?>
 -->
