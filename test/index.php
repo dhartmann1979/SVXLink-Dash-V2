@@ -76,12 +76,14 @@ $nodeInfoFile = '/etc/svxlink/node_info.json';?>
       fwrite($file, $_POST['fileContent']);
       fclose($file);
       $data = json_decode($_POST['fileContent'], true);
+    echo $data . "1";
     } else {
       $file = fopen("data.json", "r");
       $content = fread($file, filesize("data.json"));
       echo $content;
       fclose($file);
       $data = json_decode($content, true);
+    echo $data. "2";
     }
     $retval = null;
     $screen = null;
