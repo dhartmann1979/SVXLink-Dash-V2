@@ -79,7 +79,7 @@ if (fopen($nodeInfoFile,'w'))
 	$nodeInfo = json_decode($filedata,true);
     //print_r($nodeInfo);
 	build_ini_string(array($nodeInfo));
-//        print_r($sectionless . $out);
+      print_r($sectionless . $out);
 };
 
 
