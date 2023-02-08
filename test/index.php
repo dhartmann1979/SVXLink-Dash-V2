@@ -72,15 +72,15 @@ $nodeInfoFile = '/etc/svxlink/node_info.json';
 //$svxConfigFile = '/var/www/html/svxlink.conf';    
 
 
-if (fopen($nodeInfoFile,'w'))
-{
-	$filedata = file_get_contents($nodeInfoFile);
+$nodeIF = fopen($nodeInfoFile, 'w');
+
+	$filedata = file_get_contents($nodeIF);
     //print_r($filedata);
 	$nodeInfo = json_decode($filedata,true);
     //print_r($nodeInfo);
 	build_ini_string(array($nodeInfo));
       print_r($sectionless . $out);
-};
+
 
 
 
