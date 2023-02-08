@@ -121,6 +121,7 @@ file_put_contents("/var/www/html/nodeInfo/node_info.json", $jsonNodeInfo ,FILE_U
   <?php
     $file = "/etc/svxlink/node_info.json";
     $nodeInfo = json_decode(file_get_contents($file), true);
+  echo $nodeInfo;
     foreach ($nodeInfo as $key => $value) {
       if (is_array($value)) {
         foreach ($value as $k => $v) {
