@@ -131,7 +131,7 @@ file_put_contents("/var/www/html/nodeInfo/node_info.json", $jsonNodeInfo ,FILE_U
       }
     }
   ?>
-  <input type="submit" name="submit" value="Save">
+  <!--<input type="submit" name="submit" value="Save">-->
 </form>
 <!--
 In the PHP code, the $file variable stores the path to the node_info.json file. 
