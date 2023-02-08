@@ -68,59 +68,53 @@ textarea {
 <?php
 include_once('include/functions.php');
 //$svxConfigFile = '/etc/svxlink/svxlink.conf';
-$nodeInfoFile = '/etc/svxlink/node_info.json';
-//$svxConfigFile = '/var/www/html/svxlink.conf';    
+$nodeInfoFile = '/etc/svxlink/node_info.json';?>
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+  <textarea name="fileContent"><?php
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $file = fopen("data.json", "w");
+      fwrite($file, $_POST['fileContent']);
+      fclose($file);
+      $data = json_decode($_POST['fileContent'], true);
+    } else {
+      $file = fopen("data.json", "r");
+      $content = fread($file, filesize("data.json"));
+      echo $content;
+      fclose($file);
+      $data = json_decode($content, true);
+    }
+    $retval = null;
+    $screen = null;
 
+$nodeInfo["Location"] = $_POST['inLocation']; 
+$nodeInfo["Locator"] = $_POST['inLocator'];
+$nodeInfo["SysOp"] = $_POST['inSysOp'];
+$nodeInfo["LAT"] = $_POST['inLAT']; 
+$nodeInfo["LONG"] = $_POST['inLONG'];
+$nodeInfo["RXFREQ"] = $_POST['inRXFREQ'];
+$nodeInfo["TXFREQ"] = $_POST['inTXFREQ']; 
+$nodeInfo["Website"] = $_POST['inWebsite'];
+$nodeInfo["Mode"] = $_POST['inMode'];
+$nodeInfo["Type"] = $_POST['inType']; 
+$nodeInfo["Echolink"] = $_POST['inEcholink'];
+$nodeInfo["nodeLocation"] = $_POST['innodeLocation'];
+$nodeInfo["Compound"] = $_POST['inCompound'];
+$nodeInfo["CTCSS"] = $_POST['inCTCSS'];
+$nodeInfo["LinkedTo"] = $_POST['inLinkedTo'];
 
-$nodeIF = fopen($nodeInfoFile, 'w');
+$jsonNodeInfo = json_encode($nodeInfo);
+exec("sudo touch /var/www/html/NodeInfo/node_info.json");
 
-	$filedata = file_get_contents($nodeIF);
-    //print_r($filedata);
-	$nodeInfo = json_decode($filedata,true);
-    //print_r($nodeInfo);
-	build_ini_string(array($nodeInfo));
-      print_r($sectionless . $out);
+file_put_contents("/var/www/html/nodeInfo/node_info.json", $jsonNodeInfo ,FILE_USE_INCLUDE_PATH);
 
+    $retval = null;
+    $screen = null;
 
-
-
-//if (fopen($svxConfigFile,'r'))
-//      {
-
-//        $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
-//};
-
-
-
-if (isset($_POST['btnSave']))
-    {
-        $retval = null;
-        $screen = null;
-	
-    $nodeInfo["Location"] = $_POST['inLocation']; 
-    $nodeInfo["Locator"] = $_POST['inLocator'];
-    $nodeInfo["SysOp"] = $_POST['inSysOp'];
-	$nodeInfo["LAT"] = $_POST['inLAT']; 
-    $nodeInfo["LONG"] = $_POST['inLONG'];
-    $nodeInfo["RXFREQ"] = $_POST['inRXFREQ'];
-	$nodeInfo["TXFREQ"] = $_POST['inTXFREQ']; 
-    $nodeInfo["Website"] = $_POST['inWebsite'];
-    $nodeInfo["Mode"] = $_POST['inMode'];
-	$nodeInfo["Type"] = $_POST['inType']; 
-    $nodeInfo["Echolink"] = $_POST['inEcholink'];
-    $nodeInfo["nodeLocation"] = $_POST['innodeLocation'];
-	$nodeInfo["Compound"] = $_POST['inCompound'];
-    $nodeInfo["CTCSS"] = $_POST['inCTCSS'];
-	$nodeInfo["LinkedTo"] = $_POST['inLinkedTo'];
-
-	$jsonNodeInfo = json_encode($nodeInfo);
-  exec("sudo touch /var/www/html/NodeInfo/node_info.json");
-  
-	file_put_contents("/var/www/html/nodeInfo/node_info.json", $jsonNodeInfo ,FILE_USE_INCLUDE_PATH);
-
-        $retval = null;
-        $screen = null;
-
+  ?></textarea>
+  <input type="submit" value="Save">
+</form>
+<?php
+        
 
 	///file manipulation section
 		//archive the current config
@@ -130,7 +124,7 @@ if (isset($_POST['btnSave']))
         	//Service SVXlink restart
        	exec('sudo service svxlink restart 2>&1',$screen,$retval);
 
-};
+
 
   	$inLocation = $nodeInfo["nodeLocation"];
     $inLocator = $nodeInfo["loc"]; 
