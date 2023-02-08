@@ -99,22 +99,6 @@ if (fopen($nodeInfoFile,'r'))
     $file = "/etc/svxlink/node_info.json";
     $nodeInfo = json_decode(file_get_contents($file), true);
     foreach ($nodeInfo as $key => $value) {
-      $nodeInfo["Location"] = $_POST['inLocation']; 
-      $nodeInfo["Locator"] = $_POST['inLocator'];
-      $nodeInfo["SysOp"] = $_POST['inSysOp'];
-    $nodeInfo["LAT"] = $_POST['inLAT']; 
-      $nodeInfo["LONG"] = $_POST['inLONG'];
-      $nodeInfo["RXFREQ"] = $_POST['inRXFREQ'];
-    $nodeInfo["TXFREQ"] = $_POST['inTXFREQ']; 
-      $nodeInfo["Website"] = $_POST['inWebsite'];
-      $nodeInfo["Mode"] = $_POST['inMode'];
-    $nodeInfo["Type"] = $_POST['inType']; 
-      $nodeInfo["Echolink"] = $_POST['inEcholink'];
-      $nodeInfo["nodeLocation"] = $_POST['innodeLocation'];
-    $nodeInfo["Compound"] = $_POST['inCompound'];
-      $nodeInfo["CTCSS"] = $_POST['inCTCSS'];
-    $nodeInfo["LinkedTo"] = $_POST['inLinkedTo'];
-  
       echo "<label>$key</label><input type='text' name='$key' value='$value'><br>";
     }
   ?>
@@ -131,6 +115,21 @@ if (fopen($nodeInfoFile,'r'))
         $retval = null;
         $screen = null;
 	
+    $nodeInfo["Location"] = $_POST['inLocation']; 
+    $nodeInfo["Locator"] = $_POST['inLocator'];
+    $nodeInfo["SysOp"] = $_POST['inSysOp'];
+	$nodeInfo["LAT"] = $_POST['inLAT']; 
+    $nodeInfo["LONG"] = $_POST['inLONG'];
+    $nodeInfo["RXFREQ"] = $_POST['inRXFREQ'];
+	$nodeInfo["TXFREQ"] = $_POST['inTXFREQ']; 
+    $nodeInfo["Website"] = $_POST['inWebsite'];
+    $nodeInfo["Mode"] = $_POST['inMode'];
+	$nodeInfo["Type"] = $_POST['inType']; 
+    $nodeInfo["Echolink"] = $_POST['inEcholink'];
+    $nodeInfo["nodeLocation"] = $_POST['innodeLocation'];
+	$nodeInfo["Compound"] = $_POST['inCompound'];
+    $nodeInfo["CTCSS"] = $_POST['inCTCSS'];
+	$nodeInfo["LinkedTo"] = $_POST['inLinkedTo'];
 
 	$jsonNodeInfo = json_encode($nodeInfo);
 	file_put_contents("/var/www/html/nodeInfo/node_info.json", $jsonNodeInfo ,FILE_USE_INCLUDE_PATH);
