@@ -93,7 +93,7 @@ include_once __DIR__."/include/buttons.php";
     echo '</td>'."\n";
 
     echo '<td valign="middle"  style="height:495px; width=620px; text-align: center; border:none;  background-color:#f1f1f1;">';
-    echo '<iframe src="/test"  style="width:615px; height:490px"></iframe>';
+    echo '<iframe src="/test/test"  style="width:615px; height:490px"></iframe>';
     echo '</td>';
 ?>
 </tr></table>

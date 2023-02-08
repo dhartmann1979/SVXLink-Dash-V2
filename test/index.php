@@ -71,7 +71,7 @@ include_once('include/functions.php');
 $nodeInfoFile = '/etc/svxlink/node_info.json';
 //$svxConfigFile = '/var/www/html/svxlink.conf';    
 
-
+/*
 if (fopen($nodeInfoFile,'r'))
 {
 	$filedata = file_get_contents($nodeInfoFile);
@@ -81,7 +81,7 @@ if (fopen($nodeInfoFile,'r'))
 	build_ini_string(array($nodeInfo));
 //        print_r($sectionless . $out);
 };
-
+*/
 
 
 //if (fopen($svxConfigFile,'r'))
@@ -92,7 +92,25 @@ if (fopen($nodeInfoFile,'r'))
 
 
 
-if (isset($_POST['btnSave']))
+//if (isset($_POST['btnSave']))
+?>
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+  <?php
+    $file = "/etc/svxlink/node_info.json";
+    $nodeInfo = json_decode(file_get_contents($file), true);
+    foreach ($nodeInfo as $key => $value) {
+      echo "<label>$key</label><input type='text' name='$key' value='$value'><br>";
+    }
+  ?>
+  <input type="submit" name="submit" value="Save">
+</form>
+<?php if (!empty($_POST['submit'])) {
+  $nodeInfo = $_POST;
+  $json = json_encode($nodeInfo, JSON_PRETTY_PRINT);
+  file_put_contents($file, $json);
+  echo "Changes saved successfully.";
+}
+
     {
         $retval = null;
         $screen = null;
