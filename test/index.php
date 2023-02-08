@@ -160,6 +160,7 @@ if (!empty($_POST['submit'])) {
     }
   }
   $json = json_encode($nodeInfo, JSON_PRETTY_PRINT);
+  echo $json;
   file_put_contents($file, $json);
   echo "Changes saved successfully.";
 }
