@@ -131,8 +131,23 @@ file_put_contents("/var/www/html/nodeInfo/node_info.json", $jsonNodeInfo ,FILE_U
         //echo "<label>$key</label><input type='text' name='$key' value='$value'><br>";
       }
     }
-  ?>
-  <!--<input type="submit" name="submit" value="Save">-->
+  
+    $nodeInfo["Location"] = $_POST['inLocation']; 
+    $nodeInfo["Locator"] = $_POST['inLocator'];
+    $nodeInfo["SysOp"] = $_POST['inSysOp'];
+    $nodeInfo["LAT"] = $_POST['inLAT']; 
+    $nodeInfo["LONG"] = $_POST['inLONG'];
+    $nodeInfo["RXFREQ"] = $_POST['inRXFREQ'];
+    $nodeInfo["TXFREQ"] = $_POST['inTXFREQ']; 
+    $nodeInfo["Website"] = $_POST['inWebsite'];
+    $nodeInfo["Mode"] = $_POST['inMode'];
+    $nodeInfo["Type"] = $_POST['inType']; 
+    $nodeInfo["Echolink"] = $_POST['inEcholink'];
+    $nodeInfo["nodeLocation"] = $_POST['innodeLocation'];
+    $nodeInfo["Compound"] = $_POST['inCompound'];
+    $nodeInfo["CTCSS"] = $_POST['inCTCSS'];
+    $nodeInfo["LinkedTo"] = $_POST['inLinkedTo'];
+?>  <!--<input type="submit" name="submit" value="Save">-->
 </form>
 <!--
 In the PHP code, the $file variable stores the path to the node_info.json file. 
@@ -160,11 +175,7 @@ if (!empty($_POST['submit'])) {
       $nodeInfo[$key] = $value;
     }
   }
-  $json = json_encode($nodeInfo, JSON_PRETTY_PRINT);
-  echo $json;
-  file_put_contents($file, $json);
-  echo "Changes saved successfully.";
-}
+ }
 ?>
 <!-- In this example, the updated values are stored in the $_POST array. 
 A new associative array $nodeInfo is created, which will store the updated data in the correct structure. 
@@ -308,7 +319,12 @@ If a hyphen is present, the `explode' function stores the $key -->
 
 
 </form>
-
+<?php 
+ $json = json_encode($nodeInfo, JSON_PRETTY_PRINT);
+ echo $json;
+ file_put_contents($file, $json);
+ echo "Changes saved successfully.";
+?>
 <p style="margin: 0 auto;"></p>
 <p style="margin-bottom:-2px;"></p>
 
