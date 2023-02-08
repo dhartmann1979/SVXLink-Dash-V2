@@ -132,7 +132,9 @@ file_put_contents("/var/www/html/nodeInfo/node_info.json", $jsonNodeInfo ,FILE_U
       } else {
         
         //echo "<label>$key</label><input type='text' name='$key' value='$value'><br>";
-      }$new_var = "$in" . $nodeInfo('$key');
+      }
+      $new_var = '$in' . $nodeInfo('$key');
+    echo $new_var;
     }
     /*$inLocation = $nodeInfo["nodeLocation"];
     $inLocator = $nodeInfo["loc"]; 
