@@ -123,15 +123,18 @@ file_put_contents("/var/www/html/nodeInfo/node_info.json", $jsonNodeInfo ,FILE_U
     $nodeInfo = json_decode(file_get_contents($file), true);
   
     foreach ($nodeInfo as $key => $value) {
+    
       if (is_array($value)) {
         foreach ($value as $k => $v) {
+        
           //echo "<label>$k</label><input type='text' name='$key-$k' value='$v'><br>";
         }
       } else {
+        
         //echo "<label>$key</label><input type='text' name='$key' value='$value'><br>";
-      }
+      }$new_var = "$in" . $nodeInfo('$key');
     }
-    $inLocation = $nodeInfo["nodeLocation"];
+    /*$inLocation = $nodeInfo["nodeLocation"];
     $inLocator = $nodeInfo["loc"]; 
     $inSysOp = $nodeInfo["sysop"];
 	  $inLAT = $nodeInfo["lat"];
@@ -146,7 +149,7 @@ file_put_contents("/var/www/html/nodeInfo/node_info.json", $jsonNodeInfo ,FILE_U
 	  $inSysop = $nodeInfo["Sysop"]; 
     $inCTCSS = $nodeInfo["CTCSS"];
 	  $inLinkedTo = $nodeInfo["LinkedTo"];
-
+*/
     
 ?>  <!--<input type="submit" name="submit" value="Save">-->
 </form>
