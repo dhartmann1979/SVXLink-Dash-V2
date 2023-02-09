@@ -32,7 +32,7 @@ $cpuTempC = round(abs($cpuTempCRaw)/ 1000)+CPU_TEMP_OFFSET;
 } else { $cpuTempHTML = "<td style=\"background: #white\">---</td>\n"; }
 ?>
 <p style="margin-bottom:10px;margin-top:4px;"><a target=_blank href=esm><span style="font-weight: bold;font-size:14px;">Hardware Info</span></a></p>
-<fieldset style="box-shadow:0 0 10px #999;background-color:#e8e8e8e8; width:855px;margin-top:0px;margin-bottom:10px;margin-left:6px;margin-right:0px;font-size:12px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+<fieldset style="box-shadow:5px 5px 20px #999;background-color:#e8e8e8e8; width:855px;margin-top:0px;margin-bottom:10px;margin-left:6px;margin-right:0px;font-size:12px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
 <table style="margin-top:2px;">
   <tr>
     <th>Hostname<br/><span style="font-weight: bold;color:#effd5f;font-size:10px;">IP: <?php echo str_replace(' ', '<br />', exec('hostname -I|awk \'{print $1}\''));?></span></th>
