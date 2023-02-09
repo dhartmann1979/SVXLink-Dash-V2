@@ -97,8 +97,8 @@ include_once __DIR__."/include/buttons.php";
     //echo '</div>'."\n";
     echo '</td>'."\n";
 
-   // echo '<td valign="center" style="height:455px;width:620px; border:none;  background-color:#f1f1f1;">';
-    echo '<td valign="center" style="height:455px;width:620px; border:none; background-color:#f1f1f1;">';
+   // echo '<td valign="center" style="height:455px;width:550px; border:none;  background-color:#f1f1f1;">';
+    echo '<td valign="center" style="height:455px;width:550px; border:none; background-color:#f1f1f1;">';
     echo '<iframe src="/wifi"  width="615px" height="450px" style="background-color:#f1f1f1;"></iframe>';
     echo '</td>';
  
