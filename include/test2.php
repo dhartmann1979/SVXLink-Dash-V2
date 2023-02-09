@@ -2,19 +2,16 @@
 $progname = basename($_SERVER['SCRIPT_FILENAME'],".php");
 include_once 'include/config.php';
 include_once 'include/tools.php';
-// migrate to external class tbc
-
 $svxConfigFile = '/etc/svxlink/svxlink.conf';
-    if (fopen($svxConfigFile,'r'))
-       { $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
-         $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
-         $fmnetwork =$svxconfig['ReflectorLogic']['FMNET'];
-         $tgUri = $svxconfig['ReflectorLogic']['TG_URI'];
-        }
+if (fopen($svxConfigFile, 'r')) {
+    $svxconfig = parse_ini_file($svxConfigFile, true, INI_SCANNER_RAW);
+    $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
+    $fmnetwork = $svxconfig['ReflectorLogic']['FMNET'];
+    $tgUri = $svxconfig['ReflectorLogic']['TG_URI'];
+}
 else { $callsign="NOCALL"; 
-       $fmnetwork="no registered";
+       $fmnetwork="not registered";
 	}
-
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -33,7 +30,7 @@ else { $callsign="NOCALL";
     <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="expires" content="0" />
     <meta http-equiv="pragma" content="no-cache" />
-<link rel="shortcut icon" href="images/favicon.ico" sizes="16x16 32x32" type="image/png">
+<link rel="shortcut icon" href="images/favicon.ico" sizes="16x16 32x32" type="image/png">    
 
 <?php echo ("<title>" . $callsign ." ". $fmnetwork . " Dashboard</title>"); ?>
 
@@ -46,7 +43,8 @@ else { $callsign="NOCALL";
     </script>
     <link href="css/featherlight.css" type="text/css" rel="stylesheet" />
     <script src="scripts/featherlight.js" type="text/javascript" charset="utf-8"></script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="">
+
 </head>
 <body style="background-color: #e1e1e1;font: 11pt arial, sans-serif;">
 <center>
@@ -57,20 +55,23 @@ else { $callsign="NOCALL";
     <div class="img" style="padding-left:30px"><img src="images/svxlink.ico" /></div>
     <div class="text"style="padding-right:230px">
 <center><p style="margin-top:5px;margin-bottom:0px;">
-
 <span style="font-size: 32px;letter-spacing:4px;font-family: &quot;sans-serif&quot;, sans-serif;font-weight:500;color:PaleBlue"><?php echo $callsign; ?></span>
 <p style="margin-top:0px;margin-bottom:0px;">
 <span style="font-size: 18px;letter-spacing:4px;font-family: &quot;sans-serif&quot;, sans-serif;font-weight:500;color:PaleBlue"><?php echo $fmnetwork; ?></span>
 </p></center>
 </div></div>
 </div>
-
 <?php include_once __DIR__."/include/top_menu.php"; ?>
 
 <div class="content"><center>
-<div style="margin-top:8px;">
+<div style="margin-top:0px;">
 </div></center>
 </div>
+<?php
+if (isProcessRunning('node')) {
+echo '&nbsp;&nbsp;<button class="button link" onclick="playAudioToggle(8080, this)"><b>&nbsp;&nbsp;&nbsp;<img src=images/speaker.png alt="" style="vertical-align:middle">&nbsp;&nbsp;RX Monitor&nbsp;&nbsp;&nbsp;</b></button><br><br>';
+}
+?>
 <?php
 if (MENUBUTTON=="TOP") {
 include_once __DIR__."/include/buttons.php"; 
@@ -79,11 +80,11 @@ include_once __DIR__."/include/buttons.php";
 <?php
     echo '<table style="margin-bottom:0px;border:0; border-collapse:collapse; cellspacing:0; cellpadding:0; background-color:#f1f1f1;"><tr style="border:none;background-color:#f1f1f1;">';
     echo '<td width="200px" valign="top" class="hide" style="height:auto;border:0;background-color:#f1f1f1;">';
-    echo '<div class="nav" style="margin-bottom:1px;margin-top:1px;">'."\n";
+    echo '<div class="nav" style="margin-bottom:1px;margin-top:10px;">'."\n";
 
     echo '<script type="text/javascript">'."\n";
     echo 'function reloadStatusInfo(){'."\n";
-    echo '  $("#statusInfo").load("include/status.php",function(){ setTimeout(reloadStatusInfo,3000) });'."\n";
+    echo '$("#statusInfo").load("include/status.php",function(){ setTimeout(reloadStatusInfo,3000) });'."\n";
     echo '}'."\n";
     echo 'setTimeout(reloadStatusInfo,3000);'."\n";
     echo '$(window).trigger(\'resize\');'."\n";
@@ -94,11 +95,36 @@ include_once __DIR__."/include/buttons.php";
     echo '</div>'."\n";
     echo '</td>'."\n";
 
-    echo '<td valign="middle"  style="height:495px; width=620px; text-align: center; border:none;  background-color:#f1f1f1;">';
-    echo '<iframe src="/test"  style="width:615px; height:490px"></iframe>';
-    echo '</td>';
+    echo '<td valign="top" style="height:auto;border:none;  background-color:#f1f1f1;">';
+    echo '<div class="content">'."\n";
+    echo '<script type="text/javascript">'."\n";
+
+    if (URLSVXRAPI!="") {
+    echo 'function reloadSVXREF(){'."\n";
+    echo '  $("#svxref").load("include/svxref.php",function(){ setTimeout(reloadSVXREF,90000) });'."\n";
+    echo '}'."\n";
+    echo 'setTimeout(reloadSVXREF,90000);'."\n";
+     }
+
+    echo 'function reloadLastHeard(){'."\n";
+    echo '  $("#LastHeard").load("include/lh.php",function(){ setTimeout(reloadLastHeard,3000) });'."\n";
+    echo '}'."\n";
+    echo 'setTimeout(reloadLastHeard,3000);'."\n";
+
+    echo '$(window).trigger(\'resize\');'."\n";
+    echo '</script>'."\n";
+    echo '<center><div id="LastHeard" style="margin-bottom:30px;">'."\n";
+    include 'include/lh.php';
+    echo '</div></center>'."\n";
+    echo "<br />\n";
+    if (URLSVXRAPI!="") {
+    echo '<center><div id="svxref" style="margin-bottom:30px;">'."\n";
+    //include 'include/svxref.php';
+    echo '</div></center>'."\n";
+    }
+    echo '</td></tr></table>';
 ?>
-</tr></table>
+
 <?php
     echo '<div class="content2">'."\n";
     echo '<script type="text/javascript">'."\n";
@@ -118,7 +144,6 @@ if (MENUBUTTON=="BOTTOM") {
 include_once __DIR__."/include/buttons.php"; }
 ?>
 <center><span title="Dashboard" style="font: 7pt arial, sans-serif;">SvxLink Dashboard ©  G4NAB, SP2ONG, SP0DZ <?php $cdate=date("Y"); if ($cdate > "2021") {$cdate="2021-".date("Y");} echo $cdate; ?>
-	</div>
 </div>
 </fieldset>
 <br>
